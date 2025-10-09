@@ -1045,6 +1045,56 @@
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
         }
+
+        /* Adjusted styles for reports */
+        #reports .glass-card {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reduced spacing between sections */
+        #resources + #ai-button-section {
+            margin-top: 1rem;
+        }
+
+        #ai-button-section + #reports {
+            margin-top: 1rem;
+        }
+
+        #reports {
+            padding: 1rem 0;
+        }
+
+        .video-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+
+        /* Reduced margins for resources section */
+        .mb-8 {
+            margin-bottom: 1rem !important;
+        }
+
+        .py-12 {
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+
+        .gap-6 {
+            gap: 1rem !important;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1485,19 +1535,19 @@
         </div>
     </section>
 
-    <!-- Software Resources Section (Added from first code) -->
-    <section id="resources" class="py-20 px-4 bg-white/5 dark:bg-slate-900/50">
+    <!-- Software Resources Section -->
+    <section id="resources" class="py-12 px-4 bg-white/5 dark:bg-slate-900/50">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 text-primary dark:text-white">
-                <i className="fas fa-download ml-3"></i>
-                نرم‌افزارهای مورد نیاز
+            <h2 class="text-4xl font-bold text-center mb-8 text-primary dark:text-white">
+                <i class="fas fa-download ml-3"></i>
+                نرم‌افزارهای مورد نیاز و منابع آموزشی
             </h2>
 
             <!-- نرم‌افزارهای پایه ۱۰ -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-accent">نرم‌افزارهای پایه ۱۰</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۰</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-windows text-white text-xl"></i>
@@ -1510,8 +1560,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/spw1y64" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            کامل‌ترین آموزش نصب ویندوز 10 و 11 در 7 دقیقه
+                        </a>
                     </a>
-                    <a href="https://www.microsoft.com/en-us/microsoft-365/try" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.microsoft.com/en-us/microsoft-365/try" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-file-word text-white text-xl"></i>
@@ -1524,8 +1579,25 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/mRWxM" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش کامل نصب و فعالسازی آفیس 2016
+                        </a>
+                        <a href="https://www.aparat.com/v/D0qhG" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش صفر تا صد ورد Word
+                        </a>
+                        <a href="https://www.aparat.com/v/YrKsL" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش مقدماتی اکسل صفر تا صد
+                        </a>
+                        <a href="https://www.aparat.com/v/W8mdq" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش صفر تا صد پاورپوینت
+                        </a>
                     </a>
-                    <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1538,8 +1610,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش فتوشاپ از صفر تا صد
+                        </a>
                     </a>
-                    <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1552,8 +1629,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/IJtKm" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش صفر تا صد ایلوستریتور
+                        </a>
                     </a>
-                    <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1566,8 +1648,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/b7131zy" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش ادوبی انیمیت - قسمت ۱ - شروع به کار با نرم افزار
+                        </a>
                     </a>
-                    <a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-code text-white text-xl"></i>
@@ -1580,15 +1667,20 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/RXZ4Y" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم آموزش نصب ویژوال استودیو نسخه 2017 به صورت کامل
+                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- نرم‌افزارهای پایه ۱۱ -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-accent">نرم‌افزارهای پایه ۱۱</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۱</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1601,8 +1693,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/rfcKL" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            اموزش نرم افزار دریم ویور(Dreamweaver)
+                        </a>
                     </a>
-                    <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-server text-white text-xl"></i>
@@ -1615,8 +1712,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/TYWjr" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش نصب wampserver ومپ سرور
+                        </a>
                     </a>
-                    <a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-database text-white text-xl"></i>
@@ -1629,8 +1731,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/HpGni" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش نصب و راه اندازی زمپ xampp
+                        </a>
                     </a>
-                    <a href="https://wordpress.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://wordpress.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-wordpress text-white text-xl"></i>
@@ -1643,15 +1750,20 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/T8Fik" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش نصب وردپرس روی ویندوز
+                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- نرم‌افزارهای پایه ۱۲ -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-8 text-accent">نرم‌افزارهای پایه ۱۲</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۲</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1664,8 +1776,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/a87xd69" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش کامل پریمیر پرو در 59 دقیقه (صفر تا صد در یک ویدئو)
+                        </a>
                     </a>
-                    <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1678,8 +1795,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/lYgrz" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            صفر تا صد آموزش آدیشن Adobe Audition CC
+                        </a>
                     </a>
-                    <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1692,8 +1814,13 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/GN7mV" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            صفر تا صد آموزش کپتیویت Adobe Captivate
+                        </a>
                     </a>
-                    <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fab fa-adobe text-white text-xl"></i>
@@ -1706,15 +1833,20 @@
                                 </span>
                             </div>
                         </div>
+                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
+                        <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
+                            <i class="fas fa-video ml-2"></i>
+                            آموزش فتوشاپ از صفر تا صد (مشابه برای Elements)
+                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- جایگزین‌های رایگان -->
             <div>
-                <h3 class="text-2xl font-bold mb-8 text-green-500">جایگزین‌های رایگان دائمی</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                <h3 class="text-2xl font-bold mb-4 text-green-500">جایگزین‌های رایگان دائمی</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-image text-white text-xl"></i>
@@ -1728,7 +1860,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://inkscape.org/release/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://inkscape.org/release/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-vector-square text-white text-xl"></i>
@@ -1742,7 +1874,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-video text-white text-xl"></i>
@@ -1756,7 +1888,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.audacityteam.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.audacityteam.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-microphone text-white text-xl"></i>
@@ -1770,7 +1902,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://code.visualstudio.com/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://code.visualstudio.com/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-code text-white text-xl"></i>
@@ -1784,7 +1916,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-6 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
+                    <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
                                 <i class="fas fa-palette text-white text-xl"></i>
@@ -1803,8 +1935,8 @@
         </div>
     </section>
 
-    <!-- AI Button Section (Replacement for AI Section) -->
-    <section id="ai-button-section" class="py-20 px-4">
+    <!-- AI Button Section -->
+    <section id="ai-button-section" class="py-12 px-4">
         <div class="container mx-auto">
             <div class="ai-button-section">
                 <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
@@ -1819,40 +1951,40 @@
         </div>
     </section>
 
-    <!-- Reports Section -->
-    <section id="reports" class="py-20 px-4" style="background-color: var(--secondary-gray);">
+    <!-- Reports Section (Compacted) -->
+    <section id="reports" class="py-8 px-4" style="background-color: var(--secondary-gray);">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">
+            <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
                 <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
                 گزارش عملکرد سالانه شهرستان زرین‌دشت
             </h2>
             
-            <div class="grid lg:grid-cols-2 gap-8">
+            <div class="grid lg:grid-cols-2 gap-4">
                 <!-- Report 1: 1402-1403 -->
-                <div class="glass-card p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                <div class="glass-card p-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
                              style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));">
-                            <i class="fas fa-file-alt text-white text-2xl"></i>
+                            <i class="fas fa-file-alt text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۲-۱۴۰۳</h3>
-                            <p class="text-sm opacity-70 mt-2">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۲-۱۴۰۳</h3>
+                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
                         </div>
                     </div>
                     
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
                         گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت شامل آمار دانش‌آموزان، نتایج آموزشی، پروژه‌های انجام شده و دستاوردهای سال تحصیلی ۱۴۰۲-۱۴۰۳.
                     </p>
                     
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center text-sm" style="color: var(--accent-green);">
+                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
                             <i class="fas fa-download ml-2"></i>
                             <span>فرمت PDF</span>
                         </div>
                         <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link" 
                            target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center">
+                           class="btn-primary flex items-center text-sm px-4 py-2">
                             <i class="fas fa-external-link-alt ml-2"></i>
                             دانلود گزارش
                         </a>
@@ -1860,28 +1992,28 @@
                 </div>
 
                 <!-- Report 2: 1403-1404 -->
-                <div class="glass-card p-8">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                <div class="glass-card p-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
                              style="background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
-                            <i class="fas fa-file-alt text-white text-2xl"></i>
+                            <i class="fas fa-file-alt text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۳-۱۴۰۴</h3>
-                            <p class="text-sm opacity-70 mt-2">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۳-۱۴۰۴</h3>
+                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
                         </div>
                     </div>
                     
-                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
                         گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت برای سال جاری شامل پیشرفت‌های جدید، پروژه‌های نوآورانه و برنامه‌های آتی.
                     </p>
                     
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center text-sm" style="color: var(--accent-green);">
+                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
                             <i class="fas fa-clock ml-2"></i>
                             <span>در حال تکمیل</span>
                         </div>
-                        <button class="btn-secondary opacity-50 cursor-not-allowed flex items-center" disabled>
+                        <button class="btn-secondary opacity-50 cursor-not-allowed flex items-center text-sm px-4 py-2" disabled>
                             <i class="fas fa-hourglass-half ml-2"></i>
                             به‌زودی
                         </button>
@@ -2463,7 +2595,7 @@
             
             // Default intelligent responses
             const defaultResponses = [
-                '🤖 سؤال جالبی پرسیدی! من آریا هستم، دستیار هوشمند فن‌آموز زرین! تقریباً همه چیز رو راجع به فناوری، برنامه‌نویسی، هوش مصنوعی و آینده شغلی می‌دونم!<br><br>🎯 <strong>تخصص‌های من:</strong><br>• ۲ رشته کاردانش (وب + محتوای الکترونیکی)<br>• ۴ هنرستان شهرستان<br>• بیش از ۵۰ ابزار AI<br>• فرصت‌های شغلی و حقوق<br>• منابع آموزشی و کتاب‌ها<br>• مسیرهای حرفه‌ای<br><br>💡 <em>نکته:</em> این سایت توسط <strong>رعنا پرموزه</strong> با پالت رنگی حرفه‌ای ۲۰۲۵ طراحی شده و <strong>خانم فاطمه معتمد</strong> سرگروه ما هستن!<br><br>سؤال خاص‌تری داری؟ بپرس تا جواب کاملی بهت بدم!',
+                '🤖 سؤال جالبی پرسیدی! من آریا هستم، دستیار هوشمند فن‌آموز زرین! تقریباً همه چیز رو راجع به فناوری، برنامه‌نویسی، هوش مصنوعی و آینده شغلی می‌دونم!<br><br>🎯 <strong>تخصص‌های من:</strong><br>• ۲ رشته کاردانش (وب + محتوای الکترونیکی)<br>• ۴ هنرستان شهرستان<br>• ۵۰+ ابزار AI معرفی شده<br>• فرصت‌های شغلی و حقوق<br>• منابع آموزشی و کتاب‌ها<br>• مسیرهای حرفه‌ای<br><br>💡 <em>نکته:</em> این سایت توسط <strong>رعنا پرموزه</strong> با پالت رنگی حرفه‌ای ۲۰۲۵ طراحی شده و <strong>خانم فاطمه معتمد</strong> سرگروه ما هستن!<br><br>سؤال خاص‌تری داری؟ بپرس تا جواب کاملی بهت بدم!',
                 '🌟 خیلی جالبه که این رو پرسیدی! من می‌تونم راجع به هر موضوع فنی، رشته‌های کامپیوتر، ابزارهای AI، فرصت‌های شغلی و حتی آینده فناوری بهت کمک کنم!<br><br>📊 <strong>آمار سایت ما:</strong><br>• ۴ هنرستان فعال<br>• ۲ رشته کاردانش<br>• ۵۰+ ابزار AI معرفی شده<br>• چالش‌های آموزشی هفتگی<br>• منابع کامل و به‌روز<br><br>🎓 <strong>موضوعات پرطرفدار:</strong><br>• برنامه‌نویسی وب (HTML، CSS، JS، PHP)<br>• طراحی گرافیک (Adobe Suite)<br>• هوش مصنوعی (ChatGPT، Midjourney، Copilot)<br>• فریلنسینگ و کسب درآمد<br><br>📞 برای اطلاعات تخصصی‌تر با <strong>خانم فاطمه معتمد</strong> تماس بگیر: ۰۹۳۷۲۵۶۵۹۹۴',
                 '🚀 چه سؤال باحالی! من آریا، دستیار هوشمند این سایت هستم که توسط <strong>رعنا پرموزه</strong> با تکنولوژی‌های مدرن برنامه‌نویسی شدم!<br><br>💻 <strong>قابلیت‌های من:</strong><br>• پاسخ به سوالات فنی و آموزشی<br>• راهنمایی انتخاب رشته<br>• معرفی ابزارهای AI<br>• اطلاعات بازار کار<br>• راهنمایی ثبت نام<br><br>🎨 <strong>ویژگی‌های سایت:</strong><br>• طراحی مدرن با افکت‌های شیشه‌ای<br>• پالت رنگی هماهنگ (آبی عمیق + سبز زمردی)<br>• رسپانسیو و موبایل‌فرندلی<br>• UX/UI بهینه شده<br><br>💬 سؤال دقیق‌تری بپرس تا جواب کاملی بهت بدم!',
                 '💎 عالیه که علاقه‌مند به یادگیری هستی! من همه چیز رو راجع به دنیای فناوری می‌دونم!<br><br>🔥 <strong>موضوعات داغ ۲۰۲۵:</strong><br>• هوش مصنوعی (AI-Assisted Coding)<br>• توسعه وب (React، Vue، Angular)<br>• محتوای الکترونیکی (VR/AR)<br>• Blockchain و NFT<br>• Cloud Computing<br>• Cybersecurity<br><br>💰 <strong>حقوق‌های جذاب:</strong><br>• توسعه‌دهنده وب: ۸-۲۰ میلیون<br>• طراح محتوا: ۶-۱۵ میلیون<br>• متخصص AI: ۱۰-۲۵ میلیون<br>• فریلنسر: ۳-۱۰ میلیون<br><br>🎯 چه موضوع خاصی جذبت کرده؟ بپرس تا کاملاً راهنماییت کنم!'
