@@ -967,6 +967,84 @@
                 gap: 1rem;
             }
         }
+
+        /* Notification Bubble Styles */
+        .chatbot-notification {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 1001;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 16px 20px;
+            border-radius: 20px;
+            max-width: 280px;
+            box-shadow: 0 8px 32px rgba(2, 136, 209, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: center;
+            position: relative;
+        }
+
+        .chatbot-notification::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary-color);
+        }
+
+        .chatbot-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9) translateY(-5px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .ai-button-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .ai-button-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1019,11 +1097,10 @@
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'" 
                            onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'})">منابع</a>
-                        <a href="#ai" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                        <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('ai').scrollIntoView({behavior: 'smooth'})">هوش مصنوعی</a>
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
                         <a href="#articles" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
@@ -1060,8 +1137,8 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اعضای گروه</a>
                     <a href="#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">منابع</a>
-                    <a href="#ai" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('ai').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">هوش مصنوعی</a>
+                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
                     <a href="#articles" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">مطالب آموزشی</a>
                     <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
@@ -1726,591 +1803,22 @@
         </div>
     </section>
 
-    <!-- AI Section -->
-    <section id="ai" class="py-20 px-4">
+    <!-- AI Button Section (Replacement for AI Section) -->
+    <section id="ai-button-section" class="py-20 px-4">
         <div class="container mx-auto">
-            <div class="ai-section-bg">
-                <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">
+            <div class="ai-button-section">
+                <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
                     <i class="fas fa-robot ml-3 text-5xl" style="color: var(--accent-green);"></i>
                     هوش مصنوعی‌های مفید
                 </h2>
-                
-                <!-- Image Generation Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold mb-10 text-center" style="color: var(--accent-green);">
-                        <i class="fas fa-image ml-2"></i>
-                        عکس‌سازی (Image Generation)
-                    </h3>
-                    
-                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <!-- General AI Tools -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-brain ml-2" style="color: var(--accent-green);"></i>
-                                ابزارهای عمومی
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Gemini Nano</div>
-                                            <div class="text-sm opacity-70">مدل سبک گوگل برای متن، تصویر و خلاصه آفلاین روی گوشی</div>
-                                        </div>
-                                        <i class="fab fa-google text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://krea.ai/apps/edit/nano-banana-edit" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Nano Banana (Krea.ai)</div>
-                                            <div class="text-sm opacity-70">ویرایش تصویر با Gemini 2.5 Flash (حذف اشیا، تغییر بک‌گراند)</div>
-                                        </div>
-                                        <i class="fas fa-edit text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                <a href="ai.html" class="ai-button">
+                    <i class="fas fa-magic"></i>
+                    🔹 آشنایی با هوش مصنوعی‌های مفید
+                </a>
+            </div>
+        </div>
+    </section>
 
-                        <!-- Professional Tools -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-palette ml-2" style="color: var(--accent-green);"></i>
-                                ابزارهای حرفه‌ای
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://midjourney.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Midjourney</div>
-                                            <div class="text-sm opacity-70">تولید تصاویر هنری با کیفیت بالا از متن</div>
-                                        </div>
-                                        <i class="fas fa-paint-brush text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://openai.com/dall-e" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">DALL-E 3</div>
-                                            <div class="text-sm opacity-70">ژنراتور OpenAI برای تصاویر واقع‌گرایانه</div>
-                                        </div>
-                                        <i class="fas fa-magic text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://stability.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Stable Diffusion</div>
-                                            <div class="text-sm opacity-70">مدل متن‌باز برای تولید و ویرایش تصاویر</div>
-                                        </div>
-                                        <i class="fas fa-code-branch text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://firefly.adobe.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Adobe Firefly</div>
-                                            <div class="text-sm opacity-70">ادغام با فتوشاپ برای ویرایش حرفه‌ای</div>
-                                        </div>
-                                        <i class="fab fa-adobe text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Specialized Tools -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-tools ml-2" style="color: var(--accent-green);"></i>
-                                ابزارهای تخصصی
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://aitestkitchen.withgoogle.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">ImageFX (Google)</div>
-                                            <div class="text-sm opacity-70">ابزار گوگل برای تصاویر واقعی و سریع</div>
-                                        </div>
-                                        <i class="fab fa-google text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://ideogram.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Ideogram</div>
-                                            <div class="text-sm opacity-70">تولید لوگو و پوستر با تمرکز روی متن</div>
-                                        </div>
-                                        <i class="fas fa-font text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://leonardo.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">LeonardoAI</div>
-                                            <div class="text-sm opacity-70">تولید هنر سفارشی با مدل‌های متنوع</div>
-                                        </div>
-                                        <i class="fas fa-user-astronaut text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://reve.art" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Reve</div>
-                                            <div class="text-sm opacity-70">ژنراتور سریع با ویرایش پیشرفته</div>
-                                        </div>
-                                        <i class="fas fa-bolt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://shutterstock.com/ai-image-generator" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Shutterstock AI</div>
-                                            <div class="text-sm opacity-70">تصاویر استوک با AI، ادغام حرفه‌ای</div>
-                                        </div>
-                                        <i class="fas fa-camera text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://grok.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Grok Image Gen</div>
-                                            <div class="text-sm opacity-70">تولید تصاویر از متن با جستجوی واقعی‌زمان (xAI)</div>
-                                        </div>
-                                        <i class="fas fa-search text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Challenge Box for Image Generation -->
-                    <div class="ai-challenge-box">
-                        <div class="relative z-10">
-                            <h4 class="text-xl font-bold mb-3 flex items-center">
-                                <i class="fas fa-trophy ml-2"></i>
-                                چالش آموزشی هفتگی
-                            </h4>
-                            <p class="text-lg">
-                                طراحی یک لوگو آموزشی با استفاده از Ideogram و به اشتراک‌گذاری نتیجه در گروه.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Code Generation Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold mb-10 text-center" style="color: var(--accent-green);">
-                        <i class="fas fa-code ml-2"></i>
-                        کدسازی (Code Generation)
-                    </h3>
-                    
-                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <!-- IDE & Editors -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-laptop-code ml-2" style="color: var(--accent-green);"></i>
-                                محیط‌های توسعه
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">GitHub Copilot</div>
-                                            <div class="text-sm opacity-70">پیشنهاد کد واقعی‌زمان در VS Code</div>
-                                        </div>
-                                        <i class="fab fa-github text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Cursor</div>
-                                            <div class="text-sm opacity-70">IDE با AI برای نوشتن و ویرایش کد سریع</div>
-                                        </div>
-                                        <i class="fas fa-mouse-pointer text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://windsurf.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Windsurf</div>
-                                            <div class="text-sm opacity-70">IDE بومی AI برای توسعه سریع</div>
-                                        </div>
-                                        <i class="fas fa-wind text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://zed.dev" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Zed</div>
-                                            <div class="text-sm opacity-70">ویرایشگر سریع با ادغام AI برای تیم‌ها</div>
-                                        </div>
-                                        <i class="fas fa-bolt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- AI Assistants -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-robot ml-2" style="color: var(--accent-green);"></i>
-                                دستیارهای هوشمند
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Claude Code</div>
-                                            <div class="text-sm opacity-70">استدلال پیچیده برای پروژه‌های بزرگ کدنویسی</div>
-                                        </div>
-                                        <i class="fas fa-brain text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://tabnine.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Tabnine</div>
-                                            <div class="text-sm opacity-70">تکمیل کد امن با پشتیبانی ۳۰+ زبان</div>
-                                        </div>
-                                        <i class="fas fa-shield-alt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://aws.amazon.com/q/developer" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Amazon Q Developer</div>
-                                            <div class="text-sm opacity-70">ابزار AWS برای دیباگ و کد ابری</div>
-                                        </div>
-                                        <i class="fab fa-aws text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://aider.chat" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Aider</div>
-                                            <div class="text-sm opacity-70">ابزار خط‌فرمانی برای ویرایش کد با AI</div>
-                                        </div>
-                                        <i class="fas fa-terminal text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Development Platforms -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-cloud ml-2" style="color: var(--accent-green);"></i>
-                                پلتفرم‌های توسعه
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Bolt</div>
-                                            <div class="text-sm opacity-70">تولید اپ کامل از پرامپت‌های ساده</div>
-                                        </div>
-                                        <i class="fas fa-rocket text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Replit</div>
-                                            <div class="text-sm opacity-70">محیط آنلاین کدنویسی با AI برای مبتدیان</div>
-                                        </div>
-                                        <i class="fas fa-play text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Challenge Box for Code Generation -->
-                    <div class="ai-challenge-box">
-                        <div class="relative z-10">
-                            <h4 class="text-xl font-bold mb-3 flex items-center">
-                                <i class="fas fa-trophy ml-2"></i>
-                                چالش آموزشی هفتگی
-                            </h4>
-                            <p class="text-lg">
-                                نوشتن یک اسکریپت ساده با GitHub Copilot برای مدیریت داده‌ها و آزمایش آن.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Generation Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold mb-10 text-center" style="color: var(--accent-green);">
-                        <i class="fas fa-pen-fancy ml-2"></i>
-                        تولید محتوا (Content Generation)
-                    </h3>
-                    
-                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <!-- Marketing & SEO Tools -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-chart-line ml-2" style="color: var(--accent-green);"></i>
-                                بازاریابی و SEO
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://jasper.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Jasper</div>
-                                            <div class="text-sm opacity-70">محتوای بازاریابی و بلاگ با SEO</div>
-                                        </div>
-                                        <i class="fas fa-magic text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://copy.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Copy.ai</div>
-                                            <div class="text-sm opacity-70">کپی، ایمیل و پست‌های اجتماعی سریع</div>
-                                        </div>
-                                        <i class="fas fa-copy text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://writesonic.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Writesonic</div>
-                                            <div class="text-sm opacity-70">ابزار SEO برای محتوای بلند</div>
-                                        </div>
-                                        <i class="fas fa-search text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://surferseo.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Surfer SEO</div>
-                                            <div class="text-sm opacity-70">بهینه‌سازی محتوا برای گوگل</div>
-                                        </div>
-                                        <i class="fab fa-google text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Writing & Blog Tools -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-edit ml-2" style="color: var(--accent-green);"></i>
-                                نوشتن و بلاگ
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://rytr.me" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Rytr</div>
-                                            <div class="text-sm opacity-70">محتوای ساختاریافته با هدایت AI</div>
-                                        </div>
-                                        <i class="fas fa-pen text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://gravitywrite.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">GravityWrite</div>
-                                            <div class="text-sm opacity-70">بلاگ و لندینگ پیج با یک‌کلیک</div>
-                                        </div>
-                                        <i class="fas fa-feather-alt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Video & Multimedia -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-video ml-2" style="color: var(--accent-green);"></i>
-                                ویدیو و چندرسانه‌ای
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://canva.com/magic-studio" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Canva Magic Studio</div>
-                                            <div class="text-sm opacity-70">طراحی گرافیکی، ویدیو و متن با AI – عالی برای مبتدیان</div>
-                                        </div>
-                                        <i class="fas fa-palette text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://descript.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Descript</div>
-                                            <div class="text-sm opacity-70">ویرایش ویدیو/پادکست با متن و تولید صدا</div>
-                                        </div>
-                                        <i class="fas fa-microphone text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://synthesia.io" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Synthesia</div>
-                                            <div class="text-sm opacity-70">ویدیوهای آموزشی با آواتارهای AI</div>
-                                        </div>
-                                        <i class="fas fa-user-circle text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://lumen5.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Lumen5</div>
-                                            <div class="text-sm opacity-70">تبدیل متن به ویدیوهای اجتماعی</div>
-                                        </div>
-                                        <i class="fas fa-film text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Challenge Box for Content Generation -->
-                    <div class="ai-challenge-box">
-                        <div class="relative z-10">
-                            <h4 class="text-xl font-bold mb-3 flex items-center">
-                                <i class="fas fa-trophy ml-2"></i>
-                                چالش آموزشی هفتگی
-                            </h4>
-                            <p class="text-lg">
-                                ایجاد یک پست آموزشی با Jasper و بهینه‌سازی آن برای جستجو.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Language Learning Section -->
-                <div class="mb-16">
-                    <h3 class="text-3xl font-bold mb-10 text-center" style="color: var(--accent-green);">
-                        <i class="fas fa-language ml-2"></i>
-                        یادگیری زبان (Language Learning)
-                    </h3>
-                    
-                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                        <!-- Conversation Practice -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-comments ml-2" style="color: var(--accent-green);"></i>
-                                تمرین مکالمه
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://languatalk.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Langua</div>
-                                            <div class="text-sm opacity-70">معلم AI برای مکالمه و فیدبک واقعی‌زمان</div>
-                                        </div>
-                                        <i class="fas fa-chalkboard-teacher text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://univerbal.app" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Univerbal</div>
-                                            <div class="text-sm opacity-70">اپ مکالمه با AI برای انگلیسی</div>
-                                        </div>
-                                        <i class="fas fa-mobile-alt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://gliglish.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Gliglish</div>
-                                            <div class="text-sm opacity-70">تمرین speaking در سناریوهای واقعی</div>
-                                        </div>
-                                        <i class="fas fa-microphone-alt text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">ChatGPT Voice</div>
-                                            <div class="text-sm opacity-70">تمرین مکالمه با GPT-4o، رایگان</div>
-                                        </div>
-                                        <i class="fas fa-robot text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Pronunciation & Grammar -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-volume-up ml-2" style="color: var(--accent-green);"></i>
-                                تلفظ و گرامر
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://talktutor.ai" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">TalkTutor AI</div>
-                                            <div class="text-sm opacity-70">فیدبک صوتی برای تلفظ و گرامر</div>
-                                        </div>
-                                        <i class="fas fa-headphones text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://elsaspeak.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Elsa Speak</div>
-                                            <div class="text-sm opacity-70">تمرکز روی تلفظ با AI</div>
-                                        </div>
-                                        <i class="fas fa-bullhorn text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Learning Platforms -->
-                        <div class="ai-glass-card">
-                            <h4 class="text-xl font-bold mb-6 flex items-center" style="color: var(--primary-blue);">
-                                <i class="fas fa-graduation-cap ml-2" style="color: var(--accent-green);"></i>
-                                پلتفرم‌های یادگیری
-                            </h4>
-                            <div class="space-y-3">
-                                <a href="https://duolingo.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Duolingo</div>
-                                            <div class="text-sm opacity-70">درس‌های بازی‌وار با AI (۱۴۸ دوره)</div>
-                                        </div>
-                                        <i class="fas fa-gamepad text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://justlearn.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Just Learn</div>
-                                            <div class="text-sm opacity-70">پلتفرم ۲۴/۷ برای ۱۵+ زبان، شامل انگلیسی</div>
-                                        </div>
-                                        <i class="fas fa-clock text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://babbel.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Babbel</div>
-                                            <div class="text-sm opacity-70">درس‌های تعاملی برای مبتدیان</div>
-                                        </div>
-                                        <i class="fas fa-book-open text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                                <a href="https://memrise.com" target="_blank" rel="noopener noreferrer" class="ai-tool-link">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="font-semibold">Memrise</div>
-                                            <div class="text-sm opacity-70">فلش‌کارت‌های AI برای واژگان</div>
-                                        </div>
-                                        <i class="fas fa-brain text-xl opacity-60"></i>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                
     <!-- Reports Section -->
     <section id="reports" class="py-20 px-4" style="background-color: var(--secondary-gray);">
         <div class="container mx-auto">
@@ -2406,6 +1914,11 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
+        <!-- Notification Bubble -->
+        <div class="chatbot-notification" id="chatbot-notification" onclick="openChatbotWithNotification()">
+            👋 سلام دوست من!<br>من هوش مصنوعی سایت هستم 🤖<br>برای پرسیدن سؤال از من، روی من کلیک کن 💬
+        </div>
+        
         <button class="chatbot-toggle" onclick="toggleChatbot()">
             <i class="fas fa-robot"></i>
         </button>
@@ -2643,6 +2156,35 @@
                 }, 400);
             }
         }
+
+        // Function to open chatbot via notification
+        function openChatbotWithNotification() {
+            hideNotification();
+            toggleChatbot();
+        }
+
+        // Notification Logic
+        function showNotification() {
+            const notification = document.getElementById('chatbot-notification');
+            const lastShown = localStorage.getItem('chatbotNotificationShown');
+            const now = new Date().getTime();
+            const twelveHours = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+
+            if (!lastShown || (now - parseInt(lastShown)) > twelveHours) {
+                setTimeout(() => {
+                    notification.classList.add('show');
+                    localStorage.setItem('chatbotNotificationShown', now.toString());
+                }, 5000); // 5 seconds after page load
+            }
+        }
+
+        function hideNotification() {
+            const notification = document.getElementById('chatbot-notification');
+            notification.classList.remove('show');
+        }
+
+        // Call showNotification on page load
+        document.addEventListener('DOMContentLoaded', showNotification);
 
         function addMessage(message, isUser = false) {
             const messagesContainer = document.getElementById('chatbot-messages');
