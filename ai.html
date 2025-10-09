@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هوش مصنوعی‌های مفید - فن‌آموز زرین</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* کپی از استایل‌های اصلی index.html برای هماهنگی */
+        :root {
+            --primary-color: #0288D1;
+            --accent-color: #26A69A;
+            --secondary-color: #F5F7FA;
+            --glass-bg-light: rgba(2, 136, 209, 0.15);
+            --glass-border-light: rgba(255, 255, 255, 0.3);
+            --shadow-light: rgba(0,0,0,0.1);
+            --blur-amount: 8px;
+        }
+        body { font-family: 'Vazirmatn', sans-serif; background-color: var(--secondary-color); color: #212121; }
+        .glass-card { background: var(--glass-bg-light); backdrop-filter: blur(var(--blur-amount)); border: 1px solid var(--glass-border-light); border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-light); padding: 1.5rem; transition: all 0.3s ease; }
+        .glass-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px var(--shadow-light); }
+        .ai-card { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: white; border-radius: 16px; padding: 2rem; text-align: center; text-decoration: none; transition: all 0.3s ease; display: block; }
+        .ai-card:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(2, 136, 209, 0.3); }
+        .ai-card i { font-size: 3rem; margin-bottom: 1rem; }
+        .ai-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .ai-card p { font-size: 0.875rem; opacity: 0.9; }
+        .category-section { margin-bottom: 3rem; }
+        .category-title { text-align: center; font-size: 2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 2rem; }
+        @media (max-width: 768px) { .ai-card { margin: 1rem; padding: 1.5rem; } .category-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-6 py-20">
+        <h1 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-color);">هوش مصنوعی‌های مفید</h1>
+        
+        <!-- لوگو در بالای صفحه -->
+        <div class="text-center mb-12">
+            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 8px 20px rgba(2, 136, 209, 0.3);" />
+        </div>
+
+        <!-- دسته‌بندی عمومی/موبایل -->
+        <div class="category-section">
+            <h2 class="category-title">عمومی/موبایل</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://gemini.google.com" target="_blank" class="ai-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Gemini Nano</h3>
+                    <p>مدل سبک گوگل برای متن، تصویر و خلاصه آفلاین روی گوشی.</p>
+                </a>
+                <a href="https://chat.openai.com" target="_blank" class="ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>ChatGPT</h3>
+                    <p>دستیار هوشمند برای متن، کد و ایده‌پردازی.<grok-card data-id="491da5" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.perplexity.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Perplexity</h3>
+                    <p>موتور جستجوی AI با پاسخ‌های دقیق و ارجاعات.<grok-card data-id="e7e079" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://you.com" target="_blank" class="ai-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>YOU.com</h3>
+                    <p>جستجوی AI با پاسخ‌های فوری و خلاصه.<grok-card data-id="103fb3" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.bing.com" target="_blank" class="ai-card">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>Bing Search (AI-powered)</h3>
+                    <p>جستجوی هوشمند با نتایج خلاصه‌شده.<grok-card data-id="986852" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://arc.net" target="_blank" class="ai-card">
+                    <i class="fas fa-browser"></i>
+                    <h3>Arc Search</h3>
+                    <p>جستجوی AI برای مرورگر با خلاصه صفحات.<grok-card data-id="73eb49" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.meta.ai" target="_blank" class="ai-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Meta AI</h3>
+                    <p>دستیار مجازی متا برای چت و وظایف.<grok-card data-id="13c87c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.anthropic.com/claude" target="_blank" class="ai-card">
+                    <i class="fas fa-user"></i>
+                    <h3>Claude</h3>
+                    <p>دستیار ایمن و هوشمند برای کارهای پیچیده.<grok-card data-id="5ab838" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.groq.com" target="_blank" class="ai-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Groq</h3>
+                    <p>دستیار سریع با تمرکز روی سرعت.<grok-card data-id="5d85fb" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی کدنویسی -->
+        <div class="category-section">
+            <h2 class="category-title">کدنویسی</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://github.com/features/copilot" target="_blank" class="ai-card">
+                    <i class="fas fa-code"></i>
+                    <h3>GitHub Copilot</h3>
+                    <p>پیشنهاد کد واقعی‌زمان در VS Code.<grok-card data-id="6242dd" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://cursor.sh" target="_blank" class="ai-card">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <h3>Cursor</h3>
+                    <p>IDE با AI برای نوشتن و ویرایش کد سریع.<grok-card data-id="8b6902" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://windsurf.com" target="_blank" class="ai-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>Windsurf</h3>
+                    <p>IDE بومی AI برای توسعه سریع.</p>
+                </a>
+                <a href="https://claude.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Claude Code</h3>
+                    <p>استدلال پیچیده برای پروژه‌های بزرگ کدنویسی.<grok-card data-id="590e0c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://tabnine.com" target="_blank" class="ai-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Tabnine</h3>
+                    <p>تکمیل کد امن با پشتیبانی ۳۰+ زبان.</p>
+                </a>
+                <a href="https://aws.amazon.com/q/developer" target="_blank" class="ai-card">
+                    <i class="fab fa-aws"></i>
+                    <h3>Amazon Q Developer</h3>
+                    <p>ابزار AWS برای دیباگ و کد ابری.</p>
+                </a>
+                <a href="https://aider.chat" target="_blank" class="ai-card">
+                    <i class="fas fa-terminal"></i>
+                    <h3>Aider</h3>
+                    <p>ابزار خط‌فرمانی برای ویرایش کد با AI.</p>
+                </a>
+                <a href="https://zed.dev" target="_blank" class="ai-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Zed</h3>
+                    <p>ویرایشگر سریع با ادغام AI برای تیم‌ها.</p>
+                </a>
+                <a href="https://bolt.new" target="_blank" class="ai-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Bolt</h3>
+                    <p>تولید اپ کامل از پرامپت‌های ساده.</p>
+                </a>
+                <a href="https://replit.com" target="_blank" class="ai-card">
+                    <i class="fas fa-play"></i>
+                    <h3>Replit</h3>
+                    <p>محیط آنلاین کدنویسی با AI برای مبتدیان.<grok-card data-id="468c91" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://codeium.com" target="_blank" class="ai-card">
+                    <i class="fas fa-keyboard"></i>
+                    <h3>Codeium</h3>
+                    <p>تکمیل کد AI رایگان برای IDEهای مختلف.<grok-card data-id="fd88bf" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://sourcegraph.com/cody" target="_blank" class="ai-card">
+                    <i class="fas fa-search-code"></i>
+                    <h3>Cody</h3>
+                    <p>دستیار کد AI برای جستجو و دیباگ.<grok-card data-id="dded01" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی تصویرسازی -->
+        <div class="category-section">
+            <h2 class="category-title">تصویرسازی</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://krea.ai/apps/edit/nano-banana-edit" target="_blank" class="ai-card">
+                    <i class="fas fa-edit"></i>
+                    <h3>Nano Banana (Krea.ai)</h3>
+                    <p>ویرایش تصویر با Gemini 2.5 Flash (حذف اشیا، تغییر بک‌گراند).</p>
+                </a>
+                <a href="https://midjourney.com" target="_blank" class="ai-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Midjourney V6</h3>
+                    <p>تولید تصاویر هنری با کیفیت بالا از متن.<grok-card data-id="f88b7c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://openai.com/dall-e" target="_blank" class="ai-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>DALL-E 4</h3>
+                    <p>ژنراتور OpenAI برای تصاویر واقع‌گرایانه.<grok-card data-id="2bcd6b" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://stability.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Stable Diffusion</h3>
+                    <p>مدل متن‌باز برای تولید و ویرایش تصاویر.<grok-card data-id="0b12e4" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://aitestkitchen.withgoogle.com" target="_blank" class="ai-card">
+                    <i class="fab fa-google"></i>
+                    <h3>ImageFX (Google)</h3>
+                    <p>ابزار گوگل برای تصاویر واقعی و سریع.<grok-card data-id="79fc42" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://ideogram.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-font"></i>
+                    <h3>Ideogram</h3>
+                    <p>تولید لوگو و پوستر با تمرکز روی متن.</p>
+                </a>
+                <a href="https://leonardo.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-user-astronaut"></i>
+                    <h3>LeonardoAI</h3>
+                    <p>تولید هنر سفارشی با مدل‌های متنوع.</p>
+                </a>
+                <a href="https://reve.art" target="_blank" class="ai-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Reve</h3>
+                    <p>ژنراتور سریع با ویرایش پیشرفته.</p>
+                </a>
+                <a href="https://shutterstock.com/ai-image-generator" target="_blank" class="ai-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Shutterstock AI</h3>
+                    <p>تصاویر استوک با AI، ادغام حرفه‌ای.</p>
+                </a>
+                <a href="https://firefly.adobe.com" target="_blank" class="ai-card">
+                    <i class="fab fa-adobe"></i>
+                    <h3>Adobe Firefly</h3>
+                    <p>ادغام با فتوشاپ برای ویرایش حرفه‌ای.<grok-card data-id="2620f4" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://grok.com" target="_blank" class="ai-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Grok Image Gen</h3>
+                    <p>تولید تصاویر از متن با جستجوی واقعی‌زمان (xAI).<grok-card data-id="70d2f1" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://stockimg.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-image"></i>
+                    <h3>Stockimg.ai</h3>
+                    <p>تولید تصاویر استوک AI سفارشی.<grok-card data-id="778e11" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.midjourney.com" target="_blank" class="ai-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Midjourney</h3>
+                    <p>ابزار قدرتمند تولید هنر دیجیتال.<grok-card data-id="2d278c" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی تولید محتوا -->
+        <div class="category-section">
+            <h2 class="category-title">تولید محتوا</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://jasper.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Jasper</h3>
+                    <p>محتوای بازاریابی و بلاگ با SEO.<grok-card data-id="3f5a07" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://copy.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-copy"></i>
+                    <h3>Copy.ai</h3>
+                    <p>کپی، ایمیل و پست‌های اجتماعی سریع.</p>
+                </a>
+                <a href="https://rytr.me" target="_blank" class="ai-card">
+                    <i class="fas fa-pen"></i>
+                    <h3>Rytr</h3>
+                    <p>محتوای ساختاریافته با هدایت AI.</p>
+                </a>
+                <a href="https://canva.com/magic-studio" target="_blank" class="ai-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Canva Magic Studio</h3>
+                    <p>طراحی گرافیکی، ویدیو و متن با AI – عالی برای مبتدیان.<grok-card data-id="c9a06c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://descript.com" target="_blank" class="ai-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Descript</h3>
+                    <p>ویرایش ویدیو/پادکست با متن و تولید صدا.<grok-card data-id="b4364a" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://synthesia.io" target="_blank" class="ai-card">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>Synthesia</h3>
+                    <p>ویدیوهای آموزشی با آواتارهای AI.<grok-card data-id="86007f" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://gravitywrite.com" target="_blank" class="ai-card">
+                    <i class="fas fa-feather-alt"></i>
+                    <h3>GravityWrite</h3>
+                    <p>بلاگ و لندینگ پیج با یک‌کلیک.</p>
+                </a>
+                <a href="https://writesonic.com" target="_blank" class="ai-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Writesonic</h3>
+                    <p>ابزار SEO برای محتوای بلند.<grok-card data-id="e33059" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://lumen5.com" target="_blank" class="ai-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Lumen5</h3>
+                    <p>تبدیل متن به ویدیوهای اجتماعی.</p>
+                </a>
+                <a href="https://surferseo.com" target="_blank" class="ai-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Surfer SEO</h3>
+                    <p>بهینه‌سازی محتوا برای گوگل.<grok-card data-id="39f182" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://10web.io" target="_blank" class="ai-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>10web.io</h3>
+                    <p>سازنده وب‌سایت AI سریع.<grok-card data-id="bd85b5" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.notion.so" target="_blank" class="ai-card">
+                    <i class="fas fa-sticky-note"></i>
+                    <h3>Notion AI</h3>
+                    <p>دستیار نوت‌تیکینگ و سازماندهی با AI.<grok-card data-id="e64164" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://grammarly.com" target="_blank" class="ai-card">
+                    <i class="fas fa-edit"></i>
+                    <h3>Grammarly</h3>
+                    <p>ویرایشگر نوشتاری AI با پیشنهادهای هوشمند.<grok-card data-id="42c08d" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://quillbot.com" target="_blank" class="ai-card">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>QuillBot</h3>
+                    <p>بازنویسی و خلاصه متن با AI.<grok-card data-id="e3c82b" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی یادگیری زبان -->
+        <div class="category-section">
+            <h2 class="category-title">یادگیری زبان</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://languatalk.com" target="_blank" class="ai-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Langua</h3>
+                    <p>معلم AI برای مکالمه و فیدبک واقعی‌زمان.</p>
+                </a>
+                <a href="https://univerbal.app" target="_blank" class="ai-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Univerbal</h3>
+                    <p>اپ مکالمه با AI برای انگلیسی.</p>
+                </a>
+                <a href="https://duolingo.com" target="_blank" class="ai-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Duolingo</h3>
+                    <p>درس‌های بازی‌وار با AI (۱۴۸ دوره).</p>
+                </a>
+                <a href="https://gliglish.com" target="_blank" class="ai-card">
+                    <i class="fas fa-microphone-alt"></i>
+                    <h3>Gliglish</h3>
+                    <p>تمرین speaking در سناریوهای واقعی.</p>
+                </a>
+                <a href="https://talktutor.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-headphones"></i>
+                    <h3>TalkTutor AI</h3>
+                    <p>فیدبک صوتی برای تلفظ و گرامر.</p>
+                </a>
+                <a href="https://justlearn.com" target="_blank" class="ai-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Just Learn</h3>
+                    <p>پلتفرم ۲۴/۷ برای ۱۵+ زبان، شامل انگلیسی.</p>
+                </a>
+                <a href="https://chat.openai.com" target="_blank" class="ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>ChatGPT Voice</h3>
+                    <p>تمرین مکالمه با GPT-4o، رایگان.</p>
+                </a>
+                <a href="https://elsaspeak.com" target="_blank" class="ai-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Elsa Speak</h3>
+                    <p>تمرکز روی تلفظ با AI.</p>
+                </a>
+                <a href="https://babbel.com" target="_blank" class="ai-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Babbel</h3>
+                    <p>درس‌های تعاملی برای مبتدیان.</p>
+                </a>
+                <a href="https://memrise.com" target="_blank" class="ai-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Memrise</h3>
+                    <p>فلش‌کارت‌های AI برای واژگان.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی انیمیشن‌سازی -->
+        <div class="category-section">
+            <h2 class="category-title">انیمیشن‌سازی</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://runwayml.com" target="_blank" class="ai-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Runway Gen-3 Alpha</h3>
+                    <p>text-to-video و image-to-video پیشرفته.<grok-card data-id="01ebae" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://animaker.com" target="_blank" class="ai-card">
+                    <i class="fas fa-play-circle"></i>
+                    <h3>Animaker AI</h3>
+                    <p>انیمیشن 2D از متن/تصویر، drag-and-drop.<grok-card data-id="d667be" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://pika.art" target="_blank" class="ai-card">
+                    <i class="fas fa-film"></i>
+                    <h3>Pika Labs 1.0</h3>
+                    <p>ویدیوهای کوتاه انیمیشنی برای TikTok.<grok-card data-id="aaa211" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://kaiber.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Kaiber.ai</h3>
+                    <p>انیمیشن تصاویر با سبک‌های هنری.<grok-card data-id="6c2a47" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://labs.google/veo" target="_blank" class="ai-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Veo</h3>
+                    <p>ویدیو از متن، ادغام با Gemini.<grok-card data-id="c1ceb9" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://openai.com/sora" target="_blank" class="ai-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>OpenAI Sora</h3>
+                    <p>انیمیشن‌های پیچیده و remix، beta.<grok-card data-id="46ad5d" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://genmo.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Genmo</h3>
+                    <p>انیمیشن پیشرفته از تصاویر.<grok-card data-id="a3f27e" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://domoai.app" target="_blank" class="ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>DomoAI</h3>
+                    <p>انیمیشن سبک‌محور (مثل انیمه).<grok-card data-id="176d3c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://lensgo.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Lensgo AI</h3>
+                    <p>انیمیشن رایگان از تصاویر به ویدیو.<grok-card data-id="c5c07a" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://meshy.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Meshy / Kaedim</h3>
+                    <p>3D مدلینگ و انیمیشن برای گیم/فیلم.<grok-card data-id="ba728d" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://blender.org" target="_blank" class="ai-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>Blender (AI plugins)</h3>
+                    <p>نرم‌افزار رایگان 3D با ادغام AI.<grok-card data-id="399d35" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی وب‌سایت بیلدر -->
+        <div class="category-section">
+            <h2 class="category-title">وب‌سایت بیلدر</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://10web.io" target="_blank" class="ai-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>10web.io</h3>
+                    <p>سازنده وب‌سایت AI سریع.<grok-card data-id="469b7e" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://framer.com" target="_blank" class="ai-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Framer AI</h3>
+                    <p>طراحی وب‌سایت با AI و انیمیشن.<grok-card data-id="e71134" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://dora.run" target="_blank" class="ai-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Dora</h3>
+                    <p>بیلدر وب‌سایت بدون کد با AI.<grok-card data-id="74ba1f" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی نوت‌تیکینگ -->
+        <div class="category-section">
+            <h2 class="category-title">نوت‌تیکینگ</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://www.notion.so" target="_blank" class="ai-card">
+                    <i class="fas fa-sticky-note"></i>
+                    <h3>Notion AI</h3>
+                    <p>دستیار نوت‌تیکینگ و سازماندهی با AI.<grok-card data-id="76db21" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://mem.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-memory"></i>
+                    <h3>Mem.ai</h3>
+                    <p>نوت‌تیکینگ هوشمند با جستجوی AI.<grok-card data-id="aabd7a" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://reflect.app" target="_blank" class="ai-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Reflect</h3>
+                    <p>نوت‌برداری با AI و لینک‌سازی خودکار.<grok-card data-id="a18e0c" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی صوت و موسیقی -->
+        <div class="category-section">
+            <h2 class="category-title">صوت و موسیقی</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://suno.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Suno</h3>
+                    <p>تولید موسیقی از متن با AI.<grok-card data-id="1b346a" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://udio.com" target="_blank" class="ai-card">
+                    <i class="fas fa-headphones"></i>
+                    <h3>Udio</h3>
+                    <p>سازنده آهنگ‌های کامل با AI.<grok-card data-id="4cc52c" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://elevenlabs.io" target="_blank" class="ai-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>ElevenLabs</h3>
+                    <p>تولید صدای طبیعی از متن.<grok-card data-id="cf2f0c" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی اتوماسیون -->
+        <div class="category-section">
+            <h2 class="category-title">اتوماسیون</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://zapier.com" target="_blank" class="ai-card">
+                    <i class="fas fa-plug"></i>
+                    <h3>Zapier Agents</h3>
+                    <p>اتوماسیون وظایف با AI.<grok-card data-id="31b372" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://make.com" target="_blank" class="ai-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Make.com</h3>
+                    <p>اتوماسیون بدون کد با ادغام AI.<grok-card data-id="0c1c31" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://n8n.io" target="_blank" class="ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>n8n</h3>
+                    <p>workflow اتوماسیون متن‌باز با AI.<grok-card data-id="646c00" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://gumloop.com" target="_blank" class="ai-card">
+                    <i class="fas fa-loop"></i>
+                    <h3>Gumloop</h3>
+                    <p>اتوماسیون AI برای بازاریابی.<grok-card data-id="d3454d" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی Google Cloud AI -->
+        <div class="category-section">
+            <h2 class="category-title">Google Cloud AI</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://cloud.google.com/translate" target="_blank" class="ai-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Translate AI</h3>
+                    <p>ترجمه هوشمند با AI.<grok-card data-id="88218a" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://cloud.google.com/speech-to-text" target="_blank" class="ai-card">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Speech-to-Text</h3>
+                    <p>تبدیل صدا به متن با دقت بالا.<grok-card data-id="845b3e" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://cloud.google.com/natural-language" target="_blank" class="ai-card">
+                    <i class="fas fa-language"></i>
+                    <h3>Natural Language AI</h3>
+                    <p>تحلیل متن و احساسات.<grok-card data-id="7cf673" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://cloud.google.com/video-intelligence" target="_blank" class="ai-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Intelligence</h3>
+                    <p>تحلیل ویدیو با AI.<grok-card data-id="669820" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+
+        <!-- دسته‌بندی دیگر ابزارهای برتر 2025 -->
+        <div class="category-section">
+            <h2 class="category-title">سایر ابزارهای برتر 2025</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="https://www.synthesia.io" target="_blank" class="ai-card">
+                    <i class="fas fa-user-robot"></i>
+                    <h3>Synthesia</h3>
+                    <p>ویدیوهای AI با آواتارهای واقعی.<grok-card data-id="3a0b8d" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://zapier.com/agents" target="_blank" class="ai-card">
+                    <i class="fas fa-user-gear"></i>
+                    <h3>Zapier Agents</h3>
+                    <p>دستیاران AI برای اتوماسیون.<grok-card data-id="967317" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.framer.com/ai" target="_blank" class="ai-card">
+                    <i class="fas fa-magic-wand-sparkles"></i>
+                    <h3>Framer AI</h3>
+                    <p>طراحی UI/UX با AI.<grok-card data-id="56db80" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.elevenlabs.io" target="_blank" class="ai-card">
+                    <i class="fas fa-volume-up"></i>
+                    <h3>ElevenLabs</h3>
+                    <p>تولید صدا و دوبله AI.<grok-card data-id="e6da95" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.gumloop.com" target="_blank" class="ai-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Gumloop</h3>
+                    <p>اتوماسیون بازاریابی AI.<grok-card data-id="bdcb47" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://www.mem.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Mem.ai</h3>
+                    <p>حافظه AI برای نوت‌ها.<grok-card data-id="53b37b" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://suno.ai" target="_blank" class="ai-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Suno</h3>
+                    <p>تولید موسیقی AI.<grok-card data-id="2b4498" data-type="citation_card"></grok-card></p>
+                </a>
+                <a href="https://udio.com" target="_blank" class="ai-card">
+                    <i class="fas fa-guitar"></i>
+                    <h3>Udio</h3>
+                    <p>آهنگ‌سازی AI.<grok-card data-id="4e352f" data-type="citation_card"></grok-card></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
