@@ -1129,6 +1129,236 @@
                 max-width: 95%;
                 font-size: 0.9rem;
             }
+
+            /* Mobile menu improvements */
+            #mobile-menu {
+                width: 100vw;
+                right: 0;
+                left: 0;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            #mobile-menu.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column !important;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            /* Ensure all grids are single column on mobile */
+            .grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
+            }
+
+            .md\:grid-cols-2, .md\:grid-cols-3, .lg\:grid-cols-3, .lg\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Hero full responsive */
+            #hero {
+                padding: 0.5rem !important;
+                min-height: 60vh;
+            }
+
+            #hero h2 {
+                font-size: 1.3rem !important;
+                line-height: 1.1;
+            }
+
+            #hero h3 {
+                font-size: 1.1rem !important;
+            }
+
+            #hero p {
+                font-size: 0.85rem !important;
+                padding: 0 !important;
+            }
+
+            /* Logo responsive */
+            .logo-3d {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .logo-3d img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            /* Field card grid full responsive */
+            .field-card .grid {
+                grid-template-columns: repeat(1, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+
+            .field-card h4 {
+                font-size: 0.85rem !important;
+            }
+
+            .course-link {
+                padding: 0.75rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            /* School cards single column */
+            #schools .grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .school-card {
+                padding: 1rem !important;
+            }
+
+            .school-card ul li {
+                font-size: 0.75rem !important;
+                margin-right: 0.5rem;
+            }
+
+            /* Team section */
+            #team .grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .team-section {
+                padding: 1rem !important;
+            }
+
+            .glass-card {
+                padding: 1rem !important;
+            }
+
+            /* Resources full responsive */
+            #resources .grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
+            }
+
+            #resources .glass-card {
+                padding: 0.75rem !important;
+                margin-bottom: 0.5rem;
+            }
+
+            #resources h4 {
+                font-size: 0.85rem !important;
+            }
+
+            #resources span {
+                font-size: 0.65rem !important;
+            }
+
+            .video-link, .book-link {
+                padding: 0.5rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            /* Ethics section */
+            .ethics-section {
+                padding: 1rem !important;
+                margin: 1rem 0 !important;
+            }
+
+            .ethics-video {
+                padding: 0.75rem !important;
+                font-size: 0.85rem !important;
+                margin: 0.5rem 0 !important;
+            }
+
+            .ethics-section .grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* AI button */
+            .ai-button-section {
+                padding: 1rem !important;
+            }
+
+            .ai-button {
+                padding: 1rem 2rem !important;
+                font-size: 0.85rem !important;
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Reports */
+            #reports .grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            #reports .glass-card {
+                padding: 1rem !important;
+            }
+
+            #reports h3 {
+                font-size: 0.95rem !important;
+                white-space: normal !important;
+            }
+
+            /* Footer */
+            footer {
+                padding: 1rem !important;
+                margin: 0.5rem !important;
+            }
+
+            footer h3 {
+                font-size: 1.1rem !important;
+            }
+
+            footer p {
+                font-size: 0.75rem !important;
+            }
+
+            /* Book section grids */
+            .book-section .grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
+            }
+
+            .book-link {
+                padding: 0.75rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            /* Header logo */
+            .logo-text h1 {
+                font-size: 0.95rem !important;
+            }
+
+            .logo-text p {
+                font-size: 0.65rem !important;
+            }
+
+            .logo-3d.w-16.h-16 {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .logo-3d.w-16.h-16 img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            /* Notification responsive */
+            .chatbot-notification {
+                bottom: 90px !important;
+                right: 15px !important;
+                max-width: 250px !important;
+                font-size: 11px !important;
+                padding: 12px 16px !important;
+                line-height: 1.3;
+            }
+
+            /* Ensure container max-width */
+            .container {
+                padding: 0 0.5rem !important;
+                max-width: 100% !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1205,6 +1435,104 @@
             footer p {
                 font-size: 0.7rem;
             }
+
+            /* Extra small screen adjustments */
+            #hero {
+                padding: 0.25rem !important;
+                min-height: 50vh !important;
+            }
+
+            #hero h2 {
+                font-size: 1.1rem !important;
+            }
+
+            #hero h3 {
+                font-size: 0.95rem !important;
+            }
+
+            #hero p {
+                font-size: 0.75rem !important;
+            }
+
+            .logo-3d {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .logo-3d img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .field-card {
+                padding: 0.75rem !important;
+            }
+
+            .course-link {
+                padding: 0.5rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            .school-card {
+                padding: 0.75rem !important;
+            }
+
+            .school-card h3 {
+                font-size: 0.85rem !important;
+            }
+
+            #resources .glass-card {
+                padding: 0.5rem !important;
+            }
+
+            #resources h4 {
+                font-size: 0.8rem !important;
+            }
+
+            #resources span {
+                font-size: 0.6rem !important;
+            }
+
+            .book-link {
+                padding: 0.5rem !important;
+                font-size: 0.7rem !important;
+            }
+
+            #reports h3 {
+                font-size: 0.85rem !important;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            footer p {
+                font-size: 0.65rem !important;
+            }
+
+            /* Mobile menu for extra small */
+            #mobile-menu {
+                padding: 0.5rem !important;
+            }
+
+            nav ul {
+                gap: 0.75rem !important;
+            }
+
+            /* Notification extra small */
+            .chatbot-notification {
+                bottom: 80px !important;
+                right: 12px !important;
+                max-width: 220px !important;
+                font-size: 10px !important;
+                padding: 10px 12px !important;
+            }
+
+            /* Container padding zero on extra small */
+            .container {
+                padding: 0 !important;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -1242,6 +1570,15 @@
             .logo-3d.w-40.h-40 img {
                 width: 90px;
                 height: 90px;
+            }
+
+            /* Tablet hero */
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+
+            #hero h3 {
+                font-size: 1.8rem;
             }
         }
 
@@ -1294,7 +1631,7 @@
             }
         }
 
-        /* Notification Bubble Styles */
+        /* Notification Bubble Styles - بهبود یافته با انیمیشن و صدای نوتیف (اختیاری) */
         .chatbot-notification {
             position: fixed;
             bottom: 100px;
@@ -1306,7 +1643,7 @@
             border-radius: 20px;
             max-width: 280px;
             box-shadow: 0 8px 32px rgba(2, 136, 209, 0.3);
-            transform: translateY(20px);
+            transform: translateY(20px) scale(0.9);
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
@@ -1314,6 +1651,23 @@
             line-height: 1.4;
             text-align: center;
             position: relative;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .chatbot-notification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .chatbot-notification:hover::before {
+            transform: translateX(100%);
         }
 
         @media (max-width: 768px) {
@@ -1349,7 +1703,7 @@
         }
 
         .chatbot-notification.show {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
             opacity: 1;
             animation: bounceIn 0.6s ease-out;
         }
@@ -1632,6 +1986,22 @@
         @media (min-width: 1280px) {
             .container {
                 max-width: 1280px;
+            }
+        }
+
+        /* Improved mobile menu overlay */
+        @media (max-width: 768px) {
+            #mobile-menu {
+                background: var(--primary-blue);
+                backdrop-filter: blur(10px);
+                z-index: 999;
+            }
+
+            #mobile-menu nav a {
+                padding: 0.75rem;
+                display: block;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                font-size: 1rem;
             }
         }
     </style>
@@ -2753,9 +3123,10 @@
 
     <!-- Chatbot -->
     <div class="chatbot-container">
-        <!-- Notification Bubble -->
+        <!-- Notification Bubble - بهبود یافته -->
         <div class="chatbot-notification" id="chatbot-notification" onclick="openChatbotWithNotification()">
-            سلام وقت بخیر! به وب‌سایت فن‌آموز زرین خوش آمدید. لطفاً اگر سوالی دارید روی من کلیک کنید.
+            <i class="fas fa-robot ml-2" style="font-size: 14px;"></i>
+            سلام! به فن‌آموز زرین خوش آمدید. 🎓<br>سوالی در مورد رشته‌ها، منابع یا AI دارید؟ روی من کلیک کنید تا کمک کنم! 💬
         </div>
         
         <button class="chatbot-toggle" onclick="toggleChatbot()">
@@ -3006,18 +3377,28 @@
             toggleChatbot();
         }
 
-        // Notification Logic
+        // Notification Logic - بهبود یافته: همیشه نمایش می‌دهد اما فقط یک بار در روز، با صدای نوتیف (اختیاری)
         function showNotification() {
             const notification = document.getElementById('chatbot-notification');
             const lastShown = localStorage.getItem('chatbotNotificationShown');
             const now = new Date().getTime();
-            const twelveHours = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+            const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-            if (!lastShown || (now - parseInt(lastShown)) > twelveHours) {
+            if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
+                // نمایش نوتیفیکیشن بعد از 3 ثانیه (کاهش از 5 ثانیه برای سریع‌تر بودن)
                 setTimeout(() => {
                     notification.classList.add('show');
                     localStorage.setItem('chatbotNotificationShown', now.toString());
-                }, 5000); // 5 seconds after page load
+                    
+                    // صدای نوتیف (اختیاری - از Audio API استفاده می‌کند)
+                    try {
+                        const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAfBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAf'); // صدای ساده بوق
+                        audio.volume = 0.3;
+                        audio.play().catch(() => {}); // نادیده گرفتن خطا اگر مرورگر اجازه ندهد
+                    } catch (e) {
+                        console.log('نوتیف صوتی غیرفعال است');
+                    }
+                }, 3000);
             }
         }
 
