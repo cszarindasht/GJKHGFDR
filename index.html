@@ -1502,6 +1502,240 @@
             overflow: hidden;
             word-break: break-word;
         }
+
+        /* Improved Responsive for All Sections */
+
+        /* Hero Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                gap: 0.5rem;
+            }
+            .hero-gradient {
+                padding: 1rem 0;
+            }
+            .hero-logo {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.2rem !important;
+            }
+            .hero h3 {
+                font-size: 1rem !important;
+            }
+            .hero p {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        /* Fields and Courses Responsive */
+        @media (min-width: 768px) {
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .field-card {
+                padding: 1rem;
+            }
+            .course-link {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+            .heading-secondary {
+                font-size: 14px;
+            }
+        }
+
+        /* Schools Responsive */
+        @media (min-width: 768px) {
+            .schools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-card {
+                padding: 1rem;
+            }
+            .school-card h3 {
+                font-size: 1.1rem;
+            }
+            .school-card ul li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Team Responsive */
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-section {
+                padding: 1rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Resources Responsive */
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .glass-card {
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .resources-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resources-grid a {
+                padding: 0.8rem;
+            }
+            .resources-grid h4 {
+                font-size: 1rem;
+            }
+        }
+
+        /* Book Grid Responsive */
+        @media (min-width: 768px) {
+            .book-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-section {
+                padding: 1rem;
+            }
+            .book-link {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+        }
+
+        /* Ethics Responsive */
+        @media (min-width: 768px) {
+            .ethics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ethics-section {
+                padding: 1rem;
+            }
+            .ethics-video {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* AI Button Responsive */
+        @media (max-width: 480px) {
+            .ai-button-section {
+                padding: 1.5rem 1rem;
+            }
+            .ai-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Reports Responsive */
+        @media (min-width: 768px) {
+            .reports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reports-grid {
+                grid-template-columns: 1fr;
+            }
+            #reports h3 {
+                font-size: 1.1rem;
+                white-space: normal;
+            }
+            .glass-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Footer Responsive */
+        @media (max-width: 480px) {
+            footer {
+                padding: 1rem;
+            }
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Header Responsive Improvements */
+        @media (max-width: 768px) {
+            header {
+                margin: 0.5rem;
+                padding: 0.5rem;
+            }
+            .logo-text {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+        }
+
+        /* General Overflow and Word Break */
+        .no-overflow {
+            overflow: hidden;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        /* Ensure All Links and Buttons are Touchable on Mobile */
+        @media (max-width: 768px) {
+            .course-link, .book-link, .ethics-video, .video-link, .btn-primary, .btn-secondary, .ai-button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
