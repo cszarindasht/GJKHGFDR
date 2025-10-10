@@ -908,11 +908,11 @@
 
 
             .heading-primary {
-                font-size: 24px;
+                font-size: 20px;
             }
 
             .heading-secondary {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .theme-toggle {
@@ -925,15 +925,323 @@
             .theme-toggle i {
                 font-size: 16px;
             }
+
+            /* Header responsive */
+            header .container {
+                padding: 0.5rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            /* Hero responsive */
+            #hero {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            #hero h2 {
+                font-size: 1.5rem;
+            }
+
+            #hero h3 {
+                font-size: 1.2rem;
+            }
+
+            #hero h4 {
+                font-size: 1rem;
+            }
+
+            #hero h5 {
+                font-size: 1rem;
+            }
+
+            #hero p {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
+
+            .logo-3d.w-40.h-40 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .logo-3d.w-40.h-40 img {
+                width: 70px;
+                height: 70px;
+            }
+
+            /* Fields responsive */
+            .field-card {
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .field-card .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .field-card h4 {
+                font-size: 0.9rem;
+            }
+
+            .course-link {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
+            /* Schools responsive */
+            #schools .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .school-card {
+                padding: 1rem;
+            }
+
+            .school-card h3 {
+                font-size: 1rem;
+            }
+
+            .school-card ul li {
+                font-size: 0.8rem;
+            }
+
+            /* Team responsive */
+            #team .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .team-section {
+                padding: 1rem;
+            }
+
+            .glass-card.p-8 {
+                padding: 1rem;
+            }
+
+            .glass-card h3 {
+                font-size: 1.2rem;
+            }
+
+            /* Resources responsive */
+            #resources .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            #resources .glass-card {
+                padding: 0.5rem;
+            }
+
+            #resources h4 {
+                font-size: 0.9rem;
+            }
+
+            #resources span {
+                font-size: 0.7rem;
+            }
+
+            #resources h3 {
+                font-size: 1rem;
+            }
+
+            .video-link, .book-link {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+
+            /* Ethics responsive */
+            .ethics-section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .ethics-video {
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            /* AI button responsive */
+            .ai-button-section {
+                padding: 1rem;
+            }
+
+            .ai-button {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+
+            /* Reports responsive */
+            #reports .grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            #reports .glass-card {
+                padding: 0.5rem;
+            }
+
+            #reports h3 {
+                font-size: 1rem;
+                white-space: normal;
+            }
+
+            /* Footer responsive */
+            footer {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+
+            footer h3 {
+                font-size: 1.2rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+
+            /* Chatbot responsive */
+            .chatbot-window {
+                width: 90vw;
+                right: auto;
+                left: 5vw;
+            }
+
+            .chatbot-messages {
+                padding: 10px;
+            }
+
+            .chatbot-message {
+                max-width: 95%;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
             .heading-primary {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .heading-secondary {
-                font-size: 14px;
+                font-size: 12px;
+            }
+
+            /* Further reductions for small phones */
+            #hero h2 {
+                font-size: 1.2rem;
+            }
+
+            #hero h3 {
+                font-size: 1rem;
+            }
+
+            #hero p {
+                font-size: 0.8rem;
+            }
+
+            .logo-3d.w-40.h-40 {
+                width: 60px;
+                height: 60px;
+            }
+
+            .logo-3d.w-40.h-40 img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .field-card {
+                padding: 0.5rem;
+            }
+
+            .course-link {
+                font-size: 0.7rem;
+                padding: 6px 8px;
+            }
+
+            .school-card {
+                padding: 0.5rem;
+            }
+
+            .school-card h3 {
+                font-size: 0.9rem;
+            }
+
+            #resources h4 {
+                font-size: 0.8rem;
+            }
+
+            #resources span {
+                font-size: 0.6rem;
+            }
+
+            .book-link {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+
+            #reports h3 {
+                font-size: 0.9rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            footer p {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Tablet specific adjustments */
+            .field-card .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            #schools .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #team .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            #resources .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #reports .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .heading-primary {
+                font-size: 24px;
+            }
+
+            .logo-3d.w-40.h-40 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .logo-3d.w-40.h-40 img {
+                width: 90px;
+                height: 90px;
             }
         }
 
@@ -966,6 +1274,24 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            /* Ensure grids stack properly */
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .md\:grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Notification Bubble Styles */
@@ -988,6 +1314,26 @@
             line-height: 1.4;
             text-align: center;
             position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-notification {
+                bottom: 90px;
+                right: 15px;
+                max-width: 250px;
+                font-size: 11px;
+                padding: 12px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-notification {
+                bottom: 80px;
+                right: 12px;
+                max-width: 220px;
+                font-size: 10px;
+                padding: 10px 12px;
+            }
         }
 
         .chatbot-notification::after {
@@ -1253,6 +1599,40 @@
 
         .dark-mode h2 {
             color: var(--text-primary-dark) !important;
+        }
+
+        /* Ensure no overflow on small screens */
+        * {
+            overflow-wrap: break-word;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
         }
     </style>
 </head>
