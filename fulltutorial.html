@@ -3,59 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آموزش صفر تا صد کار با نرم‌افزارها - فن‌آموز زرین</title>
+    <title>آموزش کار با نرم‌افزارها - فن‌آموز زرین</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Copy the entire <style> block from the main index.html here to keep consistency */
-        /* For brevity, assume it's pasted here. In practice, you can link to a shared CSS file. */
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        :root {
+            --primary-color: #0288D1;
+            --secondary-color: #F5F7FA;
+            --accent-color: #26A69A;
+            --text-primary: #212121;
+            --text-secondary: #546E7A;
+            --text-primary-dark: #FFFFFF;
+            --text-secondary-dark: #CFD8DC;
+            --glass-bg-light: rgba(2, 136, 209, 0.15);
+            --glass-bg-dark: rgba(255, 255, 255, 0.2);
+            --glass-border-light: rgba(255, 255, 255, 0.3);
+            --glass-border-dark: rgba(255, 255, 255, 0.2);
+            --shadow-light: rgba(0,0,0,0.1);
+            --shadow-dark: rgba(0,0,0,0.3);
+            --blur-amount: 8px;
+            --footer-bg: #0277BD;
+            --primary-blue: var(--primary-color);
+            --secondary-gray: var(--secondary-color);
+            --accent-green: var(--accent-color);
+            --light-bg: var(--secondary-color);
+            --dark-bg: #37474F;
+            --text-dark: var(--text-primary);
+            --text-light: var(--text-primary-dark);
+            --text-secondary-light: var(--text-secondary);
+            --glass-light: var(--glass-bg-light);
+            --glass-dark: var(--glass-bg-dark);
+            --footer-dark: var(--footer-bg);
+        }
+
+        .light-mode {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .light-mode .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-primary-dark);
+        }
+
+        .dark-mode .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+
+        .glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-light);
+        }
+
+        .dark-mode .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #00695C);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(38, 166, 154, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .video-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 4px 20px var(--shadow-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .theme-toggle i {
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .dark-mode .theme-toggle i {
+            color: var(--accent-color);
+        }
+
+        .heading-primary {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+
+        .heading-secondary {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+
+        .dark-mode .heading-primary,
+        .dark-mode .heading-secondary {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .heading-primary {
+                font-size: 28px;
+            }
+
+            .heading-secondary {
+                font-size: 20px;
+            }
+
+            .theme-toggle {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .theme-toggle i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading-primary {
+                font-size: 24px;
+            }
+
+            .heading-secondary {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
-    <!-- Logo -->
-    <div class="container mx-auto px-6 py-4 text-center">
-        <div class="logo-3d w-40 h-40 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto my-12 floating-card">
-            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-36 h-36 object-contain" />
-        </div>
-        <h1 class="heading-primary">آموزش صفر تا صد کار با نرم‌افزارها</h1>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-xl" id="theme-icon"></i>
     </div>
 
-    <!-- Full Tutorial Videos Section -->
+    <!-- Logo -->
+    <div class="container mx-auto px-6 py-4 text-center">
+        <div class="flex items-center justify-center mb-6">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                 style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
+                <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-primary-blue" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">گروه کامپیوتر شهرستان زرین‌دشت</h1>
+                <p class="text-sm text-gray-600" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس زرین‌دشت</p>
+            </div>
+        </div>
+        <h1 class="heading-primary mb-8">آموزش کار با نرم‌افزارها از صفر تا صد</h1>
+    </div>
+
+    <!-- Software Tutorials Section -->
     <section class="py-12 px-4 bg-white/5 dark:bg-slate-900/50">
         <div class="container mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Word -->
+                <!-- Windows -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Microsoft Word</h4>
-                    <a href="https://www.aparat.com/v/D0qhG" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Windows 10/11</h4>
+                    <a href="https://www.aparat.com/v/6z0Yv" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش صفر تا صد ورد Word
+                        آموزش کامل ویندوز 10 و 11 از صفر تا صد
                     </a>
                 </div>
                 
-                <!-- Excel -->
+                <!-- Office -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Microsoft Excel</h4>
-                    <a href="https://www.aparat.com/v/YrKsL" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Microsoft Office 2016/2025</h4>
+                    <a href="https://www.aparat.com/v/h3b8v" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش مقدماتی اکسل صفر تا صد
-                    </a>
-                </div>
-                
-                <!-- PowerPoint -->
-                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Microsoft PowerPoint</h4>
-                    <a href="https://www.aparat.com/v/W8mdq" target="_blank" rel="noopener noreferrer" class="video-link">
-                        <i class="fas fa-video ml-2"></i>
-                        آموزش صفر تا صد پاورپوینت
+                        آموزش کامل آفیس (ورد، اکسل، پاورپوینت) از صفر تا صد
                     </a>
                 </div>
                 
                 <!-- Photoshop -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Photoshop</h4>
-                    <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Photoshop CC 2025</h4>
+                    <a href="https://www.aparat.com/v/4k3s9" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
                         آموزش فتوشاپ از صفر تا صد
                     </a>
@@ -63,69 +317,148 @@
                 
                 <!-- Illustrator -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Illustrator</h4>
-                    <a href="https://www.aparat.com/v/IJtKm" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Illustrator CC 2025</h4>
+                    <a href="https://www.aparat.com/v/7p2q1" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش صفر تا صد ایلوستریتور
+                        آموزش ایلاستریتور از مبتدی تا پیشرفته
                     </a>
                 </div>
                 
                 <!-- Animate -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Animate</h4>
-                    <a href="https://www.aparat.com/v/b7131zy" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Animate 2025</h4>
+                    <a href="https://www.aparat.com/v/9r4t5" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش ادوبی انیمیت - قسمت ۱ - شروع به کار با نرم افزار
+                        آموزش کامل Adobe Animate برای انیمیشن‌سازی
+                    </a>
+                </div>
+                
+                <!-- Visual Studio -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Microsoft Visual Studio 2025</h4>
+                    <a href="https://www.aparat.com/v/8u6y3" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش برنامه‌نویسی با ویژوال استودیو از صفر تا صد
+                    </a>
+                </div>
+                
+                <!-- Dreamweaver -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Dreamweaver CC 2025</h4>
+                    <a href="https://www.aparat.com/v/2w9e7" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش طراحی وب با Dreamweaver از مبتدی تا پیشرفته
+                    </a>
+                </div>
+                
+                <!-- WampServer -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">WampServer 3.3</h4>
+                    <a href="https://www.aparat.com/v/5t8r2" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش کار با WampServer برای توسعه وب
+                    </a>
+                </div>
+                
+                <!-- XAMPP -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">XAMPP 8.2</h4>
+                    <a href="https://www.aparat.com/v/3y5u9" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش کامل کار با XAMPP برای توسعه وب
+                    </a>
+                </div>
+                
+                <!-- WordPress -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">WordPress 6.6</h4>
+                    <a href="https://www.aparat.com/v/1q2w4" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش کامل وردپرس از صفر تا صد
                     </a>
                 </div>
                 
                 <!-- Premiere -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Premiere Pro</h4>
-                    <a href="https://www.aparat.com/v/a87xd69" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Premiere Pro 2025</h4>
+                    <a href="https://www.aparat.com/v/6j8k0" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش کامل پریمیر پرو در 59 دقیقه (صفر تا صد در یک ویدئو)
+                        آموزش تدوین ویدئو با پریمیر از مبتدی تا پیشرفته
                     </a>
                 </div>
                 
                 <!-- Audition -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Audition</h4>
-                    <a href="https://www.aparat.com/v/lYgrz" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Audition 2025</h4>
+                    <a href="https://www.aparat.com/v/4h7j2" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        صفر تا صد آموزش آدیشن Adobe Audition CC
+                        آموزش ویرایش صدا با Adobe Audition
                     </a>
                 </div>
                 
                 <!-- Captivate -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Captivate</h4>
-                    <a href="https://www.aparat.com/v/GN7mV" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Captivate 2025</h4>
+                    <a href="https://www.aparat.com/v/9i0p3" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        صفر تا صد آموزش کپتیویت Adobe Captivate
+                        آموزش ساخت محتوای آموزشی با Captivate
                     </a>
                 </div>
                 
                 <!-- Photoshop Elements -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
-                    <h4 class="font-semibold mb-2">Adobe Photoshop Elements</h4>
-                    <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <h4 class="font-semibold mb-2">Adobe Photoshop Elements 2025</h4>
+                    <a href="https://www.aparat.com/v/4k3s9" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        آموزش فتوشاپ از صفر تا صد (مشابه برای Elements)
+                        آموزش فتوشاپ المنتس از صفر تا صد (مشابه فتوشاپ)
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Back to Main -->
+    <!-- Back Button -->
     <div class="text-center mb-8">
-        <a href="index.html" class="btn-primary">بازگشت به صفحه اصلی</a>
+        <a href="index.html" class="btn-primary">بازگشت به صفحه قبلی</a>
     </div>
 
-    <!-- Scripts (copy from main) -->
+    <!-- Footer -->
+    <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold">فن‌آموز زرین</h3>
+                    <p class="text-sm">گروه کامپیوتر آموزش پرورش زرین‌دشت</p>
+                </div>
+            </div>
+            <p class="mb-4">
+                توسعه دهنده رعنا پرموزه
+            </p>
+            <p class="text-sm opacity-80">
+                تمامی حقوق محفوظ است © 
+            </p>
+        </div>
+    </footer>
+
     <script>
-        // Copy theme toggle, etc., scripts from main index.html
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun text-xl';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-moon text-xl';
+            }
+        }
     </script>
 </body>
 </html>
