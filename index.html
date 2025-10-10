@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فن‌آموز زرین - استان فارس زرین‌دشت</title>
+    <title>استان فارس زرین‌دشت</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,8 +13,8 @@
             box-sizing: border-box;
             font-family: 'Vazirmatn', sans-serif;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
         }
         
         :root {
@@ -175,7 +175,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             box-shadow: 0 2px 8px rgba(38, 166, 154, 0.15);
             position: relative;
             overflow: hidden;
@@ -216,7 +216,7 @@
             border: none;
             cursor: pointer;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
             position: relative;
             overflow: hidden;
@@ -293,7 +293,7 @@
         }
 
         .theme-toggle i {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--primary-color);
             transition: all 0.4s ease;
         }
@@ -307,7 +307,7 @@
             color: white;
             border-radius: 16px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .course-link {
@@ -351,7 +351,7 @@
             background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
             border-radius: 16px;
             padding: 2rem;
-            margin: 2rem 0;
+            margin: 1rem 0;
         }
 
         .dark-mode .team-section {
@@ -874,23 +874,23 @@
 
         /* Typography Classes */
         .heading-primary {
-            font-size: 32px; /* Reduced for better fit */
+            font-size: 28px;
             font-weight: 700;
             line-height: 1.2;
             color: var(--primary-blue);
         }
 
         .heading-secondary {
-            font-size: 22px; /* Reduced */
+            font-size: 18px;
             font-weight: 600;
             line-height: 1.3;
             color: var(--primary-blue);
         }
 
         .text-body {
-            font-size: 14px; /* Reduced for software section */
+            font-size: 12px;
             font-weight: 400;
-            line-height: 1.5; /* Slightly reduced */
+            line-height: 1.5;
         }
 
         .dark-mode .heading-primary,
@@ -908,11 +908,11 @@
 
 
             .heading-primary {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             .heading-secondary {
-                font-size: 20px;
+                font-size: 16px;
             }
 
             .theme-toggle {
@@ -923,24 +923,24 @@
             }
 
             .theme-toggle i {
-                font-size: 18px;
+                font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
             .heading-primary {
-                font-size: 24px;
+                font-size: 20px;
             }
 
             .heading-secondary {
-                font-size: 18px;
+                font-size: 14px;
             }
         }
 
         /* Additional responsive styles */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
 
             .chatbot-window {
@@ -984,7 +984,7 @@
             opacity: 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             line-height: 1.4;
             text-align: center;
             position: relative;
@@ -1019,7 +1019,7 @@
             background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
             border-radius: 24px;
             padding: 3rem 2rem;
-            margin: 2rem 0;
+            margin: 1rem 0;
             text-align: center;
         }
 
@@ -1032,7 +1032,7 @@
             color: white;
             padding: 18px 36px;
             border-radius: 16px;
-            font-size: 16px; /* Reduced for better fit */
+            font-size: 14px;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
@@ -1117,7 +1117,7 @@
 
         /* Ensure report titles fit in one line */
         #reports h3 {
-            font-size: 18px; /* Reduced to fit */
+            font-size: 16px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -1125,37 +1125,38 @@
 
         /* Smaller font for logo text */
         .logo-text h1 {
-            font-size: 1.5rem; /* Reduced to fit "زرین دشت" in one line */
+            font-size: 1.3rem;
+            white-space: nowrap;
         }
 
         .logo-text p {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
 
         /* Smaller fonts in resources */
         #resources .glass-card h4 {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         #resources .glass-card span {
-            font-size: 12px;
+            font-size: 10px;
         }
 
         #resources .glass-card h5 {
-            font-size: 13px;
+            font-size: 11px;
         }
 
         #resources .video-link {
-            font-size: 12px;
+            font-size: 10px;
             padding: 8px 12px;
         }
 
         .free-alternatives-title {
-            font-size: 20px; /* Reduced */
+            font-size: 18px;
         }
 
         #resources .glass-card .text-sm {
-            font-size: 12px;
+            font-size: 10px;
         }
 
         /* Styles for Ethics Videos Section */
@@ -1197,6 +1198,62 @@
             background: rgba(255,255,255,0.1);
             box-shadow: 0 4px 12px var(--shadow-dark);
         }
+
+        /* Styles for Book Resources - Updated for consistency */
+        .book-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .dark-mode .book-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+
+        .book-link {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+            font-size: 11px;
+        }
+
+        .book-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-3px);
+            box-shadow: 0 2px 8px rgba(255,255,255,0.3);
+        }
+
+        .dark-mode .book-link {
+            color: white;
+        }
+
+        .dark-mode .book-link:hover {
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 2px 8px rgba(255,255,255,0.3);
+        }
+
+        /* Unified title styles */
+        h2 {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            color: var(--primary-blue) !important;
+            text-align: center;
+            margin-bottom: 1rem !important;
+            white-space: nowrap;
+        }
+
+        .dark-mode h2 {
+            color: var(--text-primary-dark) !important;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1217,7 +1274,8 @@
                             <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">گروه کامپیوتر شهرستان زرین‌دشت</h1>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;"></h1>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
                             <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس زرین‌دشت</p>
                         </div>
                     </div>
@@ -1301,7 +1359,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-12 relative">
+    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
         <div class="parallax-bg"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
             <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">گروه کامپیوتر شهرستان زرین دشت </h2>
@@ -1324,12 +1382,12 @@
     </section>
 
     <!-- Fields Section -->
-    <section id="fields" class="py-20 px-4">
+    <section id="fields" class="py-8 px-4">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">رشته‌های فعال</h2>
+            <h2>رشته‌های فعال</h2>
             
             <!-- Field 1: Web Development -->
-            <div class="field-card mb-8 tilt-card">
+            <div class="field-card mb-1 tilt-card">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center">
                         <div class="logo-3d w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
@@ -1355,11 +1413,11 @@
                     <!-- دروس پایه ۱۰ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/96-97/412/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استفاده از مهارت شهروند الکترونیک
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/95-96/157/C486-2%2C358-41.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر رایانه
                         </a>
@@ -1372,22 +1430,26 @@
                     <!-- دروس پایه ۱۱ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۱</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/692/C310188.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://chap.sch.ir/books/13352" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
-                            تولید کننده و توسعه دهنده پایگاه های اینترنتی
+                            تولید کننده و توسعه دهنده پایگاه های اینترنتی (صفحه کتاب برای ۱۴۰۴؛ PDF را از بخش دانلود دانلود کنید)
                         </a>
                     </div>
                     
                     <!-- دروس پایه ۱۲ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312251.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/146/C211288.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             توسعه دهنده صفحات وب با PHP و MySQL
                         </a>
                         <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312260.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             توسعه دهنده سیستم های مدیریت محتوا با WordPress
+                        </a>
+                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1404-1405/598/C210291.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                            <i class="fas fa-file-pdf ml-2"></i>
+                            تولید محتوای آموزشی الکترونیکی
                         </a>
                     </div>
                 </div>
@@ -1420,11 +1482,11 @@
                     <!-- دروس پایه ۱۰ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/96-97/412/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استفاده از مهارت شهروند الکترونیک
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/95-96/157/C486-2%2C358-41.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر رایانه
                         </a>
@@ -1446,7 +1508,7 @@
                     <!-- دروس پایه ۱۲ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312216.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/1265/C312271.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر گرافیکی محتوای آموزشی
                         </a>
@@ -1461,9 +1523,9 @@
     </section>
 
     <!-- Schools Section -->
-    <section id="schools" class="py-8 px-4" style="background-color: var(--secondary-gray);">
+    <section id="schools" class="py-4 px-4" style="background-color: var(--secondary-gray);">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">هنرستان‌های شهرستان</h2>
+            <h2>هنرستان‌های شهرستان</h2>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- هنرستان زینب کبری -->
@@ -1561,10 +1623,10 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-20 px-4">
+    <section id="team" class="py-8 px-4">
         <div class="container mx-auto">
             <div class="team-section">
-                <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">اعضای گروه فن‌آموز زرین</h2>
+                <h2>اعضای گروه فن‌آموز زرین</h2>
                 
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- کارشناسان -->
@@ -1638,16 +1700,16 @@
     </section>
 
     <!-- Software Resources Section -->
-    <section id="resources" class="py-12 px-4 bg-white/5 dark:bg-slate-900/50">
+    <section id="resources" class="py-8 px-4 bg-white/5 dark:bg-slate-900/50">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8 text-primary dark:text-white">
+            <h2>
                 <i class="fas fa-download ml-3"></i>
                 نرم‌افزارهای مورد نیاز و منابع آموزشی
             </h2>
 
             <!-- نرم‌افزارهای پایه ۱۰ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
+                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1738,7 +1800,7 @@
 
             <!-- نرم‌افزارهای پایه ۱۱ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
+                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1801,7 +1863,7 @@
 
             <!-- نرم‌افزارهای پایه ۱۲ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
+                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1864,7 +1926,7 @@
 
             <!-- جایگزین‌های رایگان -->
             <div>
-                <h3 class="text-2xl font-bold mb-4 free-alternatives-title">جایگزین‌های رایگان دائمی</h3>
+                <h3 class="text-xl font-bold mb-4 free-alternatives-title">جایگزین‌های رایگان دائمی</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1964,14 +2026,216 @@
                     آموزش صفر تا صد کار با نرم‌افزارها
                 </a>
             </div>
+
+            <!-- New Book Resources Section -->
+            <div class="mt-12">
+                <h3 class="text-3xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+                    <i class="fas fa-book ml-3"></i>
+                    کتاب‌های درسی و منابع آموزشی
+                </h3>
+
+                <!-- Shared Non-Technical Competencies -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">شایستگی‌های غیرفنی مشترک</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/12397" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            الزامات محیط کار
+                        </a>
+                        <a href="http://chap.sch.ir/books/11071" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم‌های آموزشی الزامات محیط کار
+                        </a>
+                        <a href="http://chap.sch.ir/books/12520" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            کارگاه نوآوری و کارآفرینی
+                        </a>
+                        <a href="http://chap.sch.ir/books/9972" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم‌های آموزشی کارگاه نوآوری و کارآفرینی
+                        </a>
+                        <a href="http://chap.sch.ir/books/12518" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            کاربرد فناوری‌های نوین
+                        </a>
+                        <a href="http://chap.sch.ir/books/10010" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم‌های آموزشی کاربرد فناوری‌های نوین
+                        </a>
+                        <a href="http://chap.sch.ir/books/12519" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            مدیریت تولید
+                        </a>
+                        <a href="http://chap.sch.ir/books/11079" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم‌های آموزشی مدیریت تولید
+                        </a>
+                        <a href="http://chap.sch.ir/books/12581" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            اخلاق حرفه‌ای
+                        </a>
+                        <a href="http://chap.roshd.ir/books/6916" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-video ml-2"></i>
+                            فیلم‌های آموزشی اخلاق حرفه‌ای
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Network and Software Field -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته شبکه و نرم‌افزار رایانه</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/12420" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            دانش فنی پایه
+                        </a>
+                        <a href="http://chap.sch.ir/books/12976" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            نصب و راه‌اندازی سیستم‌های رایانه‌ای
+                        </a>
+                        <a href="http://chap.sch.ir/books/12977" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            تولید محتوای الکترونیک و برنامه‌سازی
+                        </a>
+                        <a href="http://chap.sch.ir/books/12402" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            نقشه‌کشی فنی رایانه‌ای
+                        </a>
+                        <a href="http://chap.sch.ir/books/12531" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            توسعه برنامه‌سازی و پایگاه داده
+                        </a>
+                        <a href="http://chap.sch.ir/books/12532" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            پیاده‌سازی سیستم‌های اطلاعاتی و طراحی وب
+                        </a>
+                        <a href="http://chap.sch.ir/books/12596" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            دانش فنی تخصصی
+                        </a>
+                        <a href="http://chap.sch.ir/books/12597" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            تجارت الکترونیک و امنیت شبکه
+                        </a>
+                        <a href="http://chap.sch.ir/books/12810" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            نصب و نگهداری تجهیزات شبکه و سخت‌افزار
+                        </a>
+                        <a href="http://chap.sch.ir/books/12421" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            کتاب همراه هنرجو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Multimedia Producer Field -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولیدکننده چندرسانه‌ای</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/13072" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            سیستم عامل
+                        </a>
+                        <a href="http://chap.sch.ir/books/13073" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            مفاهیم پایه فناوری اطلاعات
+                        </a>
+                        <a href="http://chap.sch.ir/books/11061" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            اطلاعات و ارتباطات
+                        </a>
+                        <a href="http://chap.sch.ir/books/11062" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            بسته‌های نرم‌افزاری Excel - PowerPoint
+                        </a>
+                        <a href="http://chap.sch.ir/books/11060" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            نرم‌افزار واژه‌پرداز Word 2016
+                        </a>
+                        <a href="http://chap.sch.ir/books/11059" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            نرم‌افزار اداری تکمیلی Microsoft Access - OneNote
+                        </a>
+                        <a href="http://chap.sch.ir/books/11089" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            چندرسانه‌ای دوبعدی جلد اول - Adobe Photoshop
+                        </a>
+                        <a href="http://chap.sch.ir/books/11081" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            Adobe Audition
+                        </a>
+                        <a href="http://chap.sch.ir/books/12075" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            چندرسانه‌ای سه‌بعدی جلد دوم - Adobe Media Encoder
+                        </a>
+                        <a href="http://chap.sch.ir/books/12107" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            Adobe Premiere
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Internet Database Developer Field -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولیدکننده و توسعه‌دهنده پایگاه‌های اینترنتی</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/11068" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            سیستم‌های مدیریت محتوا - WordPress
+                        </a>
+                        <a href="http://chap.sch.ir/books/11067" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            توسعه‌دهنده صفحات وب با PHP و MySQL
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Educational Electronic Content Producer Field -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولید محتوای آموزشی الکترونیکی</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/11063" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            تولیدکننده محتوای الکترونیکی عمومی جلد اول - Adobe Photoshop – Adobe Animate
+                        </a>
+                        <a href="http://chap.sch.ir/books/11064" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            تولیدکننده محتوای الکترونیکی عمومی جلد دوم - Adobe Audition – Adobe Premiere – ArcSoft Media Converter
+                        </a>
+                        <a href="http://chap.sch.ir/books/11091" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            محتواساز آموزش الکترونیکی جلد اول - Adobe Captivate 2019
+                        </a>
+                        <a href="http://chap.sch.ir/books/11090" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            محتواساز آموزش الکترونیکی جلد دوم - Adobe Captivate 2019 - AutoPlay Media Studio 8
+                        </a>
+                        <a href="http://chap.sch.ir/books/11066" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            کاربر گرافیکی محتوای آموزشی - Adobe Illustrator – MOHO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Other Fields -->
+                <div class="book-section">
+                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته‌های تصویرسازی دیجیتالی، برنامه‌نویسی بازی‌ها و پایگاه داده</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="http://chap.sch.ir/books/11092" target="_blank" rel="noopener noreferrer" class="book-link">
+                            <i class="fas fa-book ml-2"></i>
+                            کاربر این‌دیزاین - Adobe InDesign
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Ethics Section - New Addition for Professional Ethics Videos -->
-    <section id="ethics" class="py-12 px-4">
+    <section id="ethics" class="py-8 px-4">
         <div class="container mx-auto">
             <div class="ethics-section">
-                <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+                <h2>
                     <i class="fas fa-handshake ml-3 text-5xl" style="color: var(--accent-green);"></i>
                     فیلم‌های آموزشی اخلاق حرفه‌ای
                 </h2>
@@ -1999,10 +2263,10 @@
     </section>
 
     <!-- AI Button Section -->
-    <section id="ai-button-section" class="py-12 px-4">
+    <section id="ai-button-section" class="py-8 px-4">
         <div class="container mx-auto">
             <div class="ai-button-section">
-                <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+                <h2>
                     <i class="fas fa-robot ml-3 text-5xl" style="color: var(--accent-green);"></i>
                     هوش مصنوعی‌های مفید
                 </h2>
@@ -2015,9 +2279,9 @@
     </section>
 
     <!-- Reports Section (Compacted) -->
-    <section id="reports" class="py-8 px-4" style="background-color: var(--secondary-gray);">
+    <section id="reports" class="py-4 px-4" style="background-color: var(--secondary-gray);">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+            <h2>
                 <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
                 گزارش عملکرد سالانه شهرستان زرین‌دشت
             </h2>
@@ -2099,7 +2363,7 @@
                 </div>
             </div>
             <p class="mb-4">
-                توسعه دهنده رعنا پرموزه
+                توسعه دهنده: فاطمه معتمد - رعنا پرموزه
             </p>
             <p class="text-sm opacity-80">
                 تمامی حقوق محفوظ است © 
