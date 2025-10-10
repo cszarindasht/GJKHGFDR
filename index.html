@@ -722,7 +722,7 @@
             padding: 15px 20px;
             display: flex;
             align-items: center;
-            justify-content: between;
+            justify-content: space-between;
         }
 
         .chatbot-messages {
@@ -874,23 +874,23 @@
 
         /* Typography Classes */
         .heading-primary {
-            font-size: 36px;
+            font-size: 32px; /* Reduced for better fit */
             font-weight: 700;
             line-height: 1.2;
             color: var(--primary-blue);
         }
 
         .heading-secondary {
-            font-size: 24px;
+            font-size: 22px; /* Reduced */
             font-weight: 600;
             line-height: 1.3;
             color: var(--primary-blue);
         }
 
         .text-body {
-            font-size: 16px;
+            font-size: 14px; /* Reduced for software section */
             font-weight: 400;
-            line-height: 1.6;
+            line-height: 1.5; /* Slightly reduced */
         }
 
         .dark-mode .heading-primary,
@@ -1032,7 +1032,7 @@
             color: white;
             padding: 18px 36px;
             border-radius: 16px;
-            font-size: 18px;
+            font-size: 16px; /* Reduced for better fit */
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
@@ -1095,6 +1095,68 @@
         .gap-6 {
             gap: 1rem !important;
         }
+
+        /* تغییر رنگ h3 برای جایگزین‌های رایگان به همرنگ با h5 های آموزش */
+        .free-alternatives-title {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+
+        .dark-mode .free-alternatives-title {
+            color: var(--text-primary-dark) !important;
+        }
+
+        /* Reduced spacing between fields and schools */
+        #fields {
+            padding-bottom: 1rem !important;
+        }
+
+        #schools {
+            padding-top: 1rem !important;
+        }
+
+        /* Ensure report titles fit in one line */
+        #reports h3 {
+            font-size: 18px; /* Reduced to fit */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Smaller font for logo text */
+        .logo-text h1 {
+            font-size: 1.5rem; /* Reduced to fit "زرین دشت" in one line */
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+        }
+
+        /* Smaller fonts in resources */
+        #resources .glass-card h4 {
+            font-size: 14px;
+        }
+
+        #resources .glass-card span {
+            font-size: 12px;
+        }
+
+        #resources .glass-card h5 {
+            font-size: 13px;
+        }
+
+        #resources .video-link {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+
+        .free-alternatives-title {
+            font-size: 20px; /* Reduced */
+        }
+
+        #resources .glass-card .text-sm {
+            font-size: 12px;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1109,13 +1171,13 @@
             <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
-                    <div class="flex items-center">
+                    <div class="flex items-center logo-text">
                         <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4" 
                              style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
                             <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
                         </div>
                         <div>
-                            <h1 class="text-2xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">گروه کامپیوتر شهرستان زرین‌دشت</h1>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">گروه کامپیوتر شهرستان زرین‌دشت</h1>
                             <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس زرین‌دشت</p>
                         </div>
                     </div>
@@ -1151,11 +1213,6 @@
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
-                        <a href="#articles" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'})">مطالب آموزشی</a>
                         <a href="#reports" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
@@ -1189,8 +1246,6 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">منابع</a>
                     <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
-                    <a href="#articles" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('articles').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">مطالب آموزشی</a>
                     <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">گزارش‌ها</a>
                 </nav>
@@ -1359,7 +1414,7 @@
     </section>
 
     <!-- Schools Section -->
-    <section id="schools" class="py-20 px-4" style="background-color: var(--secondary-gray);">
+    <section id="schools" class="py-8 px-4" style="background-color: var(--secondary-gray);">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16" style="color: var(--primary-blue);">هنرستان‌های شهرستان</h2>
             
@@ -1545,7 +1600,7 @@
 
             <!-- نرم‌افزارهای پایه ۱۰ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۰</h3>
+                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1560,11 +1615,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/spw1y64" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            کامل‌ترین آموزش نصب ویندوز 10 و 11 در 7 دقیقه
-                        </a>
                     </a>
                     <a href="https://www.microsoft.com/en-us/microsoft-365/try" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1579,23 +1629,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/mRWxM" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش کامل نصب و فعالسازی آفیس 2016
-                        </a>
-                        <a href="https://www.aparat.com/v/D0qhG" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش صفر تا صد ورد Word
-                        </a>
-                        <a href="https://www.aparat.com/v/YrKsL" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش مقدماتی اکسل صفر تا صد
-                        </a>
-                        <a href="https://www.aparat.com/v/W8mdq" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش صفر تا صد پاورپوینت
-                        </a>
                     </a>
                     <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1610,11 +1643,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش فتوشاپ از صفر تا صد
-                        </a>
                     </a>
                     <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1629,11 +1657,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/IJtKm" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش صفر تا صد ایلوستریتور
-                        </a>
                     </a>
                     <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1648,11 +1671,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/b7131zy" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش ادوبی انیمیت - قسمت ۱ - شروع به کار با نرم افزار
-                        </a>
                     </a>
                     <a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1667,18 +1685,13 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/RXZ4Y" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم آموزش نصب ویژوال استودیو نسخه 2017 به صورت کامل
-                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- نرم‌افزارهای پایه ۱۱ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۱</h3>
+                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1693,11 +1706,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/rfcKL" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            اموزش نرم افزار دریم ویور(Dreamweaver)
-                        </a>
                     </a>
                     <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1712,11 +1720,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/TYWjr" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش نصب wampserver ومپ سرور
-                        </a>
                     </a>
                     <a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1731,11 +1734,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/HpGni" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش نصب و راه اندازی زمپ xampp
-                        </a>
                     </a>
                     <a href="https://wordpress.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1750,18 +1748,13 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/T8Fik" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش نصب وردپرس روی ویندوز
-                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- نرم‌افزارهای پایه ۱۲ -->
             <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-4 text-accent">نرم‌افزارهای پایه ۱۲</h3>
+                <h3 class="text-2xl font-bold mb-4 text-accent"></h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                     <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1776,11 +1769,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/a87xd69" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش کامل پریمیر پرو در 59 دقیقه (صفر تا صد در یک ویدئو)
-                        </a>
                     </a>
                     <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1795,11 +1783,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/lYgrz" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            صفر تا صد آموزش آدیشن Adobe Audition CC
-                        </a>
                     </a>
                     <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1814,11 +1797,6 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/GN7mV" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            صفر تا صد آموزش کپتیویت Adobe Captivate
-                        </a>
                     </a>
                     <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1833,18 +1811,13 @@
                                 </span>
                             </div>
                         </div>
-                        <h5 class="font-semibold mb-2 mt-2">آموزش‌های ویدیویی (از آپارات)</h5>
-                        <a href="https://www.aparat.com/v/QAya1" target="_blank" rel="noopener noreferrer" class="video-link">
-                            <i class="fas fa-video ml-2"></i>
-                            آموزش فتوشاپ از صفر تا صد (مشابه برای Elements)
-                        </a>
                     </a>
                 </div>
             </div>
 
             <!-- جایگزین‌های رایگان -->
             <div>
-                <h3 class="text-2xl font-bold mb-4 text-green-500">جایگزین‌های رایگان دائمی</h3>
+                <h3 class="text-2xl font-bold mb-4 free-alternatives-title">جایگزین‌های رایگان دائمی</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
@@ -1932,6 +1905,18 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Buttons for Tutorials -->
+            <div class="grid md:grid-cols-2 gap-4 mt-8">
+                <a href="install.html" class="ai-button">
+                    <i class="fas fa-download"></i>
+                    آموزش نصب نرم‌افزارها
+                </a>
+                <a href="fulltutorial.html" class="ai-button">
+                    <i class="fas fa-video"></i>
+                    آموزش صفر تا صد کار با نرم‌افزارها
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1968,7 +1953,7 @@
                             <i class="fas fa-file-alt text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۲-۱۴۰۳</h3>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۲-۱۴۰۳</h3>
                             <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
                         </div>
                     </div>
@@ -1999,7 +1984,7 @@
                             <i class="fas fa-file-alt text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد سال تحصیلی ۱۴۰۳-۱۴۰۴</h3>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۳-۱۴۰۴</h3>
                             <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
                         </div>
                     </div>
@@ -2048,7 +2033,7 @@
     <div class="chatbot-container">
         <!-- Notification Bubble -->
         <div class="chatbot-notification" id="chatbot-notification" onclick="openChatbotWithNotification()">
-            👋 سلام دوست من!<br>من هوش مصنوعی سایت هستم 🤖<br>برای پرسیدن سؤال از من، روی من کلیک کن 💬
+            سلام وقت بخیر! به وب‌سایت فن‌آموز زرین خوش آمدید. لطفاً اگر سوالی دارید روی من کلیک کنید.
         </div>
         
         <button class="chatbot-toggle" onclick="toggleChatbot()">
@@ -2070,7 +2055,7 @@
             
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="chatbot-message bot">
-                    سلام عزیزم! من آریا هستم، دستیار هوشمند فن‌آموز زرین! این سایت توسط <strong>رعنا پرموزه</strong> نوشته شده و <strong>خانم فاطمه معتمد</strong> (سرگروه ما) پاسخگوی تمام سوالاتتون هستن! چه کمکی از دستم برمیاد؟
+                    سلام! به وبسایت فن‌آموز زرین خوش آمدید! 🌟<br><br>من دستیار هوشمند شما هستم و می‌تونم راجع به:<br>• رشته‌های کامپیوتر و کاردانش<br>• هنرستان‌ها و ثبت نام<br>• ابزارهای هوش مصنوعی<br>• فرصت‌های شغلی<br>• منابع آموزشی<br><br>کمکتون کنم! درباره چه موضوعی دوست دارید صحبت کنیم؟ 💬
                 </div>
             </div>
             
@@ -2434,171 +2419,108 @@
         function getFallbackResponse(userMessage) {
             const message = userMessage.toLowerCase();
             
-            // Greeting responses
+            // Greeting responses - کوتاه و مستقیم
             if (message.includes('سلام') || message.includes('درود') || message.includes('صبح بخیر') || message.includes('عصر بخیر') || message.includes('شب بخیر') || message.includes('hi') || message.includes('hello') || message.includes('hey')) {
                 const greetings = [
-                    'سلام عزیزم! 🌟 من آریا هستم، دستیار هوشمند فن‌آموز زرین! این سایت توسط <strong>رعنا پرموزه</strong> با عشق و دقت طراحی شده و <strong>خانم فاطمه معتمد</strong> سرگروه ما هستن! چه کمکی از دستم برمیاد؟<br><br>💡 <em>نکته:</em> من می‌تونم راجع به تمام رشته‌ها، ابزارهای AI، فرصت‌های شغلی، هنرستان‌ها و حتی جزئیات فنی کمکت کنم!',
-                    'درود بر تو گلم! 💎 خوش اومدی به دنیای فناوری! من همه چیز رو راجع به رشته‌های کامپیوتر، هوش مصنوعی، برنامه‌نویسی و آینده شغلی می‌دونم!<br><br>🎯 <strong>تخصص‌های من:</strong><br>• رشته‌های وب و محتوای الکترونیکی<br>• ابزارهای AI (بیش از ۵۰ ابزار)<br>• فرصت‌های شغلی و حقوق<br>• هنرستان‌ها و ثبت نام<br><br>چه سؤالی داری؟',
-                    'سلام و احوال! 🚀 خیلی خوشحالم که باهام حرف می‌زنی! من آریا هستم و می‌تونم راجع به تمام محتوای این سایت کمکت کنم!<br><br>📚 <strong>اطلاعات کاملی دارم از:</strong><br>• ۴ هنرستان شهرستان<br>• ۲ رشته کاردانش<br>• ابزارهای AI و فناوری<br>• مسیرهای شغلی<br>• منابع آموزشی<br><br>هر چیزی که تو ذهنته بپرس!'
+                    'سلام! 🌟 خوش آمدید به فن‌آموز زرین. چه سوالی داری؟',
+                    'درود! 💎 آماده کمکم. بگو چی می‌خوای بدونی.',
+                    'سلام و احوال! 🚀 درباره رشته‌ها، شغل یا AI بپرس.'
                 ];
                 return greetings[Math.floor(Math.random() * greetings.length)];
             }
             
-            // About website/developer
+            // About website/developer - کوتاه
             if (message.includes('نویسنده') || message.includes('سازنده') || message.includes('طراح') || message.includes('رعنا') || message.includes('پرموزه')) {
-                return '👩‍💻 این سایت فوق‌العاده توسط <strong>رعنا پرموزه</strong> نوشته و طراحی شده! ایشون استاد برنامه‌نویسی و طراحی وب هستن و این پلتفرم رو با عشق و دقت ساختن!<br><br>🎨 <strong>ویژگی‌های طراحی:</strong><br>• پالت رنگی حرفه‌ای ۲۰۲۵<br>• رسپانسیو و موبایل‌فرندلی<br>• افکت‌های شیشه‌ای مدرن<br>• UX/UI بهینه شده<br><br>👩‍🏫 <strong>خانم فاطمه معتمد</strong> هم سرگروه ما هستن و پاسخگوی تمام سوالاتتون!';
+                return '👩‍💻 سایت توسط <strong>رعنا پرموزه</strong> طراحی شده. سرگروه: <strong>فاطمه معتمد</strong>.';
             }
             
-            // About Fatemeh Motamed
+            // About Fatemeh Motamed - کوتاه
             if (message.includes('فاطمه') || message.includes('معتمد') || message.includes('سرگروه')) {
-                return '<strong>خانم فاطمه معتمد</strong> سرگروه عزیز ما هستن! ایشون با تجربه و دانش بالا، پاسخگوی تمام سوالات شما عزیزان هستن!<br><br>برای تماس مستقیم: ۰۹۳۷۲۵۶۵۹۹۴<br>تلگرام: @cszarindasht<br><br>حتماً باهاشون در تماس باشید!';
+                return '<strong>فاطمه معتمد</strong>: سرگروه. تماس: ۰۹۳۷۲۵۶۵۹۹۴ | تلگرام: @cszarindasht';
             }
             
-            // Comprehensive AI questions
-            if (message.includes('هوش مصنوعی') || message.includes('ai') || message.includes('ابزار') || message.includes('artificial') || message.includes('chatgpt') || message.includes('gemini') || message.includes('claude') || message.includes('midjourney') || message.includes('dall-e') || message.includes('stable diffusion') || message.includes('copilot') || message.includes('cursor') || message.includes('bolt') || message.includes('jasper') || message.includes('copy.ai') || message.includes('canva') || message.includes('synthesia') || message.includes('duolingo') || message.includes('langua') || message.includes('univerbal') || message.includes('gliglish') || message.includes('elsa') || message.includes('babbel') || message.includes('memrise') || message.includes('ideogram') || message.includes('leonardo') || message.includes('firefly') || message.includes('tabnine') || message.includes('aider') || message.includes('replit') || message.includes('rytr') || message.includes('writesonic') || message.includes('surfer') || message.includes('descript') || message.includes('lumen5') || message.includes('talktutor') || message.includes('justlearn') || message.includes('reve') || message.includes('shutterstock') || message.includes('grok') || message.includes('windsurf') || message.includes('zed') || message.includes('amazon q') || message.includes('imagefx') || message.includes('krea') || message.includes('nano banana') || message.includes('gravitywrite')) {
+            // Comprehensive AI questions - کوتاه و مفید
+            if (message.includes('هوش مصنوعی') || message.includes('ai') || message.includes('ابزار')) {
                 const aiResponses = [
-                    '🤖 عاشق هوش مصنوعی‌ام! <strong>رعنا پرموزه</strong> بخش کاملی رو طراحی کرده با بیش از ۵۰ ابزار جذاب:<br><br>🎨 <strong>عکس‌سازی (۱۲ ابزار):</strong><br>• عمومی: Gemini Nano، Nano Banana<br>• حرفه‌ای: Midjourney، DALL-E، Stable Diffusion، Adobe Firefly<br>• تخصصی: Ideogram، Leonardo، Reve، Shutterstock AI، Grok، ImageFX<br><br>💻 <strong>کدنویسی (۱۰ ابزار):</strong><br>• محیط‌های توسعه: Cursor، Windsurf، Zed<br>• دستیارهای هوشمند: GitHub Copilot، Claude Code، Tabnine، Amazon Q، Aider<br>• پلتفرم‌های توسعه: Bolt، Replit<br><br>📝 <strong>تولید محتوا (۱۶ ابزار):</strong><br>• بازاریابی: Jasper، Copy.ai، Writesonic، Surfer SEO<br>• نوشتن: Rytr، GravityWrite<br>• ویدیو: Canva Magic، Descript، Synthesia، Lumen5<br><br>🗣️ <strong>یادگیری زبان (۱۰ ابزار):</strong><br>• مکالمه: ChatGPT Voice، Langua، Univerbal، Gliglish<br>• تلفظ: TalkTutor AI، Elsa Speak<br>• پلتفرم‌ها: Duolingo، Babbel، Just Learn، Memrise<br><br>🏆 <strong>چالش‌های هفتگی:</strong> هر بخش چالش آموزشی خاص خودش رو داره!<br><br>حتماً بخش AI سایت رو ببین، خیلی پیشرفته و کاربردیه!',
-                    '🚀 وای چه سؤال باحالی! بخش هوش مصنوعی سایت ما یکی از کامل‌ترین مجموعه‌های ابزار AI در فضای فارسی هست!<br><br>📊 <strong>آمار کلی:</strong><br>• ۴ دسته اصلی<br>• بیش از ۵۰ ابزار معرفی شده<br>• چالش‌های آموزشی هفتگی<br>• لینک‌های مستقیم و کاربردی<br><br>🎯 <strong>دسته‌بندی هوشمند:</strong><br><br>۱. <strong>عکس‌سازی:</strong> از مبتدی تا حرفه‌ای<br>   • ابزارهای عمومی (Gemini، Krea)<br>   • حرفه‌ای (Midjourney، DALL-E)<br>   • تخصصی (Ideogram، Leonardo)<br><br>۲. <strong>کدسازی:</strong> برای توسعه‌دهندگان<br>   • IDE ها (Cursor، Windsurf، Zed)<br>   • دستیارها (Copilot، Claude، Tabnine)<br>   • پلتفرم‌ها (Bolt، Replit)<br><br>۳. <strong>تولید محتوا:</strong> برای بازاریابان و نویسندگان<br>   • بازاریابی (Jasper، Copy.ai، Surfer)<br>   • نوشتن (Rytr، GravityWrite)<br>   • ویدیو (Synthesia، Lumen5، Descript)<br><br>۴. <strong>یادگیری زبان:</strong> برای زبان‌آموزان<br>   • مکالمه (Langua، Univerbal، Gliglish)<br>   • تلفظ (Elsa، TalkTutor)<br>   • پلتفرم‌ها (Duolingo، Babbel)<br><br>کدوم بخش بیشتر جذبت کرد؟ می‌تونم جزئیات بیشتری بهت بدم!',
-                    '💎 هوش مصنوعی آینده‌ست و ما توی سایت کامل‌ترین مجموعه ابزارهای AI رو جمع‌آوری کردیم!<br><br>🌟 <strong>ویژگی‌های منحصربه‌فرد:</strong><br>• تمام ابزارها تست شده و کاربردی<br>• دسته‌بندی هوشمند بر اساس نیاز<br>• چالش‌های عملی برای یادگیری<br>• به‌روزرسانی مداوم<br><br>🎓 <strong>مسیر یادگیری پیشنهادی:</strong><br>۱. شروع با ابزارهای عمومی (ChatGPT، Gemini)<br>۲. تخصصی شدن در یک حوزه<br>۳. ترکیب چندین ابزار<br>۴. ایجاد workflow شخصی<br><br>💼 <strong>کاربرد در رشته‌های ما:</strong><br>• وب: GitHub Copilot + Cursor برای کدنویسی<br>• محتوا: Canva Magic + Jasper برای تولید<br>• آموزش: Synthesia + Lumen5 برای ویدیو<br><br>📞 <strong>خانم فاطمه معتمد</strong> راجع به کاربرد عملی AI در آموزش کاملاً راهنماییت می‌کنن!<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴<br>تلگرام: @cszarindasht'
+                    '🤖 ابزارهای AI: Midjourney (عکس)، Copilot (کد)، Jasper (محتوا). بخش AI سایت رو ببین.',
+                    '🚀 دسته‌ها: عکس‌سازی (DALL-E)، کد (Cursor)، محتوا (Canva)، زبان (Duolingo). چالش هفتگی داری!',
+                    '💎 AI در رشته‌ها: Copilot برای وب، Synthesia برای محتوا. تماس برای جزئیات.'
                 ];
                 return aiResponses[Math.floor(Math.random() * aiResponses.length)];
             }
             
-            // Course/Field questions
-            if (message.includes('رشته') || message.includes('دوره') || message.includes('کلاس') || message.includes('تحصیل')) {
-                return '🎓 چه جالب! ما دو رشته فوق‌العاده داریم که کاملاً با نیازهای بازار کار ۲۰۲۵ همخوانی دارن:<br><br>🌐 <strong>تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</strong><br><br>📚 <strong>دروس پایه ۱۰:</strong><br>• استفاده از مهارت شهروند الکترونیک<br>• کاربر رایانه<br>• کاربر اتوماسیون اداری<br><br>💻 <strong>دروس تخصصی ۱۱-۱۲:</strong><br>• HTML5, CSS3, JavaScript ES6+<br>• PHP 8 & MySQL<br>• WordPress Development<br>• Git & GitHub<br>• AI-Assisted Coding<br><br>💰 <strong>فرصت‌های شغلی:</strong> ۸-۲۰ میلیون تومان<br><br>📱 <strong>تولید محتوای آموزشی الکترونیکی (کاردانش)</strong><br><br>🎨 <strong>دروس تخصصی:</strong><br>• Adobe Creative Suite (Photoshop، Illustrator، Premiere)<br>• Captivate & Articulate<br>• محتوای چندرسانه‌ای<br>• طراحی آموزشی<br>• ابزارهای AI (Canva Magic، Synthesia)<br><br>💰 <strong>فرصت‌های شغلی:</strong> ۶-۱۵ میلیون تومان<br><br>🏫 <strong>هنرستان‌های ارائه‌دهنده:</strong><br>• زینب کبری: هر دو رشته<br>• والفجر: محتوای الکترونیکی<br>• شهید پاکیزه خو: محتوای الکترونیکی<br>• شهید باهنر: وب<br><br>کدومش بیشتر جذبت کرد؟ می‌تونم جزئیات بیشتری بهت بدم!';
+            // Course/Field questions - تمرکز روی موفقیت و درآمد
+            if (message.includes('رشته') || message.includes('دوره') || message.includes('کلاس')) {
+                return '🎓 رشته‌ها: وب (HTML/CSS/JS/PHP - درآمد ۸-۲۰م) | محتوا (Photoshop/Premiere - ۶-۱۵م).<br>برای موفقیت: پروژه عملی بساز، AI استفاده کن، پورتفولیو بساز. کدوم رشته؟';
             }
             
-            // Specific tool questions
+            // Specific tool questions - کوتاه
             if (message.includes('wordpress') || message.includes('وردپرس')) {
-                return 'WordPress یکی از محبوب‌ترین سیستم‌های مدیریت محتواست! توی رشته وب ما کاملاً آموزش داده می‌شه:<br><br>- نصب و راه‌اندازی<br>- طراحی قالب سفارشی<br>- افزونه‌نویسی<br>- بهینه‌سازی SEO<br>- امنیت و پشتیبان‌گیری<br><br>با <strong>خانم فاطمه معتمد</strong> تماس بگیرید برای جزئیات بیشتر: ۰۹۳۷۲۵۶۵۹۹۴';
+                return 'WordPress: نصب + قالب + افزونه. درآمد فریلنس: ۵-۲۰م. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
             }
             
-            if (message.includes('php') || message.includes('mysql') || message.includes('پی اچ پی')) {
-                return 'PHP و MySQL قلب توسعه وب هستن! توی رشته ما یاد می‌گیری:<br><br><strong>PHP:</strong><br>- متغیرها و آرایه‌ها<br>- توابع و کلاس‌ها<br>- کار با فایل‌ها<br>- امنیت و اعتبارسنجی<br><br><strong>MySQL:</strong><br>- طراحی پایگاه داده<br>- کوئری‌های پیشرفته<br>- بهینه‌سازی<br>- پشتیبان‌گیری<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            if (message.includes('php') || message.includes('mysql')) {
+                return 'PHP/MySQL: پایگاه داده + امنیت. برای موفقیت: پروژه واقعی بساز. درآمد: ۱۰-۲۵م.';
             }
             
-            if (message.includes('html') || message.includes('css') || message.includes('javascript') || message.includes('جاوا اسکریپت')) {
-                return 'HTML، CSS و JavaScript سه ستون اصلی وب هستن!<br><br><strong>HTML5:</strong> ساختار صفحات وب<br><strong>CSS3:</strong> طراحی و استایل‌دهی<br><strong>JavaScript ES6+:</strong> تعامل و پویایی<br><br>توی رشته وب ما از صفر تا حرفه‌ای آموزش داده می‌شه. حتی با ابزارهای AI مثل GitHub Copilot هم آشنا می‌شی!<br><br>برای ثبت نام با <strong>خانم فاطمه معتمد</strong> تماس بگیرید: ۰۹۳۷۲۵۶۵۹۹۴';
+            if (message.includes('html') || message.includes('css') || message.includes('javascript')) {
+                return 'HTML/CSS/JS: پایه وب. موفقیت: responsive طراحی کن + JS تعاملی. شغل: طراح وب (۸-۱۸م).';
             }
             
-            if (message.includes('adobe') || message.includes('photoshop') || message.includes('illustrator') || message.includes('premiere') || message.includes('after effects') || message.includes('فتوشاپ')) {
-                return 'Adobe Creative Suite توی رشته تولید محتوا کاملاً آموزش داده می‌شه!<br><br><strong>Photoshop:</strong> ویرایش تصاویر<br><strong>Illustrator:</strong> طراحی وکتور<br><strong>Premiere:</strong> ویرایش ویدیو<br><strong>After Effects:</strong> موشن گرافیک<br><strong>Captivate:</strong> محتوای آموزشی تعاملی<br><br>همه اینها رو با پروژه‌های عملی یاد می‌گیری! تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            if (message.includes('adobe') || message.includes('photoshop') || message.includes('illustrator')) {
+                return 'Photoshop/Illustrator: ویرایش + وکتور. موفقیت: پروژه گرافیکی بساز. درآمد: ۷-۱۵م (طراح محتوا).';
             }
             
-            // School questions
-            if (message.includes('هنرستان') || message.includes('مدرسه') || message.includes('دبیرستان')) {
-                return '🏫 ما چهار هنرستان عالی داریم که همه تحت نظر <strong>خانم فاطمه معتمد</strong> (سرگروه) فعالیت می‌کنن!<br><br>🌟 <strong>هنرستان زینب کبری</strong><br>👩‍💼 مدیر: فاطمه بروانیا<br>📞 تلفن: ۰۷۱۵۳۷۲۴۸۹۵<br>📚 رشته‌ها:<br>• تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)<br>• تولید کننده محتوای آموزشی الکترونیکی (کاردانش)<br>• خیاطی لباس شب و عروس (کاردانش)<br><br>🌟 <strong>هنرستان والفجر</strong><br>👩‍💼 مدیر: زهرا پوررستمی<br>📞 تلفن: ۰۷۱۵۳۷۴۳۵۷۸<br>📚 رشته‌ها:<br>• تولید کننده محتوای آموزشی الکترونیکی (کاردانش)<br>• حسابداری (فنی و حرفه‌ای)<br><br>🌟 <strong>هنرستان شهید پاکیزه خو</strong><br>👩‍💼 مدیر: فاطمه تروال<br>📞 تلفن: ۰۹۱۷۹۳۳۴۹۴۳<br>📚 رشته‌ها:<br>• تولید کننده محتوای آموزشی الکترونیکی (کاردانش)<br><br>🌟 <strong>هنرستان شهید باهنر</strong><br>👨‍💼 مدیر: عباس امیری<br>📞 تلفن: ۰۷۱۵۳۷۲۳۰۰۷<br>📚 رشته‌ها:<br>• تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)<br><br>💡 <strong>نکته مهم:</strong> برای ثبت نام و اطلاعات تکمیلی با <strong>خانم فاطمه معتمد</strong> تماس بگیرید:<br>📱 ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br><br>همه‌شون فوق‌العاده‌ان و تجهیزات مدرن دارن!';
+            // School questions - کوتاه
+            if (message.includes('هنرستان') || message.includes('مدرسه')) {
+                return '🏫 ۴ هنرستان: زینب کبری (وب+محتوا)، والفجر (محتوا). تماس مدیر: ۰۷۱۵۳۷۲۴۸۹۵. برای ثبت نام: ۰۹۳۷۲۵۶۵۹۹۴';
             }
             
-            // Future and technology questions
-            if (message.includes('آینده') || message.includes('فناوری') || message.includes('تکنولوژی') || message.includes('2025') || message.includes('۲۰۲۵') || message.includes('۱۴۰۴')) {
-                return 'آینده متعلق به فناوری‌ست! رشته‌های ما کاملاً با روندهای ۲۰۲۵ همراه هستن:<br><br><strong>روندهای داغ:</strong><br>- هوش مصنوعی و Machine Learning<br>- توسعه وب با AI-Assisted Coding<br>- محتوای تعاملی و واقعیت مجازی<br>- طراحی UX/UI مدرن<br>- دیجیتال مارکتینگ<br><br><strong>فرصت‌های شغلی:</strong><br>- توسعه‌دهنده فول‌استک: ۸-۲۰ میلیون<br>- طراح محتوای آموزشی: ۶-۱۵ میلیون<br>- متخصص AI: ۱۰-۲۵ میلیون<br><br>با ما آماده آینده شو! تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            // Future and technology questions - تمرکز موفقیت
+            if (message.includes('آینده') || message.includes('فناوری') || message.includes('2025')) {
+                return '🚀 ۲۰۲۵: AI + وب موبایل. موفقیت: مهارت JS + AI یاد بگیر. درآمد: ۱۰-۳۰م. رشته وب ما ایده‌آله.';
             }
             
-            // Learning and education questions
-            if (message.includes('یادگیری') || message.includes('آموزش') || message.includes('درس') || message.includes('مطالعه') || message.includes('تمرین')) {
-                return 'یادگیری عملی و پروژه‌محور اصل کار ماست!<br><br><strong>روش آموزش:</strong><br>- پروژه‌های واقعی<br>- کار تیمی<br>- استفاده از ابزارهای مدرن<br>- ادغام AI در یادگیری<br>- ارتباط با بازار کار<br><br><strong>منابع آموزشی:</strong><br>- کتاب‌های به‌روز<br>- ویدیوهای آموزشی<br>- پلتفرم‌های آنلاین<br>- ابزارهای تعاملی<br><br><strong>پشتیبانی:</strong><br>- مشاوره تحصیلی<br>- راهنمایی پروژه<br>- آماده‌سازی برای بازار کار<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            // Learning and education questions - کارهای لازم
+            if (message.includes('یادگیری') || message.includes('آموزش')) {
+                return '📚 موفقیت: روزانه ۲س تمرین، پروژه بساز، GitHub بگذار. منابع: ویدیوهای آپارات + کتاب سایت.';
             }
             
-            // Contact questions
-            if (message.includes('تماس') || message.includes('شماره') || message.includes('تلفن') || message.includes('ارتباط')) {
-                return 'برای تماس و دریافت اطلاعات کامل از این راه‌ها استفاده کن عزیزم:<br><br><strong>خانم فاطمه معتمد (سرگروه)</strong><br>تلفن: ۰۹۳۷۲۵۶۵۹۹۴<br>تلگرام: @cszarindasht<br><br>ایشون پاسخگوی تمام سوالاتتون هستن و با کمال میل راهنماییتون می‌کنن!';
+            // Contact questions - کوتاه
+            if (message.includes('تماس') || message.includes('شماره')) {
+                return '📞 فاطمه معتمد: ۰۹۳۷۲۵۶۵۹۹۴ | @cszarindasht';
             }
             
-            // Programming questions
-            if (message.includes('برنامه نویسی') || message.includes('کد') || message.includes('وب') || message.includes('php') || message.includes('html') || message.includes('css') || message.includes('javascript')) {
-                return 'آفرین که علاقه‌مند به برنامه‌نویسی هستی!<br><br>رشته وب ما که توسط <strong>رعنا پرموزه</strong> طراحی شده شامل:<br>HTML5, CSS3, JavaScript ES6+<br>PHP 8 & MySQL<br>WordPress Development<br>Git & GitHub<br>AI-Assisted Coding<br><br>با <strong>خانم فاطمه معتمد</strong> تماس بگیر تا راجع به ثبت نام بیشتر بدونی!<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            // Programming questions - درآمد و موفقیت
+            if (message.includes('برنامه نویسی') || message.includes('کد') || message.includes('وب')) {
+                return '💻 وب: HTML/JS/PHP. موفقیت: اپ ساده بساز. درآمد: ۸-۲۰م. شروع: منابع پایه ۱۰.';
             }
             
             // Content creation questions
-            if (message.includes('محتوا') || message.includes('آموزشی') || message.includes('الکترونیک') || message.includes('ویدیو') || message.includes('گرافیک')) {
-                return 'رشته تولید محتوای آموزشی الکترونیکی ما فوق‌العاده‌ست!<br><br><strong>ویدیو:</strong> Premiere، After Effects<br><strong>گرافیک:</strong> Photoshop، Illustrator<br><strong>آموزش:</strong> Captivate، Articulate<br><strong>وب:</strong> HTML5، CSS3<br><br>این رشته آینده‌دار و پردرآمده! <strong>خانم فاطمه معتمد</strong> همه جزئیات رو براتون توضیح میدن!<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            if (message.includes('محتوا') || message.includes('گرافیک')) {
+                return '🎨 محتوا: Photoshop + Premiere. موفقیت: ویدیو آموزشی بساز. درآمد: ۶-۱۵م.';
             }
             
-            // Thanks responses
-            if (message.includes('ممنون') || message.includes('متشکر') || message.includes('مرسی') || message.includes('thanks')) {
-                const thanks = [
-                    'خواهش می‌کنم عزیزم! <strong>رعنا پرموزه</strong> این سایت رو با عشق ساخته تا بهتون کمک کنه! اگه سؤال دیگه‌ای داشتی بپرس!',
-                    'قابل نداره گلم! <strong>خانم فاطمه معتمد</strong> همیشه آماده پاسخگویی به سوالاتتونه! خوشحالم که تونستم کمکت کنم!',
-                    'عزیزی! هر وقت کمک خواستی اینجام! حتماً با تیم ما در تماس باش!'
-                ];
-                return thanks[Math.floor(Math.random() * thanks.length)];
+            // Thanks responses - کوتاه
+            if (message.includes('ممنون') || message.includes('مرسی')) {
+                return 'خواهش! 😊 سوال دیگه؟';
             }
             
-            // Job/Career questions
-            if (message.includes('شغل') || message.includes('کار') || message.includes('درآمد') || message.includes('استخدام') || message.includes('حقوق')) {
-                return 'سؤال فوق‌العاده‌ای پرسیدی! رشته‌های ما آینده‌دار و پردرآمد هستن:<br><br><strong>توسعه‌دهنده وب:</strong> ۵-۱۵ میلیون تومان<br><strong>طراح محتوای آموزشی:</strong> ۴-۱۲ میلیون تومان<br><strong>متخصص AI:</strong> ۸-۲۰ میلیون تومان<br><strong>فریلنسر:</strong> ۳-۱۰ میلیون تومان<br><br><strong>خانم فاطمه معتمد</strong> راجع به فرصت‌های شغلی و مسیر حرفه‌ای کاملاً راهنماییتون می‌کنن!<br><br>تماس: ۰۹۳۷۲۵۶۵۹۹۴';
+            // Job/Career questions - درآمد
+            if (message.includes('شغل') || message.includes('درآمد')) {
+                return '💰 وب: ۸-۲۰م | محتوا: ۶-۱۵م. موفقیت: پورتفولیو + فریلنس (پونیشا).';
             }
             
             // Registration questions
-            if (message.includes('ثبت نام') || message.includes('پذیرش') || message.includes('شرایط') || message.includes('مدارک')) {
-                return 'برای ثبت نام و کسب اطلاعات کامل حتماً با <strong>خانم فاطمه معتمد</strong> تماس بگیرید!<br><br><strong>تلفن:</strong> ۰۹۳۷۲۵۶۵۹۹۴<br><strong>تلگرام:</strong> @cszarindasht<br><br>ایشون تمام شرایط پذیرش، مدارک لازم و مراحل ثبت نام رو کاملاً براتون توضیح میدن!<br><br><em>نکته:</em> این سایت توسط <strong>رعنا پرموزه</strong> طراحی شده تا دسترسی شما به اطلاعات آسان‌تر باشه!';
+            if (message.includes('ثبت نام')) {
+                return '📝 ثبت نام: مدارک + مصاحبه. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
             }
             
-            // Advanced topic responses
-            if (message.includes('python') || message.includes('پایتون')) {
-                return '🐍 Python یکی از محبوب‌ترین زبان‌های برنامه‌نویسی دنیاست! اگرچه توی رشته‌های ما تمرکز روی وب هست، ولی Python برای:<br><br>• هوش مصنوعی و Machine Learning<br>• تحلیل داده<br>• اتوماسیون<br>• توسعه وب با Django/Flask<br><br>خیلی کاربردیه! <strong>خانم فاطمه معتمد</strong> می‌تونن راجع به دوره‌های تکمیلی Python راهنماییتون کنن!';
-            }
-            
-            if (message.includes('react') || message.includes('vue') || message.includes('angular') || message.includes('فریمورک')) {
-                return '⚛️ فریمورک‌های مدرن JavaScript مثل React، Vue و Angular آینده توسعه وب هستن!<br><br>توی رشته وب ما پایه‌های قوی JavaScript یاد می‌گیری و بعدش می‌تونی:<br>• React برای UI های تعاملی<br>• Vue برای پروژه‌های سریع<br>• Angular برای اپلیکیشن‌های بزرگ<br><br>یاد بگیری! این مهارت‌ها درآمدت رو ۳-۵ برابر می‌کنه! 💰';
-            }
-            
-            if (message.includes('فریلنس') || message.includes('freelance') || message.includes('کار آزاد') || message.includes('پروژه')) {
-                return '💼 فریلنسینگ یکی از بهترین راه‌های درآمدزاییه! با مهارت‌های رشته‌های ما می‌تونی:<br><br><strong>وب:</strong><br>• طراحی سایت: ۵-۲۰ میلیون<br>• فروشگاه آنلاین: ۱۰-۵۰ میلیون<br>• اپلیکیشن وب: ۱۵-۱۰۰ میلیون<br><br><strong>محتوا:</strong><br>• ویدیو آموزشی: ۲-۱۰ میلیون<br>• طراحی گرافیک: ۱-۵ میلیون<br>• انیمیشن: ۵-۲۰ میلیون<br><br>پلتفرم‌ها: پونیشا، کافه‌بازار، آپ‌ورک، فایور';
-            }
-            
-            if (message.includes('بازار کار') || message.includes('استخدام') || message.includes('شرکت') || message.includes('job')) {
-                return '🏢 بازار کار IT ایران داره رشد فوق‌العاده‌ای می‌کنه!<br><br><strong>شرکت‌های بزرگ:</strong><br>• دیجی‌کالا، اسنپ، تپسی<br>• بانک‌ها و بیمه‌ها<br>• استارتاپ‌های فین‌تک<br>• شرکت‌های بین‌المللی<br><br><strong>موقعیت‌ها:</strong><br>• Junior Developer: ۸-۱۵ میلیون<br>• Mid-level: ۱۵-۳۰ میلیون<br>• Senior: ۳۰-۶۰ میلیون<br>• Tech Lead: ۵۰+ میلیون<br><br>با رشته‌های ما مستقیم وارد بازار کار می‌شی! 🚀';
-            }
-            
-            if (message.includes('دورکاری') || message.includes('remote') || message.includes('خانه') || message.includes('آنلاین')) {
-                return '🏠 دورکاری یکی از مزایای بزرگ کار در IT هست!<br><br><strong>مزایا:</strong><br>• صرفه‌جویی در وقت و هزینه<br>• تعادل کار و زندگی<br>• دسترسی به پروژه‌های بین‌المللی<br>• انعطاف در ساعات کاری<br><br><strong>شرکت‌های دورکار:</strong><br>• تیم‌های بین‌المللی<br>• استارتاپ‌های ایرانی<br>• پروژه‌های فریلنس<br>• شرکت‌های اروپایی/آمریکایی<br><br>با مهارت‌های رشته‌های ما می‌تونی از همین الان شروع کنی! 💻';
-            }
-            
-            if (message.includes('startup') || message.includes('استارتاپ') || message.includes('کسب و کار') || message.includes('ایده')) {
-                return '🚀 استارتاپ‌ها قلب نوآوری هستن! با مهارت‌های فنی می‌تونی:<br><br><strong>نقش‌های کلیدی:</strong><br>• Co-founder فنی<br>• CTO (مدیر فنی)<br>• Lead Developer<br>• Product Manager<br><br><strong>حوزه‌های داغ:</strong><br>• فین‌تک و پرداخت<br>• ای‌کامرس و بازارگاه<br>• آموزش آنلاین<br>• هوش مصنوعی<br>• IoT و خانه هوشمند<br><br><strong>مهارت‌های ضروری:</strong><br>• برنامه‌نویسی و طراحی<br>• درک از UX/UI<br>• کار تیمی<br>• حل مسئله خلاقانه<br><br>رشته‌های ما بهت همه اینها رو یاد میده! 💡';
-            }
-            
-            if (message.includes('ui') || message.includes('ux') || message.includes('طراحی') || message.includes('design') || message.includes('رابط کاربری')) {
-                return '🎨 UI/UX یکی از پردرآمدترین حوزه‌های طراحی دیجیتاله!<br><br><strong>تفاوت UI و UX:</strong><br>• UI: ظاهر و زیبایی<br>• UX: تجربه و کاربری<br><br><strong>ابزارهای ضروری:</strong><br>• Figma، Adobe XD<br>• Sketch، InVision<br>• Photoshop، Illustrator<br><br><strong>مهارت‌های مورد نیاز:</strong><br>• درک روانشناسی کاربر<br>• اصول طراحی<br>• پروتوتایپ‌سازی<br>• تست کاربری<br><br><strong>حقوق:</strong> ۱۰-۴۰ میلیون تومان<br><br>توی رشته محتوای الکترونیکی ما پایه‌های قوی طراحی یاد می‌گیری! 🖌️';
-            }
-            
-            if (message.includes('blockchain') || message.includes('بلاک چین') || message.includes('cryptocurrency') || message.includes('bitcoin') || message.includes('nft')) {
-                return '⛓️ Blockchain و ارزهای دیجیتال آینده اقتصاد دیجیتال هستن!<br><br><strong>کاربردها:</strong><br>• ارزهای دیجیتال<br>• قراردادهای هوشمند<br>• NFT و هنر دیجیتال<br>• سیستم‌های مالی غیرمتمرکز<br><br><strong>فرصت‌های شغلی:</strong><br>• Blockchain Developer: ۲۰-۸۰ میلیون<br>• Smart Contract Developer<br>• DeFi Specialist<br>• NFT Creator<br><br><strong>مهارت‌های پایه:</strong><br>• برنامه‌نویسی (Solidity، JavaScript)<br>• درک اقتصاد دیجیتال<br>• امنیت سایبری<br><br>با پایه‌های قوی وب می‌تونی وارد این حوزه بشی! 💎';
-            }
-            
-            if (message.includes('cybersecurity') || message.includes('امنیت') || message.includes('هک') || message.includes('security') || message.includes('سایبری')) {
-                return '🛡️ امنیت سایبری یکی از مهم‌ترین و پردرآمدترین حوزه‌های IT هست!<br><br><strong>تخصص‌ها:</strong><br>• Ethical Hacking<br>• Network Security<br>• Web Application Security<br>• Digital Forensics<br><br><strong>گواهینامه‌های مهم:</strong><br>• CEH (Certified Ethical Hacker)<br>• CISSP، CISM<br>• CompTIA Security+<br><br><strong>حقوق:</strong><br>• Junior: ۱۵-۲۵ میلیون<br>• Senior: ۴۰-۸۰ میلیون<br>• Expert: ۸۰+ میلیون<br><br><strong>مهارت‌های پایه:</strong><br>• شبکه و سرور<br>• برنامه‌نویسی<br>• سیستم‌عامل‌ها<br><br>با رشته وب ما پایه‌های امنیت وب رو یاد می‌گیری! 🔒';
-            }
-            
-            if (message.includes('mobile') || message.includes('موبایل') || message.includes('اپلیکیشن') || message.includes('app') || message.includes('android') || message.includes('ios')) {
-                return '📱 توسعه موبایل یکی از پردرآمدترین بخش‌های برنامه‌نویسیه!<br><br><strong>پلتفرم‌ها:</strong><br>• Android (Java/Kotlin)<br>• iOS (Swift/Objective-C)<br>• Cross-platform (React Native، Flutter)<br><br><strong>انواع اپ:</strong><br>• اپ‌های تجاری<br>• بازی موبایل<br>• اپ‌های آموزشی<br>• فین‌تک و پرداخت<br><br><strong>درآمد:</strong><br>• توسعه‌دهنده: ۱۲-۴۰ میلیون<br>• فریلنس پروژه: ۵-۵۰ میلیون<br>• انتشار اپ: درآمد مداوم<br><br><strong>مسیر یادگیری:</strong><br>پایه وب → JavaScript → React Native<br><br>با رشته وب ما می‌تونی راحت وارد موبایل بشی! 🚀';
-            }
-            
-            if (message.includes('game') || message.includes('بازی') || message.includes('unity') || message.includes('unreal') || message.includes('گیم')) {
-                return '🎮 صنعت بازی‌سازی یکی از پردرآمدترین صنایع دنیاست!<br><br><strong>موتورهای بازی:</strong><br>• Unity (C#) - مبتدی تا حرفه‌ای<br>• Unreal Engine (C++) - بازی‌های AAA<br>• Godot - متن‌باز و رایگان<br><br><strong>انواع بازی:</strong><br>• موبایل (کژوال)<br>• PC/Console (پیچیده)<br>• VR/AR (آینده‌نگر)<br>• بازی‌های وب (HTML5)<br><br><strong>نقش‌ها:</strong><br>• Game Programmer: ۱۵-۵۰ میلیون<br>• Game Designer: ۱۰-۳۰ میلیون<br>• 3D Artist: ۸-۲۵ میلیون<br><br><strong>بازار ایران:</strong><br>• استودیوهای داخلی<br>• پابلیشر بین‌المللی<br>• فریلنس و Indie<br><br>با پایه برنامه‌نویسی می‌تونی شروع کنی! 🕹️';
-            }
-            
-            if (message.includes('data') || message.includes('داده') || message.includes('analytics') || message.includes('تحلیل') || message.includes('science')) {
-                return '📊 علم داده و تحلیل داده آینده تصمیم‌گیری‌های کسب‌وکاره!<br><br><strong>مهارت‌های کلیدی:</strong><br>• Python، R، SQL<br>• Machine Learning<br>• آمار و احتمال<br>• تجسم داده (Tableau، Power BI)<br><br><strong>نقش‌ها:</strong><br>• Data Analyst: ۱۲-۳۰ میلیون<br>• Data Scientist: ۲۰-۶۰ میلیون<br>• ML Engineer: ۲۵-۷۰ میلیون<br>• Business Intelligence: ۱۵-۴۰ میلیون<br><br><strong>صنایع:</strong><br>• بانکداری و مالی<br>• بازاریابی دیجیتال<br>• بهداشت و درمان<br>• ای‌کامرس<br><br><strong>مسیر ورود:</strong><br>ریاضی → آمار → Python → ML<br><br>با پایه‌های قوی فنی می‌تونی وارد بشی! 📈';
-            }
-            
-            if (message.includes('cloud') || message.includes('ابر') || message.includes('aws') || message.includes('azure') || message.includes('google cloud')) {
-                return '☁️ Cloud Computing آینده زیرساخت‌های IT هست!<br><br><strong>ارائه‌دهندگان اصلی:</strong><br>• AWS (Amazon) - رهبر بازار<br>• Microsoft Azure<br>• Google Cloud Platform<br>• IBM Cloud<br><br><strong>سرویس‌ها:</strong><br>• IaaS: سرورهای مجازی<br>• PaaS: پلتفرم توسعه<br>• SaaS: نرم‌افزار آماده<br><br><strong>مهارت‌های مورد نیاز:</strong><br>• Linux و شبکه<br>• Docker و Kubernetes<br>• DevOps و CI/CD<br>• امنیت ابری<br><br><strong>گواهینامه‌ها:</strong><br>• AWS Solutions Architect<br>• Azure Administrator<br>• Google Cloud Engineer<br><br><strong>حقوق:</strong> ۲۰-۸۰ میلیون تومان<br><br>با پایه‌های فنی قوی می‌تونی شروع کنی! ⚡';
-            }
-            
-            if (message.includes('devops') || message.includes('دواپس') || message.includes('ci/cd') || message.includes('docker') || message.includes('kubernetes')) {
-                return '🔄 DevOps پل ارتباطی بین توسعه و عملیات هست!<br><br><strong>ابزارهای کلیدی:</strong><br>• Git، GitHub/GitLab<br>• Docker، Kubernetes<br>• Jenkins، GitHub Actions<br>• Terraform، Ansible<br><br><strong>مهارت‌ها:</strong><br>• اتوماسیون فرآیندها<br>• مانیتورینگ سیستم<br>• امنیت و بک‌آپ<br>• مدیریت زیرساخت<br><br><strong>مزایا:</strong><br>• استقرار سریع‌تر<br>• کیفیت بالاتر<br>• کاهش خطا<br>• مقیاس‌پذیری<br><br><strong>حقوق:</strong><br>• Junior: ۱۸-۳۵ میلیون<br>• Senior: ۴۰-۸۰ میلیون<br><br><strong>مسیر یادگیری:</strong><br>Linux → Git → Docker → Cloud<br><br>با پایه‌های فنی می‌تونی شروع کنی! 🚀';
-            }
-            
-            // Default intelligent responses
+            // Default responses - کوتاه و دقیق
             const defaultResponses = [
-                '🤖 سؤال جالبی پرسیدی! من آریا هستم، دستیار هوشمند فن‌آموز زرین! تقریباً همه چیز رو راجع به فناوری، برنامه‌نویسی، هوش مصنوعی و آینده شغلی می‌دونم!<br><br>🎯 <strong>تخصص‌های من:</strong><br>• ۲ رشته کاردانش (وب + محتوای الکترونیکی)<br>• ۴ هنرستان شهرستان<br>• ۵۰+ ابزار AI معرفی شده<br>• فرصت‌های شغلی و حقوق<br>• منابع آموزشی و کتاب‌ها<br>• مسیرهای حرفه‌ای<br><br>💡 <em>نکته:</em> این سایت توسط <strong>رعنا پرموزه</strong> با پالت رنگی حرفه‌ای ۲۰۲۵ طراحی شده و <strong>خانم فاطمه معتمد</strong> سرگروه ما هستن!<br><br>سؤال خاص‌تری داری؟ بپرس تا جواب کاملی بهت بدم!',
-                '🌟 خیلی جالبه که این رو پرسیدی! من می‌تونم راجع به هر موضوع فنی، رشته‌های کامپیوتر، ابزارهای AI، فرصت‌های شغلی و حتی آینده فناوری بهت کمک کنم!<br><br>📊 <strong>آمار سایت ما:</strong><br>• ۴ هنرستان فعال<br>• ۲ رشته کاردانش<br>• ۵۰+ ابزار AI معرفی شده<br>• چالش‌های آموزشی هفتگی<br>• منابع کامل و به‌روز<br><br>🎓 <strong>موضوعات پرطرفدار:</strong><br>• برنامه‌نویسی وب (HTML، CSS، JS، PHP)<br>• طراحی گرافیک (Adobe Suite)<br>• هوش مصنوعی (ChatGPT، Midjourney، Copilot)<br>• فریلنسینگ و کسب درآمد<br><br>📞 برای اطلاعات تخصصی‌تر با <strong>خانم فاطمه معتمد</strong> تماس بگیر: ۰۹۳۷۲۵۶۵۹۹۴',
-                '🚀 چه سؤال باحالی! من آریا، دستیار هوشمند این سایت هستم که توسط <strong>رعنا پرموزه</strong> با تکنولوژی‌های مدرن برنامه‌نویسی شدم!<br><br>💻 <strong>قابلیت‌های من:</strong><br>• پاسخ به سوالات فنی و آموزشی<br>• راهنمایی انتخاب رشته<br>• معرفی ابزارهای AI<br>• اطلاعات بازار کار<br>• راهنمایی ثبت نام<br><br>🎨 <strong>ویژگی‌های سایت:</strong><br>• طراحی مدرن با افکت‌های شیشه‌ای<br>• پالت رنگی هماهنگ (آبی عمیق + سبز زمردی)<br>• رسپانسیو و موبایل‌فرندلی<br>• UX/UI بهینه شده<br><br>💬 سؤال دقیق‌تری بپرس تا جواب کاملی بهت بدم!',
-                '💎 عالیه که علاقه‌مند به یادگیری هستی! من همه چیز رو راجع به دنیای فناوری می‌دونم!<br><br>🔥 <strong>موضوعات داغ ۲۰۲۵:</strong><br>• هوش مصنوعی (AI-Assisted Coding)<br>• توسعه وب (React، Vue، Angular)<br>• محتوای الکترونیکی (VR/AR)<br>• Blockchain و NFT<br>• Cloud Computing<br>• Cybersecurity<br><br>💰 <strong>حقوق‌های جذاب:</strong><br>• توسعه‌دهنده وب: ۸-۲۰ میلیون<br>• طراح محتوا: ۶-۱۵ میلیون<br>• متخصص AI: ۱۰-۲۵ میلیون<br>• فریلنسر: ۳-۱۰ میلیون<br><br>🎯 چه موضوع خاصی جذبت کرده؟ بپرس تا کاملاً راهنماییت کنم!'
+                '🌟 بپرس درباره رشته/شغل/AI. آماده‌ام!',
+                '💡 موفقیت: تمرین روزانه + پروژه. جزئیات؟',
+                '🚀 فن‌آموز زرین: وب/محتوا. کدوم علاقه؟'
             ];
             
             return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
