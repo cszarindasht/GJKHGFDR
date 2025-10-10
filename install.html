@@ -8,17 +8,1123 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Copy the entire <style> block from the main index.html here to keep consistency */
-        /* For brevity, assume it's pasted here. In practice, you can link to a shared CSS file. */
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        :root {
+            --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
+            --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
+            --accent-color: #26A69A; /* سبز برای برجسته‌سازی - هماهنگ با آبی */
+            --text-primary: #212121; /* متن اصلی light */
+            --text-secondary: #546E7A; /* متن ثانویه light */
+            --text-primary-dark: #FFFFFF; /* متن اصلی dark */
+            --text-secondary-dark: #CFD8DC; /* متن ثانویه dark */
+            --glass-bg-light: rgba(2, 136, 209, 0.15); /* شیشه‌ای آبی روشن */
+            --glass-bg-dark: rgba(255, 255, 255, 0.2); /* شیشه‌ای سفید dark */
+            --glass-border-light: rgba(255, 255, 255, 0.3); /* حاشیه شیشه‌ای light */
+            --glass-border-dark: rgba(255, 255, 255, 0.2); /* حاشیه شیشه‌ای dark */
+            --shadow-light: rgba(0,0,0,0.1); /* سایه light */
+            --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
+            --blur-amount: 8px;
+            --footer-bg: #0277BD; /* فوتر آبی تیره */
+            
+            /* Legacy support for existing styles */
+            --primary-blue: var(--primary-color);
+            --secondary-gray: var(--secondary-color);
+            --accent-green: var(--accent-color);
+            --light-bg: var(--secondary-color);
+            --dark-bg: #37474F; /* پس‌زمینه dark - خاکستری تیره هماهنگ با آبی */
+            --text-dark: var(--text-primary);
+            --text-light: var(--text-primary-dark);
+            --text-secondary-light: var(--text-secondary);
+            --glass-light: var(--glass-bg-light);
+            --glass-dark: var(--glass-bg-dark);
+            --footer-dark: var(--footer-bg);
+        }
+
+        .light-mode {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .light-mode .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-primary-dark);
+        }
+
+        .dark-mode .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+
+        .glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-light);
+        }
+
+        .dark-mode .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: heroShimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroShimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(45deg, rgba(0, 121, 107, 0.1), rgba(0, 31, 63, 0.1));
+            transform: translateZ(-1px) scale(1.1);
+            z-index: -1;
+        }
+
+        .logo-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .logo-3d:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+        }
+
+        .logo-3d i {
+            transition: all 0.4s ease;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .logo-3d:hover i {
+            transform: translateZ(20px);
+            text-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #00695C);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(38, 166, 154, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-color), #01579B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 4px 20px var(--shadow-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .theme-toggle i {
+            font-size: 20px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .dark-mode .theme-toggle i {
+            color: var(--accent-color);
+        }
+
+        .field-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .course-link {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .course-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+
+        .school-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(2,136,209,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .school-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
+        }
+
+        .team-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .dark-mode .team-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ai-glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .dark-mode .ai-glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .ai-glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 121, 107, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .ai-glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .ai-glass-card:hover {
+            box-shadow: 0 25px 50px var(--shadow-light);
+        }
+
+        .dark-mode .ai-glass-card:hover {
+            box-shadow: 0 25px 50px var(--shadow-dark);
+        }
+
+        .floating-card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-1deg); }
+        }
+
+        .tilt-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tilt-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 31, 63, 0.3);
+        }
+
+        .dark-mode .tilt-card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .ai-tool-link {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .ai-tool-link {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-tool-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-8px);
+            border-color: var(--accent-green);
+            box-shadow: 0 8px 25px rgba(0, 121, 107, 0.2);
+        }
+
+        .dark-mode .ai-tool-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-tool-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .ai-tool-link:hover::before {
+            transform: scaleY(1);
+        }
+
+        .ai-challenge-box {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-challenge-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .ai-section-bg {
+            background: linear-gradient(135deg, 
+                rgba(2, 136, 209, 0.05) 0%, 
+                rgba(38, 166, 154, 0.05) 50%, 
+                rgba(245, 247, 250, 0.05) 100%);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .dark-mode .ai-section-bg {
+            background: linear-gradient(135deg, 
+                rgba(2, 136, 209, 0.1) 0%, 
+                rgba(38, 166, 154, 0.1) 50%, 
+                rgba(69, 90, 100, 0.1) 100%);
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 34, 68, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-toggle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-3 {
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-4 {
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-5 {
+            animation: fadeIn 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-delay-6 {
+            animation: fadeIn 0.8s ease-out 1.2s forwards;
+            opacity: 0;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 34, 68, 0.5);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+        }
+
+        .chatbot-toggle i {
+            z-index: 1;
+            position: relative;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 84px;
+            right: 0;
+            width: 320px;
+            height: 520px;
+            background: var(--glass-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-light);
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-window {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                z-index: 9999;
+            }
+            
+            .chatbot-container {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .chatbot-toggle {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chatbot-window {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                z-index: 9999;
+            }
+            
+            .chatbot-header {
+                padding: 20px 15px 15px 15px;
+                padding-top: max(20px, env(safe-area-inset-top));
+            }
+            
+            .chatbot-messages {
+                padding: 15px;
+                padding-bottom: max(15px, env(safe-area-inset-bottom));
+            }
+            
+            .chatbot-input-container {
+                padding: 15px;
+                padding-bottom: max(15px, env(safe-area-inset-bottom));
+            }
+            
+            .chatbot-contact-buttons {
+                padding: 15px;
+                padding-bottom: max(15px, env(safe-area-inset-bottom));
+            }
+            
+            .chatbot-container {
+                bottom: 12px;
+                right: 12px;
+            }
+            
+            .chatbot-toggle {
+                width: 52px;
+                height: 52px;
+                font-size: 22px;
+            }
+        }
+
+        .chatbot-window.hidden {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            display: none;
+        }
+
+        .dark-mode .chatbot-window {
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 20px 60px var(--shadow-dark);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chatbot-message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .chatbot-message.user {
+            background: var(--accent-green);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .dark-mode .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .chatbot-input-container {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            background: var(--secondary-gray);
+            color: var(--text-dark);
+            outline: none;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .chatbot-input {
+            background: #263238;
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+        }
+
+        .chatbot-send:active {
+            transform: scale(0.95);
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        .chatbot-form input, .chatbot-form textarea {
+            width: 100%;
+            padding: 0.6rem;
+            margin: 0.5rem 0;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        body.dark-mode .chatbot-form input, body.dark-mode .chatbot-form textarea {
+            background-color: #455A64;
+            color: var(--text-primary-dark);
+        }
+
+        .chatbot-form button {
+            background-color: var(--accent-color);
+            color: var(--text-primary-dark);
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .chatbot-form button:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+
+
+        /* Typography Classes */
+        .heading-primary {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+
+        .heading-secondary {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+
+        .text-body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .dark-mode .heading-primary,
+        .dark-mode .heading-secondary {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .chatbot-window {
+                width: 320px;
+                height: 480px;
+            }
+            
+
+
+            .heading-primary {
+                font-size: 28px;
+            }
+
+            .heading-secondary {
+                font-size: 20px;
+            }
+
+            .theme-toggle {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .theme-toggle i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading-primary {
+                font-size: 24px;
+            }
+
+            .heading-secondary {
+                font-size: 18px;
+            }
+        }
+
+        /* Additional responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .chatbot-window {
+                width: 90%;
+            }
+
+            .ai-section .card, .card {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+
+            nav.active {
+                display: block;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Notification Bubble Styles */
+        .chatbot-notification {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 1001;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 16px 20px;
+            border-radius: 20px;
+            max-width: 280px;
+            box-shadow: 0 8px 32px rgba(2, 136, 209, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1.4;
+            text-align: center;
+            position: relative;
+        }
+
+        .chatbot-notification::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary-color);
+        }
+
+        .chatbot-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9) translateY(-5px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .ai-button-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .ai-button-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
+        }
+
+        /* Adjusted styles for reports */
+        #reports .glass-card {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reduced spacing between sections */
+        #resources + #ai-button-section {
+            margin-top: 1rem;
+        }
+
+        #ai-button-section + #reports {
+            margin-top: 1rem;
+        }
+
+        #reports {
+            padding: 1rem 0;
+        }
+
+        .video-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .video-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+
+        /* Reduced margins for resources section */
+        .mb-8 {
+            margin-bottom: 1rem !important;
+        }
+
+        .py-12 {
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+
+        .gap-6 {
+            gap: 1rem !important;
+        }
+
+        /* تغییر رنگ h3 برای جایگزین‌های رایگان به همرنگ با h5 های آموزش */
+        .free-alternatives-title {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+
+        .dark-mode .free-alternatives-title {
+            color: var(--text-primary-dark) !important;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-xl" id="theme-icon"></i>
+    </div>
+
     <!-- Logo -->
     <div class="container mx-auto px-6 py-4 text-center">
-        <div class="logo-3d w-40 h-40 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto my-12 floating-card">
-            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-36 h-36 object-contain" />
+        <div class="flex items-center justify-center mb-6">
+            <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                 style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
+                <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-primary-blue" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">گروه کامپیوتر شهرستان زرین‌دشت</h1>
+                <p class="text-sm text-gray-600" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس زرین‌دشت</p>
+            </div>
         </div>
-        <h1 class="heading-primary">آموزش نصب نرم‌افزارها</h1>
+        <h1 class="heading-primary mb-8">آموزش نصب نرم‌افزارها</h1>
     </div>
 
     <!-- Installation Videos Section -->
@@ -43,21 +1149,48 @@
                     </a>
                 </div>
                 
+                <!-- Photoshop -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Photoshop CC 2025</h4>
+                    <a href="https://www.aparat.com/v/dxnualy" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب فتوشاپ 2025
+                    </a>
+                </div>
+                
+                <!-- Illustrator -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Illustrator CC 2025</h4>
+                    <a href="https://www.aparat.com/v/wqm33dr" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب ایلاستریتور 2025
+                    </a>
+                </div>
+                
+                <!-- Animate -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Animate 2025</h4>
+                    <a href="https://www.aparat.com/v/alt4i97" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب نرم افزار Adobe Character Animator 2025 (مشابه برای Animate)
+                    </a>
+                </div>
+                
                 <!-- Visual Studio -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
                     <h4 class="font-semibold mb-2">Microsoft Visual Studio 2025</h4>
                     <a href="https://www.aparat.com/v/RXZ4Y" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        فیلم آموزش نصب ویژوال استودیو نسخه 2017 به صورت کامل
+                        فیلم آموزش نصب ویژوال استودیو نسخه 2017 به صورت کامل (مشابه برای 2025)
                     </a>
                 </div>
                 
                 <!-- Dreamweaver -->
                 <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
                     <h4 class="font-semibold mb-2">Adobe Dreamweaver CC 2025</h4>
-                    <a href="https://www.aparat.com/v/rfcKL" target="_blank" rel="noopener noreferrer" class="video-link">
+                    <a href="https://www.aparat.com/v/wdwi021" target="_blank" rel="noopener noreferrer" class="video-link">
                         <i class="fas fa-video ml-2"></i>
-                        اموزش نرم افزار دریم ویور(Dreamweaver)
+                        آموزش نصب نرم افزار Adobe Dream Weaver 2025
                     </a>
                 </div>
                 
@@ -87,18 +1220,88 @@
                         آموزش نصب وردپرس روی ویندوز
                     </a>
                 </div>
+                
+                <!-- Premiere -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Premiere Pro 2025</h4>
+                    <a href="https://www.aparat.com/v/bdx4451" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب پریمیر 2025
+                    </a>
+                </div>
+                
+                <!-- Audition -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Audition 2025</h4>
+                    <a href="https://www.aparat.com/v/jdmkp4i" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        ادوب آدیشن - آموزش نصب ادیشن 2025
+                    </a>
+                </div>
+                
+                <!-- Captivate -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Captivate 2025</h4>
+                    <a href="https://www.aparat.com/v/yjjrvrw" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب و رجیستر Adobe Captivate 2024 (مشابه برای 2025)
+                    </a>
+                </div>
+                
+                <!-- Photoshop Elements -->
+                <div class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4">
+                    <h4 class="font-semibold mb-2">Adobe Photoshop Elements 2025</h4>
+                    <a href="https://www.aparat.com/v/dxnualy" target="_blank" rel="noopener noreferrer" class="video-link">
+                        <i class="fas fa-video ml-2"></i>
+                        آموزش نصب فتوشاپ 2025 (مشابه برای Elements)
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Back to Main -->
+    <!-- Back Button -->
     <div class="text-center mb-8">
-        <a href="index.html" class="btn-primary">بازگشت به صفحه اصلی</a>
+        <a href="index.html" class="btn-primary">بازگشت به صفحه قبلی</a>
     </div>
 
-    <!-- Scripts (copy from main) -->
+    <!-- Footer -->
+    <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold">فن‌آموز زرین</h3>
+                    <p class="text-sm">گروه کامپیوتر آموزش پرورش زرین‌دشت</p>
+                </div>
+            </div>
+            <p class="mb-4">
+                توسعه دهنده رعنا پرموزه
+            </p>
+            <p class="text-sm opacity-80">
+                تمامی حقوق محفوظ است © 
+            </p>
+        </div>
+    </footer>
+
     <script>
-        // Copy theme toggle, etc., scripts from main index.html
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun text-xl';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-moon text-xl';
+            }
+        }
     </script>
 </body>
 </html>
