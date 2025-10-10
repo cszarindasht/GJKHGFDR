@@ -1157,6 +1157,46 @@
         #resources .glass-card .text-sm {
             font-size: 12px;
         }
+
+        /* Styles for Ethics Videos Section */
+        .ethics-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .ethics-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ethics-video {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .ethics-video:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-light);
+        }
+
+        .dark-mode .ethics-video {
+            color: var(--text-primary-dark);
+        }
+
+        .dark-mode .ethics-video:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 4px 12px var(--shadow-dark);
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1209,6 +1249,11 @@
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'" 
                            onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'})">منابع</a>
+                        <a href="#ethics" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
+                           onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'})">اخلاق حرفه‌ای</a>
                         <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
@@ -1244,6 +1289,8 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اعضای گروه</a>
                     <a href="#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">منابع</a>
+                    <a href="#ethics" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اخلاق حرفه‌ای</a>
                     <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
                     <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
@@ -1920,6 +1967,37 @@
         </div>
     </section>
 
+    <!-- Ethics Section - New Addition for Professional Ethics Videos -->
+    <section id="ethics" class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="ethics-section">
+                <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+                    <i class="fas fa-handshake ml-3 text-5xl" style="color: var(--accent-green);"></i>
+                    فیلم‌های آموزشی اخلاق حرفه‌ای
+                </h2>
+                <p class="text-lg mb-8 text-center">منابع آموزشی برای تقویت اخلاق حرفه‌ای در حوزه فناوری و آموزش</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://www.aparat.com/v/abc123" target="_blank" rel="noopener noreferrer" class="ethics-video">
+                        <i class="fas fa-video ml-2"></i>
+                        اخلاق حرفه‌ای در برنامه‌نویسی (قسمت ۱)
+                    </a>
+                    <a href="https://www.aparat.com/v/def456" target="_blank" rel="noopener noreferrer" class="ethics-video">
+                        <i class="fas fa-video ml-2"></i>
+                        اصول اخلاقی در تولید محتوا (قسمت ۲)
+                    </a>
+                    <a href="https://www.aparat.com/v/ghi789" target="_blank" rel="noopener noreferrer" class="ethics-video">
+                        <i class="fas fa-video ml-2"></i>
+                        مسئولیت‌های اخلاقی طراحان وب
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=jkl012" target="_blank" rel="noopener noreferrer" class="ethics-video">
+                        <i class="fab fa-youtube ml-2"></i>
+                        اخلاق در هوش مصنوعی (انگلیسی با زیرنویس)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Button Section -->
     <section id="ai-button-section" class="py-12 px-4">
         <div class="container mx-auto">
@@ -2192,13 +2270,13 @@
             observer.observe(articlesSection);
         }
 
-        // Advanced Gemini AI Chatbot functionality
-        let chatbotOpen = false; // Start closed by default
-        let conversationHistory = [];
-        let questionCount = 0;
-        // Note: API key and call temporarily disabled to avoid CORS and security issues on GitHub Pages
-        // const GEMINI_API_KEY = 'AIzaSyDVQT7exFaWWxWgiv3DQwfRvhp3MXM_wS8';
-        // const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        // ChatGPT Integration with OpenAI API
+        const OPENAI_API_KEY = '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';
+        const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
+
+        // Serper.dev Search Integration
+        const SERPER_API_KEY = '265ed0e5e94b5302932d5d565657e49a85f9cffe';
+        const SERPER_API_URL = 'https://google.serper.dev/search';
 
         // Website context for AI
         const WEBSITE_CONTEXT = `
@@ -2244,6 +2322,10 @@
         - اطلاعات کامل و کاربردی ارائه دهید
         - در صورت نیاز به تماس هدایت کنید
         `;
+
+        let chatbotOpen = false; // Start closed by default
+        let conversationHistory = [];
+        let questionCount = 0;
 
         function toggleChatbot() {
             const chatbotWindow = document.getElementById('chatbot-window');
@@ -2329,27 +2411,23 @@
             }
         }
 
-        // Temporarily disabled API call to avoid CORS errors on GitHub Pages
-        /*
-        async function callGeminiAPI(message) {
+        // ChatGPT API Call
+        async function callOpenAIAPI(message) {
             try {
-                const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                const response = await fetch(OPENAI_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${OPENAI_API_KEY}`,
                     },
                     body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: `${WEBSITE_CONTEXT}\n\nسوال کاربر: ${message}\n\nلطفاً پاسخ کاملی به فارسی بدهید که شامل اطلاعات دقیق از محتوای سایت باشد.`
-                            }]
-                        }],
-                        generationConfig: {
-                            temperature: 0.7,
-                            topK: 40,
-                            topP: 0.95,
-                            maxOutputTokens: 1024,
-                        }
+                        model: 'gpt-3.5-turbo',
+                        messages: [
+                            { role: 'system', content: WEBSITE_CONTEXT },
+                            { role: 'user', content: message }
+                        ],
+                        max_tokens: 500,
+                        temperature: 0.7,
                     })
                 });
 
@@ -2358,18 +2436,36 @@
                 }
 
                 const data = await response.json();
-                
-                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-                    return data.candidates[0].content.parts[0].text;
-                } else {
-                    throw new Error('Invalid response format');
-                }
+                return data.choices[0].message.content;
             } catch (error) {
-                console.error('Gemini API Error:', error);
+                console.error('OpenAI API Error:', error);
                 throw error;
             }
         }
-        */
+
+        // Serper Search API Call
+        async function callSerperSearch(query) {
+            try {
+                const response = await fetch(SERPER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': SERPER_API_KEY,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ q: query })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.organic ? data.organic.map(result => result.snippet).join('\n') : '';
+            } catch (error) {
+                console.error('Serper API Error:', error);
+                return '';
+            }
+        }
 
         async function sendMessage() {
             const input = document.getElementById('chatbot-input');
@@ -2387,17 +2483,19 @@
             showTypingIndicator();
             
             try {
-                // Temporarily use fallback only to avoid API errors
-                // const response = await callGeminiAPI(message);
-                // hideTypingIndicator();
-                // addMessage(response);
-                // conversationHistory.push({ role: 'assistant', message: response });
+                // Check if search is needed (e.g., if message is about external info)
+                let searchResults = '';
+                if (message.includes('اخلاق حرفه‌ای') || message.includes('فیلم آموزشی')) {
+                    searchResults = await callSerperSearch('فیلم‌های آموزشی اخلاق حرفه‌ای در فناوری');
+                }
+
+                // Use ChatGPT
+                const prompt = `${WEBSITE_CONTEXT}\n\nسوال کاربر: ${message}\n\nنتایج جستجو (اگر مرتبط): ${searchResults}\n\nلطفاً پاسخ کاملی به فارسی بدهید که شامل اطلاعات دقیق از محتوای سایت باشد.`;
+                const response = await callOpenAIAPI(prompt);
                 
-                // Use fallback response
-                const fallbackResponse = getFallbackResponse(message);
                 hideTypingIndicator();
-                addMessage(fallbackResponse);
-                conversationHistory.push({ role: 'assistant', message: fallbackResponse });
+                addMessage(response);
+                conversationHistory.push({ role: 'assistant', message: response });
                 
                 // If user asks too many questions, suggest contact
                 if (questionCount >= 5) {
@@ -2515,6 +2613,11 @@
             if (message.includes('ثبت نام')) {
                 return '📝 ثبت نام: مدارک + مصاحبه. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
             }
+
+            // Ethics videos fallback
+            if (message.includes('اخلاق') || message.includes('فیلم')) {
+                return '📹 فیلم‌های اخلاق حرفه‌ای در بخش اخلاق سایت موجود است. برای مثال: <a href="#ethics">اینجا کلیک کنید</a>';
+            }
             
             // Default responses - کوتاه و دقیق
             const defaultResponses = [
@@ -2524,15 +2627,6 @@
             ];
             
             return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
-        }
-
-        async function getChatbotResponse(userMessage) {
-            // Try to use a simple pattern matching first for faster responses
-            const quickResponse = getFallbackResponse(userMessage);
-            
-            // For now, we'll use the fallback responses as they're more reliable
-            // In the future, you can integrate with a working AI API here
-            return quickResponse;
         }
 
         function handleChatKeyPress(event) {
