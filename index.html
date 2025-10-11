@@ -149,7 +149,7 @@
         }
 
         .logo-3d:hover {
-            transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+            transform: rotateY(15deg) rotateX(10deg) scale(1.2);
         }
 
         .logo-3d i {
@@ -160,6 +160,15 @@
         .logo-3d:hover i {
             transform: translateZ(20px);
             text-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .logo-3d img {
+            transition: all 0.4s ease;
+            transform: translateZ(0);
+        }
+
+        .logo-3d:hover img {
+            transform: translateZ(50px) scale(1.2);
         }
 
         .btn-primary {
@@ -1541,6 +1550,27 @@
                 font-size: 13px;
             }
         }
+
+        /* Custom styles for requested changes */
+        #resources h2 {
+            color: #000000 !important;
+        }
+
+        #resources .book-main-heading {
+            color: #000000 !important;
+        }
+
+        .book-section h4 {
+            color: white !important;
+        }
+
+        #reports .glass-card p {
+            color: #37474F !important;
+        }
+
+        .dark-mode #reports .glass-card p {
+            color: #BDBDBD !important;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -2624,13 +2654,15 @@
                     
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-clock ml-2"></i>
-                            <span>در حال تکمیل</span>
+                            <i class="fas fa-download ml-2"></i>
+                            <span>فرمت PDF</span>
                         </div>
-                        <button class="btn-secondary opacity-50 cursor-not-allowed flex items-center text-sm px-4 py-2" disabled>
-                            <i class="fas fa-hourglass-half ml-2"></i>
-                            به‌زودی
-                        </button>
+                        <a href="https://drive.google.com/file/d/18rcNuo-kM4wrmtljy-uDN-DMWzr28U-C/view" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="btn-primary flex items-center text-sm px-4 py-2">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            دانلود گزارش
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2866,6 +2898,7 @@
         📞 تماس:
         - خانم فاطمه معتمد: 09372565994
         - تلگرام: @cszarindasht
+        - ایتا: @fatemeh_motamed
 
         شما باید:
         - پاسخ‌های دقیق و مرتبط بدهید
@@ -3051,7 +3084,7 @@
                 // If user asks too many questions, suggest contact
                 if (questionCount >= 5) {
                     setTimeout(() => {
-                        addMessage('برای اطلاعات تخصصی‌تر و راهنمایی کامل، پیشنهاد می‌کنم با <strong>خانم فاطمه معتمد</strong> تماس بگیرید:<br><br>📱 ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br><br>ایشون با کمال میل پاسخگوی تمام سوالاتتون خواهند بود! 😊');
+                        addMessage('برای اطلاعات تخصصی‌تر و راهنمایی کامل، پیشنهاد می‌کنم با <strong>خانم فاطمه معتمد</strong> تماس بگیرید:<br><br>📱 ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br>📱 ایتا: @fatemeh_motamed<br><br>ایشون با کمال میل پاسخگوی تمام سوالاتتون خواهند بود! 😊');
                     }, 2000);
                     questionCount = 0; // Reset counter
                 }
@@ -3085,7 +3118,7 @@
             
             // About Fatemeh Motamed - کوتاه
             if (message.includes('فاطمه') || message.includes('معتمد') || message.includes('سرگروه')) {
-                return '<strong>فاطمه معتمد</strong>: سرگروه. تماس: ۰۹۳۷۲۵۶۵۹۹۴ | تلگرام: @cszarindasht';
+                return '<strong>فاطمه معتمد</strong>: سرگروه. تماس: ۰۹۳۷۲۵۶۵۹۹۴ | تلگرام: @cszarindasht | ایتا: @fatemeh_motamed';
             }
             
             // Comprehensive AI questions - کوتاه و مفید
@@ -3137,7 +3170,7 @@
             
             // Contact questions - کوتاه
             if (message.includes('تماس') || message.includes('شماره')) {
-                return '📞 فاطمه معتمد: ۰۹۳۷۲۵۶۵۹۹۴ | @cszarindasht';
+                return '📞 فاطمه معتمد: ۰۹۳۷۲۵۶۵۹۹۴ | @cszarindasht | @fatemeh_motamed';
             }
             
             // Programming questions - درآمد و موفقیت
@@ -3218,7 +3251,7 @@
             window.open(`https://wa.me/989372565994?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
             
             // Show success message
-            addMessage('✅ درخواست ثبت نام شما ارسال شد! <strong>خانم فاطمه معتمد</strong> به زودی با شما تماس خواهند گرفت.<br><br>📱 تلفن: ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht');
+            addMessage('✅ درخواست ثبت نام شما ارسال شد! <strong>خانم فاطمه معتمد</strong> به زودی با شما تماس خواهند گرفت.<br><br>📱 تلفن: ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br>📱 ایتا: @fatemeh_motamed');
             
             // Clear form
             document.getElementById('reg-name').value = '';
@@ -3241,9 +3274,7 @@
         }
 
         function sendToEita() {
-            const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنماییم کنید.');
-            // Eita doesn't have direct URL scheme like WhatsApp, so we'll show a message
-            alert('برای تماس در ایتا، لطفاً شماره ۰۹۳۷۲۵۶۵۹۹۴ را جستجو کنید یا از طریق واتساپ و تلگرام تماس بگیرید.');
+            window.open('https://eitaa.com/fatemeh_motamed', '_blank', 'noopener,noreferrer');
         }
     </script>
 </body>
