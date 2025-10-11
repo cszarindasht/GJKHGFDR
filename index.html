@@ -1614,6 +1614,11 @@
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'" 
                            onclick="document.getElementById('schools').scrollIntoView({behavior: 'smooth'})">هنرستان‌ها</a>
+                        <a href="#reports" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
+                           onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'})">گزارش‌ها</a>
                         <a href="#team" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
@@ -1633,11 +1638,6 @@
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
-                        <a href="#reports" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'})">گزارش‌ها</a>
                     </nav>
 
                     <!-- Mobile Menu Button -->
@@ -1660,6 +1660,8 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('fields').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">رشته‌ها</a>
                     <a href="#schools" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('schools').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">هنرستان‌ها</a>
+                    <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">گزارش‌ها</a>
                     <a href="#team" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اعضای گروه</a>
                     <a href="#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
@@ -1668,8 +1670,6 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اخلاق حرفه‌ای</a>
                     <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
-                    <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">گزارش‌ها</a>
                 </nav>
             </div>
         </div>
@@ -1939,6 +1939,80 @@
         </div>
     </section>
 
+    <!-- Reports Section (Compacted) -->
+    <section id="reports" class="py-4 px-4" style="background-color: var(--secondary-gray);">
+        <div class="container mx-auto">
+            <h2>
+                <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
+                گزارش عملکرد سالانه شهرستان زرین‌دشت
+            </h2>
+            
+            <div class="grid lg:grid-cols-2 gap-4">
+                <!-- Report 1: 1402-1403 -->
+                <div class="glass-card p-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
+                             style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));">
+                            <i class="fas fa-file-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۲-۱۴۰۳</h3>
+                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
+                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت شامل آمار دانش‌آموزان، نتایج آموزشی، پروژه‌های انجام شده و دستاوردهای سال تحصیلی ۱۴۰۲-۱۴۰۳.
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
+                            <i class="fas fa-download ml-2"></i>
+                            <span>فرمت PDF</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="btn-primary flex items-center text-sm px-4 py-2">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            دانلود گزارش
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Report 2: 1403-1404 -->
+                <div class="glass-card p-2">
+                    <div class="flex items-center mb-2">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
+                             style="background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
+                            <i class="fas fa-file-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۳-۱۴۰۴</h3>
+                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
+                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت برای سال جاری شامل پیشرفت‌های جدید، پروژه‌های نوآورانه و برنامه‌های آتی.
+                    </p>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
+                            <i class="fas fa-download ml-2"></i>
+                            <span>فرمت PDF</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/18rcNuo-kM4wrmtljy-uDN-DMWzr28U-C/view" 
+                           target="_blank" rel="noopener noreferrer" 
+                           class="btn-primary flex items-center text-sm px-4 py-2">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            دانلود گزارش
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Team Section -->
     <section id="team" class="py-8 px-4">
         <div class="container mx-auto">
@@ -2059,7 +2133,7 @@
                     <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-image text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop CC 2025</h4>
@@ -2073,7 +2147,7 @@
                     <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-vector-square text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Illustrator CC 2025</h4>
@@ -2087,7 +2161,7 @@
                     <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-film text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Animate 2025</h4>
@@ -2122,7 +2196,7 @@
                     <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-code text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Dreamweaver CC 2025</h4>
@@ -2185,7 +2259,7 @@
                     <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-video text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Premiere Pro 2025</h4>
@@ -2199,7 +2273,7 @@
                     <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-microphone text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Audition 2025</h4>
@@ -2213,7 +2287,7 @@
                     <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-magic text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Captivate 2025</h4>
@@ -2227,7 +2301,7 @@
                     <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-adobe text-white text-xl"></i>
+                                <i class="fas fa-image text-white text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop Elements 2025</h4>
@@ -2591,80 +2665,6 @@
                     <i class="fas fa-magic"></i>
                    آشنایی با هوش مصنوعی‌های مفید
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reports Section (Compacted) -->
-    <section id="reports" class="py-4 px-4" style="background-color: var(--secondary-gray);">
-        <div class="container mx-auto">
-            <h2>
-                <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
-                گزارش عملکرد سالانه شهرستان زرین‌دشت
-            </h2>
-            
-            <div class="grid lg:grid-cols-2 gap-4">
-                <!-- Report 1: 1402-1403 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۲-۱۴۰۳</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت شامل آمار دانش‌آموزان، نتایج آموزشی، پروژه‌های انجام شده و دستاوردهای سال تحصیلی ۱۴۰۲-۱۴۰۳.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Report 2: 1403-1404 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۳-۱۴۰۴</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت برای سال جاری شامل پیشرفت‌های جدید، پروژه‌های نوآورانه و برنامه‌های آتی.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/18rcNuo-kM4wrmtljy-uDN-DMWzr28U-C/view" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -3277,5 +3277,5 @@
             window.open('https://eitaa.com/fatemeh_motamed', '_blank', 'noopener,noreferrer');
         }
     </script>
-</body>
+</body>      
 </html>
