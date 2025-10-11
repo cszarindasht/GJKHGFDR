@@ -616,7 +616,17 @@
             color: var(--text-light);
         }
 
-        /* Responsive Design */
+        /* Responsive Design - Enhanced for full responsiveness */
+        @media (max-width: 1024px) {
+            .hero-gradient {
+                py: 16;
+            }
+
+            .container {
+                px-4;
+            }
+        }
+
         @media (max-width: 768px) {
             .theme-toggle {
                 bottom: 16px;
@@ -637,11 +647,44 @@
                 padding: 10px 12px;
                 font-size: 12px;
             }
+
+            .hero-gradient h2 {
+                font-size: 2rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .ai-button-section {
+                padding: 2rem 1rem;
+            }
+
+            /* Hamburger Menu Enhancements for Mobile */
+            .mobile-menu {
+                width: 80vw;
+                max-width: 300px;
+            }
+
+            .mobile-menu nav a {
+                padding: 1rem 0;
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
             .web-software-card {
                 padding: 0.75rem;
+                margin-bottom: 0.75rem;
             }
 
             .web-link {
@@ -655,9 +698,74 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .hero-gradient {
+                py: 12;
+                rounded-2xl;
+            }
+
+            .hero-gradient h2 {
+                font-size: 1.75rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            /* Logo adjustments for small screens */
+            .logo-3d {
+                width: 12;
+                height: 12;
+            }
+
+            .logo-3d img {
+                width: 10;
+                height: 10;
+            }
+
+            /* Header adjustments */
+            header .container {
+                px: 4;
+                py: 3;
+            }
+
+            /* Chatbot on small screens */
+            .chatbot-container {
+                bottom: 16px;
+                right: 16px;
+            }
+
+            .chatbot-toggle {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+
+            .chatbot-window {
+                width: 90vw;
+                max-width: 320px;
+                height: 60vh;
+                max-height: 500px;
+                bottom: 70px;
+            }
+
+            .chatbot-messages {
+                padding: 15px;
+            }
+
+            .chatbot-input-container {
+                padding: 10px 15px;
+            }
         }
 
-        /* Unified title styles */
+        /* Unified title styles - Responsive */
         h2 {
             font-size: 22px !important;
             font-weight: 700 !important;
@@ -681,9 +789,56 @@
         .dark-mode h3 {
             color: var(--accent-color) !important;
         }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 20px !important;
+            }
+
+            h3 {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Grid responsiveness enhancement */
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 > * {
+                grid-column: span 1 / span 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 > * {
+                grid-column: span 1 / span 3;
+            }
+        }
+
+        /* Overlay for mobile menu to prevent background interaction */
+        .mobile-menu.active + .overlay {
+            display: block;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 49;
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" onclick="toggleMobileMenu()"></div>
+
     <!-- Theme Toggle -->
     <div class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon text-xl" id="theme-icon"></i>
@@ -701,7 +856,7 @@
                             <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;"></h1>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">فن‌آموز زرین</h1>
                             <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
                             <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس </p>
                         </div>
@@ -731,8 +886,8 @@
                            onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
                     </nav>
 
-                    <!-- Mobile Menu Button -->
-                    <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                    <!-- Mobile Menu Button - Hamburger Icon (Gray tint for visibility) -->
+                    <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()" style="color: #f0f0f0;">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -741,19 +896,19 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden" 
                  style="background: var(--primary-blue); box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);">
-                <button class="absolute top-4 left-4 text-white text-2xl" onclick="toggleMobileMenu()">
+                <button class="absolute top-4 left-4 text-white text-2xl p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()">
                     <i class="fas fa-times"></i>
                 </button>
                 <nav class="mt-12 space-y-6">
-                    <a href="index.html#hero" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                    <a href="index.html#hero" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">خانه</a>
-                    <a href="index.html#fields" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                    <a href="index.html#fields" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">رشته‌ها</a>
-                    <a href="index.html#schools" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                    <a href="index.html#schools" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هنرستان‌ها</a>
-                    <a href="index.html#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                    <a href="index.html#resources" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">منابع</a>
-                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
                 </nav>
             </div>
@@ -1027,7 +1182,7 @@
         
         <div class="chatbot-window" id="chatbot-window">
             <div class="chatbot-header">
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between w-full">
                     <div class="flex items-center">
                         <i class="fas fa-robot ml-2"></i>
                         <span class="font-bold">دستیار هوشمند فن‌آموز زرین</span>
@@ -1070,10 +1225,12 @@
             }
         }
 
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle - Enhanced with overlay
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.querySelector('.overlay');
             mobileMenu.classList.toggle('active');
+            overlay.style.display = mobileMenu.classList.contains('active') ? 'block' : 'none';
         }
 
         // Simple Chatbot for this page (basic functionality)
@@ -1138,6 +1295,16 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Close mobile menu on window resize if desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const overlay = document.querySelector('.overlay');
+                mobileMenu.classList.remove('active');
+                overlay.style.display = 'none';
+            }
         });
     </script>
 </body>
