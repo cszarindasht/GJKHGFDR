@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب نرم‌افزارها - گروه کامپیوتر شهرستان زرین‌دشت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        :root {
+            --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
+            --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
+            --accent-color: #26A69A; /* سبز برای برجسته‌سازی - هماهنگ با آبی */
+            --text-primary: #212121; /* متن اصلی light */
+            --text-secondary: #546E7A; /* متن ثانویه light */
+            --text-primary-dark: #FFFFFF; /* متن اصلی dark */
+            --text-secondary-dark: #CFD8DC; /* متن ثانویه dark */
+            --glass-bg-light: rgba(2, 136, 209, 0.15); /* شیشه‌ای آبی روشن */
+            --glass-bg-dark: rgba(255, 255, 255, 0.2); /* شیشه‌ای سفید dark */
+            --glass-border-light: rgba(255, 255, 255, 0.3); /* حاشیه شیشه‌ای light */
+            --glass-border-dark: rgba(255, 255, 255, 0.2); /* حاشیه شیشه‌ای dark */
+            --shadow-light: rgba(0,0,0,0.1); /* سایه light */
+            --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
+            --blur-amount: 8px;
+            --footer-bg: #0277BD; /* فوتر آبی تیره */
+            
+            /* Legacy support for existing styles */
+            --primary-blue: var(--primary-color);
+            --secondary-gray: var(--secondary-color);
+            --accent-green: var(--accent-color);
+            --light-bg: var(--secondary-color);
+            --dark-bg: #37474F; /* پس‌زمینه dark - خاکستری تیره هماهنگ با آبی */
+            --text-dark: var(--text-primary);
+            --text-light: var(--text-primary-dark);
+            --text-secondary-light: var(--text-secondary);
+            --glass-light: var(--glass-bg-light);
+            --glass-dark: var(--glass-bg-dark);
+            --footer-dark: var(--footer-bg);
+        }
+
+        .light-mode {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .light-mode .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-primary-dark);
+        }
+
+        .dark-mode .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+
+        .glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-light);
+            transform: translateY(-2px);
+        }
+
+        .dark-mode .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: heroShimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroShimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(45deg, rgba(0, 121, 107, 0.1), rgba(0, 31, 63, 0.1));
+            transform: translateZ(-1px) scale(1.1);
+            z-index: -1;
+        }
+
+        .logo-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .logo-3d:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.2);
+        }
+
+        .logo-3d i {
+            transition: all 0.4s ease;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .logo-3d:hover i {
+            transform: translateZ(20px);
+            text-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .logo-3d img {
+            transition: all 0.4s ease;
+            transform: translateZ(0);
+        }
+
+        .logo-3d:hover img {
+            transform: translateZ(50px) scale(1.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #00695C);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(38, 166, 154, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-color), #01579B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 4px 20px var(--shadow-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .dark-mode .theme-toggle i {
+            color: var(--accent-color);
+        }
+
+        .web-software-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .dark-mode .web-software-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            color: var(--text-primary-dark);
+        }
+
+        .web-software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-light);
+        }
+
+        .dark-mode .web-software-card:hover {
+            box-shadow: 0 15px 30px var(--shadow-dark);
+        }
+
+        .web-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .web-link {
+            color: var(--text-primary-dark);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .web-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+            color: var(--text-primary);
+        }
+
+        .dark-mode .web-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-primary-dark);
+        }
+
+        .ai-button-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .ai-button-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .ai-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
+        }
+
+        /* Chatbot Styles - Copied from main page for consistency */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 34, 68, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-toggle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 34, 68, 0.5);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+        }
+
+        .chatbot-toggle i {
+            z-index: 1;
+            position: relative;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 84px;
+            right: 0;
+            width: 320px;
+            height: 520px;
+            background: var(--glass-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-light);
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+        }
+
+        .dark-mode .chatbot-window {
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 20px 60px var(--shadow-dark);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chatbot-message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .chatbot-message.user {
+            background: var(--accent-green);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .dark-mode .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .chatbot-input-container {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            background: var(--secondary-gray);
+            color: var(--text-dark);
+            outline: none;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .chatbot-input {
+            background: #263238;
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+        }
+
+        .chatbot-send:active {
+            transform: scale(0.95);
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        /* Typography Classes */
+        .heading-primary {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+
+        .heading-secondary {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+
+        .text-body {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .dark-mode .heading-primary,
+        .dark-mode .heading-secondary {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .theme-toggle i {
+                font-size: 16px;
+            }
+
+            .web-software-card {
+                padding: 1rem;
+            }
+
+            .web-link {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .web-software-card {
+                padding: 0.75rem;
+            }
+
+            .web-link {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .ai-button {
+                padding: 12px 20px;
+                font-size: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Unified title styles */
+        h2 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--primary-blue) !important;
+            text-align: center;
+            margin-bottom: 1rem !important;
+            white-space: nowrap;
+        }
+
+        .dark-mode h2 {
+            color: var(--text-primary-dark) !important;
+        }
+
+        h3 {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: var(--accent-color) !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .dark-mode h3 {
+            color: var(--accent-color) !important;
+        }
+    </style>
+</head>
+<body class="light-mode transition-all duration-300">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-xl" id="theme-icon"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 m-4" style="background: var(--primary-blue); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 31, 63, 0.3);">
+        <div class="dark-mode:bg-dark-bg transition-all duration-300" style="background: inherit; border-radius: inherit;">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex items-center logo-text">
+                        <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                             style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
+                            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;"></h1>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس </p>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="index.html#hero" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">خانه</a>
+                        <a href="index.html#fields" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">رشته‌ها</a>
+                        <a href="index.html#schools" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هنرستان‌ها</a>
+                        <a href="index.html#resources" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">منابع</a>
+                        <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden" 
+                 style="background: var(--primary-blue); box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);">
+                <button class="absolute top-4 left-4 text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <nav class="mt-12 space-y-6">
+                    <a href="index.html#hero" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">خانه</a>
+                    <a href="index.html#fields" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">رشته‌ها</a>
+                    <a href="index.html#schools" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هنرستان‌ها</a>
+                    <a href="index.html#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">منابع</a>
+                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section for Web Software -->
+    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in" style="color: white !important;">وب نرم‌افزارها</h2>
+            <h3 class="text-2xl md:text-3xl mb-4 animate-fade-in-delay-1">نسخه‌های وب‌بیس برای دسترسی آسان</h3>
+            <p class="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 animate-fade-in-delay-4">
+                در این بخش، جایگزین‌های آنلاین و وب‌بیس برای نرم‌افزارهای اصلی رشته‌های کامپیوتر معرفی شده است. بدون نیاز به نصب، مستقیماً در مرورگر کار کنید.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Web Software Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto">
+            <h2>
+                <i class="fas fa-globe ml-3"></i>
+                نرم‌افزارهای اصلی (نسخه‌های وب‌بیس)
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                <!-- Windows 10/11 -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Windows 10/11</h3>
+                    <p class="text-sm mb-3 text-secondary">از Windows 365 Cloud PC یا Azure Virtual Desktop استفاده کنید. این سرویس‌ها ویندوز کامل را در مرورگر شبیه‌سازی می‌کنند.</p>
+                    <a href="https://rdweb.wvd.microsoft.com/arm/webclient" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        Windows App for Azure Virtual Desktop
+                    </a>
+                </div>
+
+                <!-- Microsoft Office -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Microsoft Office 2016/2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Microsoft 365 for the web (شامل Word، Excel، PowerPoint و OneNote).</p>
+                    <a href="https://www.office.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        office.com
+                    </a>
+                </div>
+
+                <!-- Adobe Photoshop -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Photoshop CC 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Photoshop on the web (ویرایش تصاویر مستقیم در مرورگر).</p>
+                    <a href="https://photoshop.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        photoshop.adobe.com
+                    </a>
+                </div>
+
+                <!-- Adobe Illustrator -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Illustrator CC 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Illustrator on the web (Beta) (طراحی وکتور در مرورگر).</p>
+                    <a href="https://illustrator.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        illustrator.adobe.com
+                    </a>
+                </div>
+
+                <!-- Adobe Animate -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Animate 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Adobe Express Animation Maker (ساخت انیمیشن ساده و سریع آنلاین).</p>
+                    <a href="https://express.adobe.com/create/animation" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        express.adobe.com/create/animation
+                    </a>
+                </div>
+
+                <!-- Visual Studio -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Microsoft Visual Studio 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Visual Studio Code for the Web (ویرایش کد و IDE سبک در مرورگر؛ برای پروژه‌های کامل، از GitHub Codespaces استفاده کنید).</p>
+                    <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        vscode.dev
+                    </a>
+                </div>
+
+                <!-- Adobe Dreamweaver -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Dreamweaver CC 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Adobe XD for Web (طراحی و ویرایش وب‌صفحات آنلاین؛ جایگزین مناسب برای کدنویسی وب). از Express برای ویرایش ساده‌تر استفاده کنید.</p>
+                    <a href="https://xd.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        xd.adobe.com
+                    </a>
+                </div>
+
+                <!-- WampServer -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">WampServer 3.3</h3>
+                    <p class="text-sm mb-3 text-secondary">Replit یا Glitch (محیط توسعه وب آنلاین با PHP/MySQL بدون سرور محلی).</p>
+                    <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        replit.com (پشتیبانی از PHP و دیتابیس)
+                    </a>
+                </div>
+
+                <!-- XAMPP -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">XAMPP 8.2</h3>
+                    <p class="text-sm mb-3 text-secondary">CodeSandbox یا Heroku Free Tier (سرور آنلاین برای تست PHP/Apache/MySQL).</p>
+                    <a href="https://codesandbox.io" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        codesandbox.io (برای پروژه‌های وب‌بیس)
+                    </a>
+                </div>
+
+                <!-- WordPress -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">WordPress 6.6</h3>
+                    <p class="text-sm mb-3 text-secondary">WordPress.com (میزبانی و ویرایش کامل سایت بدون نصب).</p>
+                    <a href="https://wordpress.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        wordpress.com
+                    </a>
+                </div>
+
+                <!-- Adobe Premiere -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Premiere Pro 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Adobe Express Video Editor (ویرایش ویدیو آنلاین با ابزارهای پایه).</p>
+                    <a href="https://express.adobe.com/video/editor" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        express.adobe.com/video/editor
+                    </a>
+                </div>
+
+                <!-- Adobe Audition -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Audition 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Adobe Podcast (ویرایش و ضبط صدا با AI در مرورگر).</p>
+                    <a href="https://podcast.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        podcast.adobe.com
+                    </a>
+                </div>
+
+                <!-- Adobe Captivate -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Captivate 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Articulate Rise 360 (ساخت دوره‌های آموزشی آنلاین بدون نصب؛ جایگزین قدرتمند). نسخه آزمایشی رایگان.</p>
+                    <a href="https://rise.articulate.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        rise.articulate.com
+                    </a>
+                </div>
+
+                <!-- Adobe Photoshop Elements -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Adobe Photoshop Elements 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Adobe Elements Web App (Beta) (ویرایش عکس ساده در وب).</p>
+                    <a href="https://elements.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        elements.adobe.com
+                    </a>
+                </div>
+            </div>
+
+            <h2>
+                <i class="fas fa-globe ml-3"></i>
+                جایگزین‌های رایگان دائمی (نسخه‌های وب‌بیس)
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- GIMP -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">GIMP (جایگزین Photoshop)</h3>
+                    <p class="text-sm mb-3 text-secondary">GIMP Online (ویرایش تصاویر در مرورگر).</p>
+                    <a href="https://gimp-online.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        gimp-online.com
+                    </a>
+                </div>
+
+                <!-- Inkscape -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Inkscape (جایگزین Illustrator)</h3>
+                    <p class="text-sm mb-3 text-secondary">Inkscape on rollApp (طراحی وکتور آنلاین).</p>
+                    <a href="https://rollapp.com/app/inkscape" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        rollapp.com/app/inkscape
+                    </a>
+                </div>
+
+                <!-- DaVinci Resolve -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">DaVinci Resolve 18 (جایگزین Premiere)</h3>
+                    <p class="text-sm mb-3 text-secondary">Kapwing Video Editor (ویرایش ویدیو آنلاین رایگان؛ جایگزین مناسب). ابزارهای حرفه‌ای بدون نصب.</p>
+                    <a href="https://kapwing.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        kapwing.com
+                    </a>
+                </div>
+
+                <!-- Audacity -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Audacity (جایگزین Audition)</h3>
+                    <p class="text-sm mb-3 text-secondary">Wavacity (ویرایش صدا آنلاین بر پایه Audacity).</p>
+                    <a href="https://wavacity.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        wavacity.com
+                    </a>
+                </div>
+
+                <!-- Visual Studio Code -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Visual Studio Code</h3>
+                    <p class="text-sm mb-3 text-secondary">VS Code for the Web (vscode.dev).</p>
+                    <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        vscode.dev
+                    </a>
+                </div>
+
+                <!-- Canva -->
+                <div class="web-software-card">
+                    <h3 class="font-bold mb-2">Canva AI 2025</h3>
+                    <p class="text-sm mb-3 text-secondary">Canva.com با ابزارهای AI (طراحی گرافیکی و AI کاملاً آنلاین).</p>
+                    <a href="https://canva.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                        <i class="fas fa-external-link-alt ml-2"></i>
+                        canva.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="ai-button-section mt-8">
+                <a href="index.html#resources" class="ai-button">
+                    <i class="fas fa-arrow-left"></i>
+                    بازگشت به منابع اصلی
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white">فن‌آموز زرین</h3>
+                    <p class="text-sm text-gray-200">گروه کامپیوتر آموزش پرورش زرین‌دشت</p>
+                </div>
+            </div>
+            <p class="mb-4 text-gray-200">
+                توسعه دهنده: فاطمه معتمد - رعنا پرموزه
+            </p>
+            <p class="text-sm opacity-80 text-gray-200">
+                تمامی حقوق محفوظ است © 
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </button>
+        
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i class="fas fa-robot ml-2"></i>
+                        <span class="font-bold">دستیار هوشمند فن‌آموز زرین</span>
+                    </div>
+                    <button class="chatbot-close md:hidden text-white text-xl" onclick="toggleChatbot()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot">
+                    سلام! به بخش وب نرم‌افزارها خوش آمدید! 🌐<br><br>اینجا جایگزین‌های آنلاین برای نرم‌افزارهای رشته‌های کامپیوتر رو پیدا می‌کنید. سوالی در مورد استفاده از این ابزارها داری؟ 💬
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="پیام خود را بنویسید..." onkeypress="handleChatKeyPress(event)">
+                <button class="chatbot-send" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun text-xl';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-moon text-xl';
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Simple Chatbot for this page (basic functionality)
+        let chatbotOpen = false;
+
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                chatbotWindow.style.display = 'flex';
+                setTimeout(() => {
+                    chatbotWindow.style.transform = 'scale(1) translateY(0)';
+                    chatbotWindow.style.opacity = '1';
+                }, 10);
+            } else {
+                chatbotWindow.style.transform = 'scale(0.9) translateY(20px)';
+                chatbotWindow.style.opacity = '0';
+                setTimeout(() => {
+                    chatbotWindow.style.display = 'none';
+                }, 400);
+            }
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const userDiv = document.createElement('div');
+            userDiv.className = 'chatbot-message user';
+            userDiv.textContent = message;
+            messagesContainer.appendChild(userDiv);
+            
+            // Simple bot response
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'chatbot-message bot';
+                botDiv.innerHTML = 'سپاس از پیامت! برای جزئیات بیشتر در مورد وب نرم‌افزارها، به لیست بالا مراجعه کن یا با سرگروه تماس بگیر: ۰۹۳۷۲۵۶۵۹۹۴ 😊';
+                messagesContainer.appendChild(botDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 500);
+            
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Smooth scrolling if needed
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
