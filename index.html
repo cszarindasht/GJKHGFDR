@@ -1241,9 +1241,19 @@
             box-shadow: 0 2px 8px rgba(255,255,255,0.3);
         }
 
+        /* Smaller font for book headings */
+        .book-section h4 {
+            font-size: 12px !important; /* Reduced from text-lg (18px) to 12px */
+        }
+
+        /* Smaller font for main book resources heading */
+        #resources h3.book-main-heading {
+            font-size: 18px !important; /* Reduced from text-3xl (30px) to 18px */
+        }
+
         /* Unified title styles */
         h2 {
-            font-size: 24px !important;
+            font-size: 22px !important;
             font-weight: 700 !important;
             color: var(--primary-blue) !important;
             text-align: center;
@@ -1253,6 +1263,283 @@
 
         .dark-mode h2 {
             color: var(--text-primary-dark) !important;
+        }
+
+        /* بهبودهای رسپانسیو جدید */
+        @media (max-width: 1024px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .hero-gradient {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .field-card {
+                padding: 1.5rem;
+            }
+
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 13px;
+            }
+
+            h2 {
+                font-size: 20px !important;
+            }
+
+            .hero-gradient {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            .hero-gradient h2 {
+                font-size: 1.75rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-gradient h4, .hero-gradient h5 {
+                font-size: 1.25rem !important;
+            }
+
+            .field-card {
+                padding: 1rem;
+            }
+
+            .course-link {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .grid.lg\:grid-cols-4, .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .school-card {
+                padding: 1rem;
+            }
+
+            .school-card ul {
+                margin-right: 0;
+                padding-right: 0;
+            }
+
+            .team-section {
+                padding: 1.5rem;
+            }
+
+            .glass-card.p-8 {
+                padding: 1.5rem;
+            }
+
+            #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.75rem;
+            }
+
+            #resources .glass-card {
+                padding: 0.75rem;
+            }
+
+            #resources .glass-card h4 {
+                font-size: 11px;
+            }
+
+            .book-section {
+                padding: 1.5rem;
+            }
+
+            .book-link {
+                padding: 8px 12px;
+                font-size: 10px;
+            }
+
+            .ethics-section {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            .ethics-video {
+                padding: 0.75rem;
+                margin: 0.5rem 0;
+                font-size: 12px;
+            }
+
+            .ai-button-section {
+                padding: 2rem 1rem;
+            }
+
+            .ai-button {
+                padding: 14px 24px;
+                font-size: 13px;
+            }
+
+            #reports .glass-card {
+                padding: 0.75rem;
+            }
+
+            #reports h3 {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 2rem 1rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+
+            .header {
+                margin: 0.5rem;
+            }
+
+            .hero-gradient {
+                margin: 0.5rem;
+                border-radius: 1rem;
+            }
+
+            .section {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 18px !important;
+            }
+
+            .hero-gradient h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.25rem !important;
+            }
+
+            .hero-gradient h4, .hero-gradient h5 {
+                font-size: 1rem !important;
+            }
+
+            .field-card {
+                padding: 0.75rem;
+            }
+
+            .course-link {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .school-card {
+                padding: 0.75rem;
+            }
+
+            .team-section {
+                padding: 1rem;
+            }
+
+            .glass-card.p-8 {
+                padding: 1rem;
+            }
+
+            #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            #resources .glass-card {
+                padding: 0.5rem;
+            }
+
+            .book-section {
+                padding: 1rem;
+            }
+
+            .book-link {
+                padding: 6px 10px;
+                font-size: 9px;
+            }
+
+            .ethics-section {
+                padding: 1rem;
+                margin: 0.5rem 0;
+            }
+
+            .ethics-video {
+                padding: 0.5rem;
+                font-size: 11px;
+            }
+
+            .ai-button-section {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .ai-button {
+                padding: 12px 20px;
+                font-size: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            #reports .glass-card {
+                padding: 0.5rem;
+            }
+
+            footer {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-3d.w-16.h-16 {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+        }
+
+        /* بهبود رسپانسیو برای هدر */
+        @media (max-width: 768px) {
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-3d.w-16.h-16 {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -1362,7 +1649,7 @@
     <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
         <div class="parallax-bg"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">گروه کامپیوتر شهرستان زرین دشت </h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in">گروه کامپیوتر شهرستان زرین دشت </h2>
             <h3 class="text-2xl md:text-3xl mb-4 animate-fade-in-delay-1">برای آینده‌سازان فناوری</h3>
             <h4 class="text-xl md:text-2xl mb-8 animate-fade-in-delay-2">دسترسی هوشمند</h4>
             
@@ -2029,14 +2316,14 @@
 
             <!-- New Book Resources Section -->
             <div class="mt-12">
-                <h3 class="text-3xl font-bold text-center mb-8" style="color: var(--primary-blue);">
+                <h3 class="book-main-heading text-3xl font-bold text-center mb-8" style="color: var(--primary-blue);">
                     <i class="fas fa-book ml-3"></i>
                     کتاب‌های درسی و منابع آموزشی
                 </h3>
 
                 <!-- Shared Non-Technical Competencies -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">شایستگی‌های غیرفنی مشترک</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">شایستگی‌های غیرفنی مشترک</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/12397" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
@@ -2083,7 +2370,7 @@
 
                 <!-- Network and Software Field -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته شبکه و نرم‌افزار رایانه</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته شبکه و نرم‌افزار رایانه</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/12420" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
@@ -2130,7 +2417,7 @@
 
                 <!-- Multimedia Producer Field -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولیدکننده چندرسانه‌ای</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده چندرسانه‌ای</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/13072" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
@@ -2177,7 +2464,7 @@
 
                 <!-- Internet Database Developer Field -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولیدکننده و توسعه‌دهنده پایگاه‌های اینترنتی</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده و توسعه‌دهنده پایگاه‌های اینترنتی</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/11068" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
@@ -2192,7 +2479,7 @@
 
                 <!-- Educational Electronic Content Producer Field -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته تولید محتوای آموزشی الکترونیکی</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولید محتوای آموزشی الکترونیکی</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/11063" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
@@ -2219,7 +2506,7 @@
 
                 <!-- Other Fields -->
                 <div class="book-section">
-                    <h4 class="font-bold mb-4 text-lg" style="color: var(--accent-green);">رشته‌های تصویرسازی دیجیتالی، برنامه‌نویسی بازی‌ها و پایگاه داده</h4>
+                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته‌های تصویرسازی دیجیتالی، برنامه‌نویسی بازی‌ها و پایگاه داده</h4>
                     <div class="grid md:grid-cols-2 gap-4">
                         <a href="http://chap.sch.ir/books/11092" target="_blank" rel="noopener noreferrer" class="book-link">
                             <i class="fas fa-book ml-2"></i>
