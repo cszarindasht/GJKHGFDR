@@ -15,8 +15,9 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 14px;
             line-height: 1.5;
+            background-color: #C0C0C0 !important; /* پس‌زمینه نقره‌ای براق، صاف و شیک مانند فلز صیقلی */
         }
-        
+       
         :root {
             --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
             --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
@@ -33,7 +34,7 @@
             --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
             --blur-amount: 8px;
             --footer-bg: #0277BD; /* فوتر آبی تیره */
-            
+           
             /* Legacy support for existing styles */
             --primary-blue: var(--primary-color);
             --secondary-gray: var(--secondary-color);
@@ -47,25 +48,20 @@
             --glass-dark: var(--glass-bg-dark);
             --footer-dark: var(--footer-bg);
         }
-
         .light-mode {
             background-color: var(--secondary-color);
             color: var(--text-primary);
         }
-
         .light-mode .text-secondary {
             color: var(--text-secondary);
         }
-
         .dark-mode {
             background-color: var(--dark-bg);
             color: var(--text-primary-dark);
         }
-
         .dark-mode .text-secondary {
             color: var(--text-secondary-dark);
         }
-
         .glass-card {
             background: var(--glass-bg-light);
             backdrop-filter: blur(var(--blur-amount));
@@ -77,21 +73,17 @@
             position: relative;
             overflow: hidden;
         }
-
         .dark-mode .glass-card {
             background: var(--glass-bg-dark);
             border: 1px solid var(--glass-border-dark);
             box-shadow: 0 8px 32px var(--shadow-dark);
         }
-
         .glass-card:hover {
             box-shadow: 0 12px 40px var(--shadow-light);
         }
-
         .dark-mode .glass-card:hover {
             box-shadow: 0 12px 40px var(--shadow-dark);
         }
-
         .glass-card::before {
             content: '';
             position: absolute;
@@ -103,17 +95,27 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .glass-card:hover::before {
             opacity: 1;
         }
-
         .hero-gradient {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -125,12 +127,10 @@
             animation: heroShimmer 8s ease-in-out infinite;
             pointer-events: none;
         }
-
         @keyframes heroShimmer {
             0%, 100% { transform: rotate(0deg) scale(1); }
             50% { transform: rotate(180deg) scale(1.1); }
         }
-
         .parallax-bg {
             position: absolute;
             top: 0;
@@ -141,36 +141,31 @@
             transform: translateZ(-1px) scale(1.1);
             z-index: -1;
         }
-
         .logo-3d {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
             perspective: 1000px;
         }
-
         .logo-3d:hover {
             transform: rotateY(15deg) rotateX(10deg) scale(1.2);
         }
-
         .logo-3d i {
             transition: all 0.4s ease;
             text-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-
         .logo-3d:hover i {
             transform: translateZ(20px);
             text-shadow: 0 8px 16px rgba(0,0,0,0.4);
         }
-
         .logo-3d img {
             transition: all 0.4s ease;
             transform: translateZ(0);
+            filter: brightness(0) invert(1); /* لوگو را سفید می‌کند - فوق‌العاده برای تم آبی */
         }
-
         .logo-3d:hover img {
             transform: translateZ(50px) scale(1.2);
+            filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(255,255,255,0.5)); /* افکت فوق‌العاده */
         }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-color), #00695C);
             color: white;
@@ -189,7 +184,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn-primary::before {
             content: '';
             position: absolute;
@@ -200,22 +194,18 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s ease;
         }
-
         .btn-primary:hover::before {
             left: 100%;
         }
-
         .btn-primary:hover {
             background: var(--secondary-color);
             color: var(--text-primary);
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 4px 15px rgba(38, 166, 154, 0.25);
         }
-
         .btn-primary:active {
             transform: translateY(-2px) scale(0.98);
         }
-
         .btn-secondary {
             background: linear-gradient(135deg, var(--primary-color), #01579B);
             color: white;
@@ -230,7 +220,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn-secondary::before {
             content: '';
             position: absolute;
@@ -241,31 +230,25 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s ease;
         }
-
         .btn-secondary:hover::before {
             left: 100%;
         }
-
         .btn-secondary:hover {
             background: var(--secondary-color);
             color: var(--text-primary);
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
         }
-
         .btn-secondary:active {
             transform: translateY(-2px) scale(0.98);
         }
-
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
-
         .mobile-menu.active {
             transform: translateX(0);
         }
-
         .theme-toggle {
             position: fixed;
             bottom: 24px;
@@ -285,32 +268,26 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px var(--shadow-light);
         }
-
         .dark-mode .theme-toggle {
             background: var(--glass-bg-dark);
             border: 1px solid var(--glass-border-dark);
             box-shadow: 0 4px 20px var(--shadow-dark);
         }
-
         .theme-toggle:hover {
             transform: scale(1.1) rotate(180deg);
             box-shadow: 0 8px 30px var(--shadow-light);
         }
-
         .dark-mode .theme-toggle:hover {
             box-shadow: 0 8px 30px var(--shadow-dark);
         }
-
         .theme-toggle i {
             font-size: 18px;
             color: var(--primary-color);
             transition: all 0.4s ease;
         }
-
         .dark-mode .theme-toggle i {
             color: var(--accent-color);
         }
-
         .field-card {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
@@ -318,7 +295,6 @@
             padding: 2rem;
             margin-bottom: 1rem;
         }
-
         .course-link {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
@@ -331,12 +307,10 @@
             margin-bottom: 8px;
             transition: all 0.3s ease;
         }
-
         .course-link:hover {
             background: rgba(255,255,255,0.2);
             transform: translateX(-5px);
         }
-
         .school-card {
             background: var(--glass-bg-light);
             backdrop-filter: blur(20px);
@@ -345,28 +319,23 @@
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
-
         .dark-mode .school-card {
             background: var(--glass-bg-dark);
             border: 1px solid rgba(255,255,255,0.1);
         }
-
         .school-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,31,63,0.1);
         }
-
         .team-section {
             background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
             border-radius: 16px;
             padding: 2rem;
             margin: 1rem 0;
         }
-
         .dark-mode .team-section {
             background: linear-gradient(135deg, #455A64, var(--dark-bg));
         }
-
         .ai-glass-card {
             background: var(--glass-bg-light);
             backdrop-filter: blur(var(--blur-amount));
@@ -381,13 +350,11 @@
             transform-style: preserve-3d;
             perspective: 1000px;
         }
-
         .dark-mode .ai-glass-card {
             background: var(--glass-bg-dark);
             border: 1px solid var(--glass-border-dark);
             box-shadow: 0 8px 32px var(--shadow-dark);
         }
-
         .ai-glass-card::before {
             content: '';
             position: absolute;
@@ -400,45 +367,36 @@
             transition: opacity 0.4s ease;
             pointer-events: none;
         }
-
         .ai-glass-card:hover::before {
             opacity: 1;
         }
-
         .ai-glass-card:hover {
             box-shadow: 0 25px 50px var(--shadow-light);
         }
-
         .dark-mode .ai-glass-card:hover {
             box-shadow: 0 25px 50px var(--shadow-dark);
         }
-
         .floating-card {
             animation: float 6s ease-in-out infinite;
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             25% { transform: translateY(-10px) rotate(1deg); }
             50% { transform: translateY(-5px) rotate(0deg); }
             75% { transform: translateY(-15px) rotate(-1deg); }
         }
-
         .tilt-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
             perspective: 1000px;
         }
-
         .tilt-card:hover {
             transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
             box-shadow: 0 25px 50px rgba(0, 31, 63, 0.3);
         }
-
         .dark-mode .tilt-card:hover {
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
-
         .ai-tool-link {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
@@ -453,23 +411,19 @@
             position: relative;
             overflow: hidden;
         }
-
         .dark-mode .ai-tool-link {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .ai-tool-link:hover {
             background: rgba(255, 255, 255, 0.15);
             transform: translateX(-8px);
             border-color: var(--accent-green);
             box-shadow: 0 8px 25px rgba(0, 121, 107, 0.2);
         }
-
         .dark-mode .ai-tool-link:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-
         .ai-tool-link::before {
             content: '';
             position: absolute;
@@ -481,11 +435,9 @@
             transform: scaleY(0);
             transition: transform 0.3s ease;
         }
-
         .ai-tool-link:hover::before {
             transform: scaleY(1);
         }
-
         .ai-challenge-box {
             background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
             border-radius: 16px;
@@ -495,7 +447,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .ai-challenge-box::before {
             content: '';
             position: absolute;
@@ -506,29 +457,25 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             animation: shimmer 3s ease-in-out infinite;
         }
-
         @keyframes shimmer {
             0%, 100% { transform: rotate(0deg); }
             50% { transform: rotate(180deg); }
         }
-
         .ai-section-bg {
-            background: linear-gradient(135deg, 
-                rgba(2, 136, 209, 0.05) 0%, 
-                rgba(38, 166, 154, 0.05) 50%, 
+            background: linear-gradient(135deg,
+                rgba(2, 136, 209, 0.05) 0%,
+                rgba(38, 166, 154, 0.05) 50%,
                 rgba(245, 247, 250, 0.05) 100%);
             border-radius: 24px;
             padding: 3rem 2rem;
             margin: 2rem 0;
         }
-
         .dark-mode .ai-section-bg {
-            background: linear-gradient(135deg, 
-                rgba(2, 136, 209, 0.1) 0%, 
-                rgba(38, 166, 154, 0.1) 50%, 
+            background: linear-gradient(135deg,
+                rgba(2, 136, 209, 0.1) 0%,
+                rgba(38, 166, 154, 0.1) 50%,
                 rgba(69, 90, 100, 0.1) 100%);
         }
-
         /* Chatbot Styles */
         .chatbot-container {
             position: fixed;
@@ -536,7 +483,6 @@
             right: 20px;
             z-index: 1000;
         }
-
         .chatbot-toggle {
             width: 64px;
             height: 64px;
@@ -554,7 +500,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .chatbot-toggle::before {
             content: '';
             position: absolute;
@@ -566,62 +511,58 @@
             animation: pulse 2s ease-in-out infinite;
             pointer-events: none;
         }
-
         @keyframes pulse {
             0%, 100% { transform: scale(0.8); opacity: 0; }
             50% { transform: scale(1.2); opacity: 1; }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
         .animate-fade-in {
             animation: fadeIn 0.8s ease-out forwards;
         }
-
         .animate-fade-in-delay-1 {
             animation: fadeIn 0.8s ease-out 0.2s forwards;
             opacity: 0;
         }
-
         .animate-fade-in-delay-2 {
             animation: fadeIn 0.8s ease-out 0.4s forwards;
             opacity: 0;
         }
-
         .animate-fade-in-delay-3 {
             animation: fadeIn 0.8s ease-out 0.6s forwards;
             opacity: 0;
         }
-
         .animate-fade-in-delay-4 {
             animation: fadeIn 0.8s ease-out 0.8s forwards;
             opacity: 0;
         }
-
         .animate-fade-in-delay-5 {
             animation: fadeIn 0.8s ease-out 1s forwards;
             opacity: 0;
         }
-
         .animate-fade-in-delay-6 {
             animation: fadeIn 0.8s ease-out 1.2s forwards;
             opacity: 0;
         }
-
         .chatbot-toggle:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 40px rgba(0, 34, 68, 0.5);
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
         }
-
         .chatbot-toggle i {
             z-index: 1;
             position: relative;
         }
-
         .chatbot-window {
             position: absolute;
             bottom: 84px;
@@ -642,7 +583,6 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1002;
         }
-
         @media (max-width: 768px) {
             .chatbot-window {
                 position: fixed;
@@ -655,19 +595,18 @@
                 border-radius: 0;
                 z-index: 9999;
             }
-            
+           
             .chatbot-container {
                 bottom: 15px;
                 right: 15px;
             }
-            
+           
             .chatbot-toggle {
                 width: 56px;
                 height: 56px;
                 font-size: 24px;
             }
         }
-
         @media (max-width: 480px) {
             .chatbot-window {
                 position: fixed;
@@ -680,51 +619,48 @@
                 border-radius: 0;
                 z-index: 9999;
             }
-            
+           
             .chatbot-header {
                 padding: 20px 15px 15px 15px;
                 padding-top: max(20px, env(safe-area-inset-top));
             }
-            
+           
             .chatbot-messages {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-            
+           
             .chatbot-input-container {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-            
+           
             .chatbot-contact-buttons {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-            
+           
             .chatbot-container {
                 bottom: 12px;
                 right: 12px;
             }
-            
+           
             .chatbot-toggle {
                 width: 52px;
                 height: 52px;
                 font-size: 22px;
             }
         }
-
         .chatbot-window.hidden {
             transform: scale(0.9) translateY(20px);
             opacity: 0;
             display: none;
         }
-
         .dark-mode .chatbot-window {
             background: var(--glass-dark);
             border: 1px solid var(--glass-border-dark);
             box-shadow: 0 20px 60px var(--shadow-dark);
         }
-
         .chatbot-header {
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
@@ -733,7 +669,6 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .chatbot-messages {
             flex: 1;
             padding: 20px;
@@ -742,39 +677,37 @@
             flex-direction: column;
             gap: 15px;
         }
-
         .chatbot-message {
             max-width: 80%;
             padding: 12px 16px;
             border-radius: 18px;
             word-wrap: break-word;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
         }
-
         .chatbot-message.user {
             background: var(--accent-green);
             color: white;
             align-self: flex-end;
             margin-left: auto;
+            animation: fadeIn 0.3s ease forwards, slideInRight 0.3s ease forwards;
         }
-
         .chatbot-message.bot {
             background: rgba(255, 255, 255, 0.8);
             color: var(--text-dark);
             align-self: flex-start;
+            animation: fadeIn 0.3s ease forwards, slideInLeft 0.3s ease forwards;
         }
-
         .dark-mode .chatbot-message.bot {
             background: rgba(255, 255, 255, 0.1);
             color: var(--text-light);
         }
-
         .chatbot-input-container {
             padding: 15px 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             display: flex;
             gap: 10px;
         }
-
         .chatbot-input {
             flex: 1;
             padding: 12px 16px;
@@ -786,18 +719,15 @@
             font-family: 'Vazirmatn', sans-serif;
             transition: all 0.3s ease;
         }
-
         .dark-mode .chatbot-input {
             background: #263238;
             color: var(--text-light);
             border: 1px solid rgba(255,255,255,0.1);
         }
-
         .chatbot-input:focus {
             border-color: var(--accent-green);
             box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
         }
-
         .chatbot-send {
             width: 45px;
             height: 45px;
@@ -812,20 +742,16 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
         }
-
         .chatbot-send:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
         }
-
         .chatbot-send:active {
             transform: scale(0.95);
         }
-
         .chatbot-window.active {
             display: flex;
         }
-
         .chatbot-form input, .chatbot-form textarea {
             width: 100%;
             padding: 0.6rem;
@@ -835,12 +761,10 @@
             background-color: var(--secondary-color);
             color: var(--text-primary);
         }
-
         body.dark-mode .chatbot-form input, body.dark-mode .chatbot-form textarea {
             background-color: #455A64;
             color: var(--text-primary-dark);
         }
-
         .chatbot-form button {
             background-color: var(--accent-color);
             color: var(--text-primary-dark);
@@ -850,19 +774,16 @@
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
-
         .chatbot-form button:hover {
             background-color: var(--secondary-color);
             color: var(--text-primary);
         }
-
         .typing-indicator {
             display: flex;
             align-items: center;
             gap: 4px;
             padding: 12px 16px;
         }
-
         .typing-dot {
             width: 8px;
             height: 8px;
@@ -870,17 +791,12 @@
             background: var(--accent-green);
             animation: typing 1.4s infinite ease-in-out;
         }
-
         .typing-dot:nth-child(2) { animation-delay: 0.2s; }
         .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
         @keyframes typing {
             0%, 60%, 100% { transform: translateY(0); }
             30% { transform: translateY(-10px); }
         }
-
-
-
         /* Typography Classes */
         .heading-primary {
             font-size: 28px;
@@ -888,79 +804,64 @@
             line-height: 1.2;
             color: var(--primary-blue);
         }
-
         .heading-secondary {
             font-size: 18px;
             font-weight: 600;
             line-height: 1.3;
             color: var(--primary-blue);
         }
-
         .text-body {
             font-size: 12px;
             font-weight: 400;
             line-height: 1.5;
         }
-
         .dark-mode .heading-primary,
         .dark-mode .heading-secondary {
             color: var(--text-light);
         }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .chatbot-window {
                 width: 320px;
                 height: 480px;
             }
-            
-
-
+           
             .heading-primary {
                 font-size: 24px;
             }
-
             .heading-secondary {
                 font-size: 16px;
             }
-
             .theme-toggle {
                 bottom: 16px;
                 left: 16px;
                 width: 48px;
                 height: 48px;
             }
-
             .theme-toggle i {
                 font-size: 16px;
             }
         }
-
         @media (max-width: 480px) {
             .heading-primary {
                 font-size: 20px;
             }
-
             .heading-secondary {
                 font-size: 14px;
             }
         }
-
         /* Additional responsive styles */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 1.4rem;
             }
-
             .chatbot-window {
                 width: 90%;
             }
-
             .ai-section .card, .card {
                 margin: 0.5rem;
                 padding: 1rem;
             }
-
             nav.active {
                 display: block;
                 position: absolute;
@@ -970,13 +871,11 @@
                 background-color: var(--primary-color);
                 padding: 1rem;
             }
-
             nav ul {
                 flex-direction: column;
                 gap: 1rem;
             }
         }
-
         /* Notification Bubble Styles */
         .chatbot-notification {
             position: fixed;
@@ -998,7 +897,6 @@
             text-align: center;
             position: relative;
         }
-
         .chatbot-notification::after {
             content: '';
             position: absolute;
@@ -1010,20 +908,17 @@
             border-right: 10px solid transparent;
             border-top: 10px solid var(--primary-color);
         }
-
         .chatbot-notification.show {
             transform: translateY(0);
             opacity: 1;
             animation: bounceIn 0.6s ease-out;
         }
-
         @keyframes bounceIn {
             0% { transform: scale(0.3) translateY(20px); opacity: 0; }
             50% { transform: scale(1.05); }
             70% { transform: scale(0.9) translateY(-5px); }
             100% { transform: scale(1) translateY(0); opacity: 1; }
         }
-
         .ai-button-section {
             background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
             border-radius: 24px;
@@ -1031,11 +926,9 @@
             margin: 1rem 0;
             text-align: center;
         }
-
         .dark-mode .ai-button-section {
             background: linear-gradient(135deg, #455A64, var(--dark-bg));
         }
-
         .ai-button {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
@@ -1049,31 +942,25 @@
             align-items: center;
             gap: 10px;
         }
-
         .ai-button:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
         }
-
         /* Adjusted styles for reports */
         #reports .glass-card {
             padding: 1rem;
             margin-bottom: 0.5rem;
         }
-
         /* Reduced spacing between sections */
         #resources + #ai-button-section {
             margin-top: 1rem;
         }
-
         #ai-button-section + #reports {
             margin-top: 1rem;
         }
-
         #reports {
             padding: 1rem 0;
         }
-
         .video-link {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
@@ -1085,45 +972,36 @@
             margin-bottom: 8px;
             transition: all 0.3s ease;
         }
-
         .video-link:hover {
             background: rgba(255,255,255,0.2);
             transform: translateX(-5px);
         }
-
         /* Reduced margins for resources section */
         .mb-8 {
             margin-bottom: 1rem !important;
         }
-
         .py-12 {
             padding-top: 1.5rem !important;
             padding-bottom: 1.5rem !important;
         }
-
         .gap-6 {
             gap: 1rem !important;
         }
-
         /* تغییر رنگ h3 برای جایگزین‌های رایگان به همرنگ با h5 های آموزش */
         .free-alternatives-title {
             color: var(--text-primary) !important;
             font-weight: 600;
         }
-
         .dark-mode .free-alternatives-title {
             color: var(--text-primary-dark) !important;
         }
-
         /* Reduced spacing between fields and schools */
         #fields {
             padding-bottom: 1rem !important;
         }
-
         #schools {
             padding-top: 1rem !important;
         }
-
         /* Ensure report titles fit in one line */
         #reports h3 {
             font-size: 16px;
@@ -1131,43 +1009,35 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         /* Smaller font for logo text */
         .logo-text h1 {
             font-size: 1.3rem;
             white-space: nowrap;
+            color: white !important; /* تغییر به سفید */
         }
-
         .logo-text p {
             font-size: 0.75rem;
         }
-
         /* Smaller fonts in resources */
         #resources .glass-card h4 {
             font-size: 12px;
         }
-
         #resources .glass-card span {
             font-size: 10px;
         }
-
         #resources .glass-card h5 {
             font-size: 11px;
         }
-
         #resources .video-link {
             font-size: 10px;
             padding: 8px 12px;
         }
-
         .free-alternatives-title {
             font-size: 18px;
         }
-
         #resources .glass-card .text-sm {
             font-size: 10px;
         }
-
         /* Styles for Ethics Videos Section */
         .ethics-section {
             background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
@@ -1176,11 +1046,9 @@
             margin: 2rem 0;
             text-align: center;
         }
-
         .dark-mode .ethics-section {
             background: linear-gradient(135deg, #455A64, var(--dark-bg));
         }
-
         .ethics-video {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
@@ -1192,22 +1060,18 @@
             display: block;
             transition: all 0.3s ease;
         }
-
         .ethics-video:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px var(--shadow-light);
         }
-
         .dark-mode .ethics-video {
             color: var(--text-primary-dark);
         }
-
         .dark-mode .ethics-video:hover {
             background: rgba(255,255,255,0.1);
             box-shadow: 0 4px 12px var(--shadow-dark);
         }
-
         /* Styles for Book Resources - Updated for consistency */
         .book-section {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -1216,11 +1080,9 @@
             padding: 2rem;
             margin: 1rem 0;
         }
-
         .dark-mode .book-section {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
         }
-
         .book-link {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
@@ -1234,343 +1096,604 @@
             transition: all 0.3s ease;
             font-size: 11px;
         }
-
         .book-link:hover {
             background: rgba(255,255,255,0.2);
             transform: translateX(-3px);
             box-shadow: 0 2px 8px rgba(255,255,255,0.3);
         }
-
         .dark-mode .book-link {
             color: white;
         }
-
         .dark-mode .book-link:hover {
             background: rgba(255,255,255,0.2);
             box-shadow: 0 2px 8px rgba(255,255,255,0.3);
         }
-
         /* Smaller font for book headings */
         .book-section h4 {
             font-size: 12px !important; /* Reduced from text-lg (18px) to 12px */
         }
-
         /* Smaller font for main book resources heading */
         #resources h3.book-main-heading {
             font-size: 18px !important; /* Reduced from text-3xl (30px) to 18px */
         }
-
         /* Unified title styles */
         h2 {
             font-size: 22px !important;
             font-weight: 700 !important;
-            color: var(--primary-blue) !important;
+            color: white !important; /* تغییر به سفید برای هیرو و هدر */
             text-align: center;
             margin-bottom: 1rem !important;
             white-space: nowrap;
         }
-
+        /* تغییر رنگ فونت h2 در بخش‌های رشته‌ها و هنرستان‌ها به مشکی */
+        #fields h2, #schools h2 {
+            color: #000000 !important;
+        }
+        .dark-mode #fields h2, .dark-mode #schools h2 {
+            color: var(--text-primary-dark) !important;
+        }
+        /* تغییر رنگ فونت در متن‌های داخل این بخش‌ها به مشکی */
+        #fields .heading-secondary, #schools .font-bold {
+            color: #000000 !important;
+        }
+        .dark-mode #fields .heading-secondary, .dark-mode #schools .font-bold {
+            color: var(--text-primary-dark) !important;
+        }
         .dark-mode h2 {
             color: var(--text-primary-dark) !important;
         }
-
         /* بهبودهای رسپانسیو جدید */
         @media (max-width: 1024px) {
             .container {
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
-
             .hero-gradient {
                 padding-top: 4rem;
                 padding-bottom: 4rem;
             }
-
             .field-card {
                 padding: 1.5rem;
             }
-
             .grid.lg\:grid-cols-4 {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
         @media (max-width: 768px) {
             body {
                 font-size: 13px;
             }
-
             h2 {
                 font-size: 20px !important;
             }
-
             .hero-gradient {
                 padding-top: 3rem;
                 padding-bottom: 3rem;
             }
-
             .hero-gradient h2 {
                 font-size: 1.75rem !important;
             }
-
             .hero-gradient h3 {
                 font-size: 1.5rem !important;
             }
-
             .hero-gradient h4, .hero-gradient h5 {
                 font-size: 1.25rem !important;
             }
-
             .field-card {
                 padding: 1rem;
             }
-
             .course-link {
                 padding: 10px 12px;
                 font-size: 12px;
             }
-
             .grid.lg\:grid-cols-4, .grid.md\:grid-cols-2 {
                 grid-template-columns: 1fr;
             }
-
             .school-card {
                 padding: 1rem;
             }
-
             .school-card ul {
                 margin-right: 0;
                 padding-right: 0;
             }
-
             .team-section {
                 padding: 1.5rem;
             }
-
             .glass-card.p-8 {
                 padding: 1.5rem;
             }
-
             #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 0.75rem;
             }
-
             #resources .glass-card {
                 padding: 0.75rem;
             }
-
             #resources .glass-card h4 {
                 font-size: 11px;
             }
-
             .book-section {
                 padding: 1.5rem;
             }
-
             .book-link {
                 padding: 8px 12px;
                 font-size: 10px;
             }
-
             .ethics-section {
                 padding: 1.5rem;
                 margin: 1rem 0;
             }
-
             .ethics-video {
                 padding: 0.75rem;
                 margin: 0.5rem 0;
                 font-size: 12px;
             }
-
             .ai-button-section {
                 padding: 2rem 1rem;
             }
-
             .ai-button {
                 padding: 14px 24px;
                 font-size: 13px;
             }
-
             #reports .glass-card {
                 padding: 0.75rem;
             }
-
             #reports h3 {
                 font-size: 14px;
             }
-
             footer {
                 padding: 2rem 1rem;
             }
-
             .logo-text h1 {
                 font-size: 1.1rem;
             }
-
             .logo-text p {
                 font-size: 0.7rem;
             }
-
             .header {
                 margin: 0.5rem;
             }
-
             .hero-gradient {
                 margin: 0.5rem;
                 border-radius: 1rem;
             }
-
             .section {
                 margin: 0.5rem;
                 padding: 1rem;
             }
+            /* Responsive for squares grid - فول موبایل */
+            .grid.md\:grid-cols-2.lg\:grid-cols-5 {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.5rem;
+            }
         }
-
         @media (max-width: 480px) {
             body {
                 font-size: 12px;
             }
-
             h2 {
                 font-size: 18px !important;
             }
-
             .hero-gradient h2 {
                 font-size: 1.5rem !important;
             }
-
             .hero-gradient h3 {
                 font-size: 1.25rem !important;
             }
-
             .hero-gradient h4, .hero-gradient h5 {
                 font-size: 1rem !important;
             }
-
             .field-card {
                 padding: 0.75rem;
             }
-
             .course-link {
                 padding: 8px 10px;
                 font-size: 11px;
             }
-
             .school-card {
                 padding: 0.75rem;
             }
-
             .team-section {
                 padding: 1rem;
             }
-
             .glass-card.p-8 {
                 padding: 1rem;
             }
-
             #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
             }
-
             #resources .glass-card {
                 padding: 0.5rem;
             }
-
             .book-section {
                 padding: 1rem;
             }
-
             .book-link {
                 padding: 6px 10px;
                 font-size: 9px;
             }
-
             .ethics-section {
                 padding: 1rem;
                 margin: 0.5rem 0;
             }
-
             .ethics-video {
                 padding: 0.5rem;
                 font-size: 11px;
             }
-
             .ai-button-section {
                 padding: 1.5rem 0.5rem;
             }
-
             .ai-button {
                 padding: 12px 20px;
                 font-size: 12px;
                 width: 100%;
                 justify-content: center;
             }
-
             #reports .glass-card {
                 padding: 0.5rem;
             }
-
             footer {
                 padding: 1.5rem 0.5rem;
             }
-
             .logo-text {
                 flex-direction: column;
                 text-align: center;
             }
-
             .logo-3d.w-16.h-16 {
                 margin-left: 0;
                 margin-bottom: 0.5rem;
             }
-
             .btn-primary, .btn-secondary {
                 padding: 12px 20px;
                 font-size: 13px;
             }
+            /* فول رسپانسیو برای مربع‌ها در موبایل - تک ستونه */
+            .grid.md\:grid-cols-2.lg\:grid-cols-5 {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+            .square-btn {
+                height: 150px;
+                padding: 1rem;
+            }
+            .square-btn i {
+                font-size: 2rem;
+            }
+            .square-btn h3 {
+                font-size: 0.9rem;
+            }
         }
-
         /* بهبود رسپانسیو برای هدر */
         @media (max-width: 768px) {
             .logo-text {
                 flex-direction: column;
                 text-align: center;
             }
-
             .logo-3d.w-16.h-16 {
                 margin-left: 0;
                 margin-bottom: 0.5rem;
             }
-
             .btn-primary, .btn-secondary {
                 padding: 12px 20px;
                 font-size: 13px;
             }
         }
-
         /* Custom styles for requested changes */
         #resources h2 {
             color: #000000 !important;
         }
-
         #resources .book-main-heading {
             color: #000000 !important;
         }
-
         .book-section h4 {
             color: white !important;
         }
-
         #reports .glass-card p {
             color: #37474F !important;
         }
-
         .dark-mode #reports .glass-card p {
             color: #BDBDBD !important;
         }
+        /* Square button styles */
+        .square-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .square-btn:hover {
+            transform: translateY(-5px);
+        }
+        /* Black icons for software resources */
+        #resources .glass-card i {
+            color: #000000 !important;
+        }
+        .dark-mode #resources .glass-card i {
+            color: #FFFFFF !important;
+        }
+        /* Header Styles */
+        header {
+            background: var(--primary-color);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 31, 63, 0.3);
+        }
+        .logo-text h1 {
+            font-size: 1.3rem;
+            white-space: nowrap;
+            color: white !important; /* تغییر به سفید */
+        }
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #CFD8DC;
+        }
+        nav a {
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--accent-color) !important;
+            text-shadow: 0 2px 8px rgba(38, 166, 154, 0.5);
+        }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            background: var(--primary-color);
+            box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        /* Footer Styles */
+        footer {
+            background: var(--footer-bg);
+            box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);
+        }
+        /* Responsive Header */
+        @media (max-width: 768px) {
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+        }
+        /* 3D Pop-in Effect for Hero Logo */
+        .hero-logo-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            animation: popIn 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            opacity: 0;
+        }
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5) rotateX(90deg) rotateY(90deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotateX(0) rotateY(0);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1) rotateX(0) rotateY(0);
+                opacity: 1;
+            }
+        }
+        .hero-logo-3d:hover {
+            transform: scale(1.1) rotateY(10deg) rotateX(5deg);
+        }
+        /* Hero Title Styles - سفید کردن */
+        .hero-title {
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 700;
+            color: white !important; /* تغییر به سفید */
+            text-align: center;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+        }
+        @media (min-width: 769px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+        /* Grid for 5 squares - responsive */
+        .squares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        @media (max-width: 768px) {
+            .squares-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .squares-grid {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+        }
+        /* Hero centering */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        /* Fields rectangle box */
+        .fields-rectangle {
+            border: 2px solid #808080;
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05); /* کمی شفاف */
+        }
+        /* Schools section background */
+        #schools {
+            background-color: #C0C0C0 !important; /* تغییر به نقره‌ای */
+        }
+        /* Squares in schools like fields (gradient background) */
+        #schools .glass-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+            color: white !important;
+        }
+        .dark-mode #schools .glass-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+        }
+        /* Fields glassmorphism larger */
+        #fields .container {
+            max-width: 90%; /* بزرگ‌تر کردن بخش */
+            margin: auto;
+        }
+        #fields .glass-card {
+            padding: 3rem !important; /* بزرگ‌تر کردن padding */
+            margin: 2rem 0 !important; /* فاصله بیشتر */
+            font-size: 1.2rem !important; /* بزرگ‌تر کردن فونت */
+        }
+        /* --- چت‌بات: افکت نور آبی دائمی و آرام --- */
+    .chatbot-toggle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #0288D1;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1000;
+      /* افکت نور آبی دائمی */
+      box-shadow:
+        0 0 20px rgba(2, 136, 209, 0.6),
+        0 0 40px rgba(2, 136, 209, 0.4),
+        0 0 60px rgba(2, 136, 209, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .chatbot-toggle:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 30px rgba(2, 136, 209, 0.8),
+        0 0 60px rgba(2, 136, 209, 0.5),
+        0 0 90px rgba(2, 136, 209, 0.3);
+    }
+    .chatbot-toggle::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    /* --- نوتیفیکیشن بالای آیکون --- */
+    .chatbot-notification {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      z-index: 1001;
+      background: linear-gradient(135deg, #0288D1, #26A69A);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 20px;
+      max-width: 260px;
+      box-shadow: 0 8px 32px rgba(2, 136, 209, 0.3);
+      transform: translateY(20px) scale(0.8);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .chatbot-notification.show {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      animation: bounceIn 0.6s ease-out;
+    }
+    .chatbot-notification::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #0288D1;
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9) translateY(-5px); }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    /* --- پنجره چت‌بات --- */
+    .chatbot-window {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 340px;
+      height: 540px;
+      background: var(--glass-bg-light);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border-light);
+      border-radius: 16px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 60px var(--shadow-light);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1002;
+    }
+    .chatbot-window.active {
+      display: flex;
+      transform: scale(1);
+      opacity: 1;
+    }
+    /* موبایل */
+    @media (max-width: 768px) {
+      .chatbot-toggle { width: 56px; height: 56px; font-size: 24px; }
+      .chatbot-notification { bottom: 90px; right: 15px; max-width: 240px; font-size: 11px; }
+      .chatbot-window { width: 100%; height: 100%; bottom: 0; right: 0; border-radius: 0; }
+    }
+    @media (max-width: 480px) {
+      .chatbot-toggle { width: 52px; height: 52px; font-size: 22px; }
+      .chatbot-notification { bottom: 80px; right: 12px; }
+    }
+    /* --- حذف بخش بانک سوالات --- */
+    /* در HTML، مربع بانک سوالات حذف شد */
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1578,118 +1701,85 @@
     <div class="theme-toggle" onclick="toggleTheme()">
         <i class="fas fa-moon text-xl" id="theme-icon"></i>
     </div>
-
     <!-- Header -->
-    <header class="sticky top-0 z-50 m-4" style="background: var(--primary-blue); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 31, 63, 0.3);">
-        <div class="dark-mode:bg-dark-bg transition-all duration-300" style="background: inherit; border-radius: inherit;">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <!-- Logo -->
-                    <div class="flex items-center logo-text">
-                        <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4" 
-                             style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
-                            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
-                        </div>
-                        <div>
-                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;"></h1>
-                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
-                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس </p>
-                        </div>
+    <header class="sticky top-0 z-50 m-4">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center logo-text">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center ml-4 bg-gradient-to-br from-accent-green to-green-800 shadow-lg">
+                        <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain logo-3d" /> <!-- لوگوی سفید شده -->
                     </div>
-
-                    <!-- Desktop Navigation -->
-                    <nav class="hidden md:flex space-x-8 space-x-reverse">
-                        <a href="#hero" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})">خانه</a>
-                        <a href="#fields" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('fields').scrollIntoView({behavior: 'smooth'})">رشته‌ها</a>
-                        <a href="#schools" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('schools').scrollIntoView({behavior: 'smooth'})">هنرستان‌ها</a>
-                        <a href="#reports" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'})">گزارش‌ها</a>
-                        <a href="#team" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'})">اعضای گروه</a>
-                        <a href="#resources" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'})">منابع</a>
-                        <a href="#ethics" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'})">اخلاق حرفه‌ای</a>
-                        <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
-                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
-                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
-                    </nav>
-
-                    <!-- Mobile Menu Button -->
-                    <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                    <div>
+                        <h1 class="text-xl font-bold text-white"></h1> <!-- اضافه و سفید -->
+                        <p class="text-sm text-gray-200">گروه کامپیوتر شهرستان زرین‌دشت</p>
+                        <p class="text-sm text-gray-200">استان فارس</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden" 
-                 style="background: var(--primary-blue); box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);">
-                <button class="absolute top-4 left-4 text-white text-2xl" onclick="toggleMobileMenu()">
-                    <i class="fas fa-times"></i>
-                </button>
-                <nav class="mt-12 space-y-6">
-                    <a href="#hero" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">خانه</a>
-                    <a href="#fields" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('fields').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">رشته‌ها</a>
-                    <a href="#schools" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('schools').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">هنرستان‌ها</a>
-                    <a href="#reports" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('reports').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">گزارش‌ها</a>
-                    <a href="#team" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اعضای گروه</a>
-                    <a href="#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">منابع</a>
-                    <a href="#ethics" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اخلاق حرفه‌ای</a>
-                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-8">
+                    <a href="#hero" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'"
+                       onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})">خانه</a>
+                    <a href="fields.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'">رشته‌ها</a>
+                    <a href="schools.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'">هنرستان‌ها</a>
+                    <a href="reports.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'">گزارش‌ها</a>
+                    <a href="resources.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'">منابع</a>
+                    <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                       onmouseover="this.style.color='var(--accent-color)'; this.style.textShadow='0 2px 8px rgba(38, 166, 154, 0.5)'"
+                       onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
                 </nav>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()"> <!-- کوچک‌تر شده -->
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden">
+            <button class="absolute top-4 left-4 text-white text-2xl" onclick="toggleMobileMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            <nav class="mt-12 space-y-6">
+                <a href="#hero" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">خانه</a>
+                <a href="fields.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="toggleMobileMenu()">رشته‌ها</a>
+                <a href="schools.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="toggleMobileMenu()">هنرستان‌ها</a>
+                <a href="reports.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="toggleMobileMenu()">گزارش‌ها</a>
+                <a href="resources.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="toggleMobileMenu()">منابع</a>
+                <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                   onclick="toggleMobileMenu()">هوش مصنوعی</a>
+            </nav>
+        </div>
     </header>
-
     <!-- Hero Section -->
-    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
+    <section id="hero" class="hero-gradient text-white mx-4 rounded-3xl mb-4 relative">
         <div class="parallax-bg"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in" style="color: white !important; text-align: center !important; display: block; margin-left: auto; margin-right: auto;">گروه کامپیوتر شهرستان زرین دشت </h2>
+            <h2 class="hero-title mb-6 animate-fade-in">گروه کامپیوتر شهرستان زرین دشت</h2> <!-- سفید شده -->
             <h3 class="text-2xl md:text-3xl mb-4 animate-fade-in-delay-1">برای آینده‌سازان فناوری</h3>
             <h4 class="text-xl md:text-2xl mb-8 animate-fade-in-delay-2">دسترسی هوشمند</h4>
-            
-            <!-- Large Logo with 3D Effect -->
-            <div class="logo-3d w-40 h-40 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto my-12 floating-card">
-                <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-36 h-36 object-contain" />
+           
+            <!-- Large Logo with 3D Effect - سفید و فوق‌العاده -->
+            <div class="hero-logo-3d w-48 h-48 md:w-64 md:h-64 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto my-12 floating-card">
+                <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-44 h-44 md:w-60 md:h-60 object-contain" />
             </div>
-            
+           
             <h5 class="text-xl md:text-2xl mb-8 animate-fade-in-delay-3"></h5>
-            
+           
             <p class="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 animate-fade-in-delay-4">
                 این وب‌سایت برای دسترسی آسان هنرآموزان، هنرجویان و مسئولان به محتوای دروس فنی‌وحرفه‌ای و کاردانش طراحی شده است.
            </p>
@@ -1697,12 +1787,11 @@
             </div>
         </div>
     </section>
-
     <!-- Fields Section -->
     <section id="fields" class="py-8 px-4">
         <div class="container mx-auto">
             <h2>رشته‌های فعال</h2>
-            
+           
             <!-- Field 1: Web Development -->
             <div class="field-card mb-1 tilt-card">
                 <div class="flex items-center justify-between mb-6">
@@ -1716,51 +1805,51 @@
                     </div>
                     <span class="bg-green-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">فعال</span>
                 </div>
-                
+               
                 <div class="grid lg:grid-cols-4 gap-6">
                     <!-- استاندارد رشته -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">استاندارد رشته</h4>
-                        <a href="https://payait.com/Standards/104-560.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFKR3V2eGxpOFM3cC00dk12TE9GOW1oWEZXMDI4U0VtUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfc3RhbmRhcmRBbW96ZXNoaS5wZGYifQ==" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استاندارد رشته
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۰ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ==" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استفاده از مهارت شهروند الکترونیک
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر رایانه
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/97-98/741/001-320-C310184%20%26%20C311184.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ==" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر اتوماسیون اداری
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۱ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۱</h4>
-                        <a href="http://chap.sch.ir/books/13352" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFrTGhJWWxsT2t5TFBqeDNCOVFuaU9WSlRLU3lzLU1XQiIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTFfV2ViRGVzaWduLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
-                            تولید کننده و توسعه دهنده پایگاه های اینترنتی 
+                            تولید کننده و توسعه دهنده پایگاه های اینترنتی
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۲ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/146/C211288.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0=" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             توسعه دهنده صفحات وب با PHP و MySQL
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312260.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjE0cUpjQzRzUDRQWWxSa210VXFHYTJfcHlSaHpMU3hmUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfd29yZHByZXNzLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             توسعه دهنده سیستم های مدیریت محتوا با WordPress
                         </a>
@@ -1771,7 +1860,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Field 2: E-Learning Content -->
             <div class="field-card tilt-card">
                 <div class="flex items-center justify-between mb-6">
@@ -1785,168 +1873,66 @@
                     </div>
                     <span class="bg-green-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">فعال</span>
                 </div>
-                
+               
                 <div class="grid lg:grid-cols-4 gap-6">
                     <!-- استاندارد رشته -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">استاندارد رشته</h4>
-                        <a href="https://payait.com/Standards/104-555.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtNTJTbmRjRHF4bE9kTzRFUzlxeGo0dDRMWnZvRjhhVCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV9TZGFuZGFyZEFtb3plc2hpLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استاندارد رشته
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۰ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ==" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             استفاده از مهارت شهروند الکترونیک
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر رایانه
                         </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/97-98/741/001-320-C310184%20%26%20C311184.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ==" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر اتوماسیون اداری
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۱ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۱</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311253_0.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjEzdDRTZ01henktOWlEVFZwWXluREVDWUF6VVE5STBoVyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMV9QdWJsaWNFQ29udGVudE1ha2VyLnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             تولید کننده محتوای الکترونیکی عمومی
                         </a>
                     </div>
-                    
+                   
                     <!-- دروس پایه ۱۲ -->
                     <div>
                         <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/1265/C312271.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFaQ0JxalV4V2lxTnFNd1I3MUtYSl9TZWZwMGloWEtTQyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9Vc2VyR3JhcGhpY0Vjb250ZW50LnBkZiJ9" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
                             کاربر گرافیکی محتوای آموزشی
                         </a>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312267.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFmUTJJSU90Qm44T281bmpyb3JLMWNzcWowSG5xbV9wTSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9lQ29udGVudE1ha2VyRm9yZUVkdWNhdGlvbi5wZGYifQ==" target="_blank" rel="noopener noreferrer" class="course-link">
                             <i class="fas fa-file-pdf ml-2"></i>
-                            محتواساز آموزش الکترونیکی (جلد اول)
+                            محتواساز آموزش الکترونیکی
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Schools Section -->
-    <section id="schools" class="py-4 px-4" style="background-color: var(--secondary-gray);">
-        <div class="container mx-auto">
-            <h2>هنرستان‌های شهرستان</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- هنرستان زینب کبری -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان زینب کبری</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</li>
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>• رشته خیاطی لباس شب و عروس (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> فاطمه بروانیا</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۲۴۸۹۵</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان والفجر -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان والفجر</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>• رشته حسابداری (فنی و حرفه‌ای)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> زهرا پوررستمی</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۴۳۵۷۸</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان شهید پاکیزه خو -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان شهید پاکیزه خو</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> فاطمه تروال</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۹۱۷۹۳۳۴۹۴۳</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان شهید باهنر -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان شهید باهنر</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> عباس امیری</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۲۳۰۰۷</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Software Resources Section -->
-    <section id="resources" class="py-8 px-4 bg-white/5 dark:bg-slate-900/50">
+    <section id="resources" class="py-8 px-4" style="background-color: #C0C0C0;">
         <div class="container mx-auto">
             <h2>
                 <i class="fas fa-download ml-3"></i>
                 نرم‌افزارهای مورد نیاز و منابع آموزشی
             </h2>
-
             <!-- نرم‌افزارهای پایه ۱۰ -->
             <div class="mb-4">
                 <h3 class="text-xl font-bold mb-4 text-accent"></h3>
@@ -1954,7 +1940,7 @@
                     <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-windows text-white text-xl"></i>
+                                <i class="fab fa-windows text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Windows 10/11</h4>
@@ -1968,7 +1954,7 @@
                     <a href="https://www.microsoft.com/en-us/microsoft-365/try" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-file-word text-white text-xl"></i>
+                                <i class="fas fa-file-word text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Microsoft Office 2016/2025</h4>
@@ -1982,7 +1968,7 @@
                     <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
+                                <i class="fas fa-image text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop CC 2025</h4>
@@ -1996,7 +1982,7 @@
                     <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-vector-square text-white text-xl"></i>
+                                <i class="fas fa-vector-square text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Illustrator CC 2025</h4>
@@ -2010,7 +1996,7 @@
                     <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-film text-white text-xl"></i>
+                                <i class="fas fa-film text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Animate 2025</h4>
@@ -2024,7 +2010,7 @@
                     <a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
+                                <i class="fas fa-code text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Microsoft Visual Studio 2025</h4>
@@ -2037,7 +2023,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- نرم‌افزارهای پایه ۱۱ -->
             <div class="mb-4">
                 <h3 class="text-xl font-bold mb-4 text-accent"></h3>
@@ -2045,7 +2030,7 @@
                     <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
+                                <i class="fas fa-code text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Dreamweaver CC 2025</h4>
@@ -2059,7 +2044,7 @@
                     <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-server text-white text-xl"></i>
+                                <i class="fas fa-server text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">WampServer 3.3</h4>
@@ -2073,7 +2058,7 @@
                     <a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-database text-white text-xl"></i>
+                                <i class="fas fa-database text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">XAMPP 8.2</h4>
@@ -2087,7 +2072,7 @@
                     <a href="https://wordpress.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-wordpress text-white text-xl"></i>
+                                <i class="fab fa-wordpress text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">WordPress 6.6</h4>
@@ -2100,7 +2085,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- نرم‌افزارهای پایه ۱۲ -->
             <div class="mb-4">
                 <h3 class="text-xl font-bold mb-4 text-accent"></h3>
@@ -2108,7 +2092,7 @@
                     <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-video text-white text-xl"></i>
+                                <i class="fas fa-video text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Premiere Pro 2025</h4>
@@ -2122,7 +2106,7 @@
                     <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microphone text-white text-xl"></i>
+                                <i class="fas fa-microphone text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Audition 2025</h4>
@@ -2136,7 +2120,7 @@
                     <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-magic text-white text-xl"></i>
+                                <i class="fas fa-magic text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Captivate 2025</h4>
@@ -2150,7 +2134,7 @@
                     <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
+                                <i class="fas fa-image text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop Elements 2025</h4>
@@ -2163,7 +2147,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- جایگزین‌های رایگان -->
             <div>
                 <h3 class="text-xl font-bold mb-4 free-alternatives-title">جایگزین‌های رایگان دائمی</h3>
@@ -2171,7 +2154,7 @@
                     <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
+                                <i class="fas fa-image text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">GIMP (جایگزین Photoshop)</h4>
@@ -2185,7 +2168,7 @@
                     <a href="https://inkscape.org/release/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-vector-square text-white text-xl"></i>
+                                <i class="fas fa-vector-square text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Inkscape (جایگزین Illustrator)</h4>
@@ -2199,7 +2182,7 @@
                     <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-video text-white text-xl"></i>
+                                <i class="fas fa-video text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">DaVinci Resolve 18 (جایگزین Premiere)</h4>
@@ -2213,7 +2196,7 @@
                     <a href="https://www.audacityteam.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microphone text-white text-xl"></i>
+                                <i class="fas fa-microphone text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Audacity (جایگزین Audition)</h4>
@@ -2227,7 +2210,7 @@
                     <a href="https://code.visualstudio.com/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
+                                <i class="fas fa-code text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Visual Studio Code</h4>
@@ -2241,7 +2224,7 @@
                     <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-palette text-white text-xl"></i>
+                                <i class="fas fa-palette text-xl"></i>
                             </div>
                             <div class="flex-1 text-right">
                                 <h4 class="font-semibold text-foreground dark:text-white">Canva AI 2025</h4>
@@ -2254,9 +2237,8 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Buttons for Tutorials -->
-            <div class="grid md:grid-cols-2 gap-4 mt-8">
+            <!-- Buttons for Tutorials - Modified -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                 <a href="install.html" class="ai-button">
                     <i class="fas fa-download"></i>
                     آموزش نصب نرم‌افزارها
@@ -2265,420 +2247,57 @@
                     <i class="fas fa-video"></i>
                     آموزش صفر تا صد کار با نرم‌افزارها
                 </a>
+                <a href="darsi.html" class="ai-button">
+                    <i class="fas fa-book"></i>
+                    کتاب‌های درسی و منابع آموزشی
+                </a>
                 <a href="webnarmafzar.html" class="ai-button">
                     <i class="fas fa-globe"></i>
                     وب نرم‌افزارها
                 </a>
-            </div>
-
-            <!-- New Book Resources Section -->
-            <div class="mt-12">
-                <h3 class="book-main-heading text-3xl font-bold text-center mb-8" style="color: var(--primary-blue);">
-                    <i class="fas fa-book ml-3"></i>
-                    کتاب‌های درسی و منابع آموزشی
-                </h3>
-
-                <!-- Shared Non-Technical Competencies -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">شایستگی‌های غیرفنی مشترک</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/12397" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            الزامات محیط کار
-                        </a>
-                        <a href="http://chap.sch.ir/books/11071" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی الزامات محیط کار
-                        </a>
-                        <a href="http://chap.sch.ir/books/12520" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کارگاه نوآوری و کارآفرینی
-                        </a>
-                        <a href="http://chap.sch.ir/books/9972" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی کارگاه نوآوری و کارآفرینی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12518" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربرد فناوری‌های نوین
-                        </a>
-                        <a href="http://chap.sch.ir/books/10010" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی کاربرد فناوری‌های نوین
-                        </a>
-                        <a href="http://chap.sch.ir/books/12519" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            مدیریت تولید
-                        </a>
-                        <a href="http://chap.sch.ir/books/11079" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی مدیریت تولید
-                        </a>
-                        <a href="http://chap.sch.ir/books/12581" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            اخلاق حرفه‌ای
-                        </a>
-                        <a href="http://chap.roshd.ir/books/6916" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی اخلاق حرفه‌ای
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Network and Software Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته شبکه و نرم‌افزار رایانه</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/12420" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            دانش فنی پایه
-                        </a>
-                        <a href="http://chap.sch.ir/books/12976" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نصب و راه‌اندازی سیستم‌های رایانه‌ای
-                        </a>
-                        <a href="http://chap.sch.ir/books/12977" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولید محتوای الکترونیک و برنامه‌سازی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12402" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نقشه‌کشی فنی رایانه‌ای
-                        </a>
-                        <a href="http://chap.sch.ir/books/12531" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            توسعه برنامه‌سازی و پایگاه داده
-                        </a>
-                        <a href="http://chap.sch.ir/books/12532" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            پیاده‌سازی سیستم‌های اطلاعاتی و طراحی وب
-                        </a>
-                        <a href="http://chap.sch.ir/books/12596" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            دانش فنی تخصصی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12597" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تجارت الکترونیک و امنیت شبکه
-                        </a>
-                        <a href="http://chap.sch.ir/books/12810" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نصب و نگهداری تجهیزات شبکه و سخت‌افزار
-                        </a>
-                        <a href="http://chap.sch.ir/books/12421" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کتاب همراه هنرجو
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Multimedia Producer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده چندرسانه‌ای</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/13072" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            سیستم عامل
-                        </a>
-                        <a href="http://chap.sch.ir/books/13073" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            مفاهیم پایه فناوری اطلاعات
-                        </a>
-                        <a href="http://chap.sch.ir/books/11061" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            اطلاعات و ارتباطات
-                        </a>
-                        <a href="http://chap.sch.ir/books/11062" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            بسته‌های نرم‌افزاری Excel - PowerPoint
-                        </a>
-                        <a href="http://chap.sch.ir/books/11060" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نرم‌افزار واژه‌پرداز Word 2016
-                        </a>
-                        <a href="http://chap.sch.ir/books/11059" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نرم‌افزار اداری تکمیلی Microsoft Access - OneNote
-                        </a>
-                        <a href="http://chap.sch.ir/books/11089" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            چندرسانه‌ای دوبعدی جلد اول - Adobe Photoshop
-                        </a>
-                        <a href="http://chap.sch.ir/books/11081" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            Adobe Audition
-                        </a>
-                        <a href="http://chap.sch.ir/books/12075" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            چندرسانه‌ای سه‌بعدی جلد دوم - Adobe Media Encoder
-                        </a>
-                        <a href="http://chap.sch.ir/books/12107" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            Adobe Premiere
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Internet Database Developer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده و توسعه‌دهنده پایگاه‌های اینترنتی</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11068" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            سیستم‌های مدیریت محتوا - WordPress
-                        </a>
-                        <a href="http://chap.sch.ir/books/11067" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            توسعه‌دهنده صفحات وب با PHP و MySQL
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Educational Electronic Content Producer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولید محتوای آموزشی الکترونیکی</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11063" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولیدکننده محتوای الکترونیکی عمومی جلد اول - Adobe Photoshop – Adobe Animate
-                        </a>
-                        <a href="http://chap.sch.ir/books/11064" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولیدکننده محتوای الکترونیکی عمومی جلد دوم - Adobe Audition – Adobe Premiere – ArcSoft Media Converter
-                        </a>
-                        <a href="http://chap.sch.ir/books/11091" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            محتواساز آموزش الکترونیکی جلد اول - Adobe Captivate 2019
-                        </a>
-                        <a href="http://chap.sch.ir/books/11090" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            محتواساز آموزش الکترونیکی جلد دوم - Adobe Captivate 2019 - AutoPlay Media Studio 8
-                        </a>
-                        <a href="http://chap.sch.ir/books/11066" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربر گرافیکی محتوای آموزشی - Adobe Illustrator – MOHO
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Other Fields -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته‌های تصویرسازی دیجیتالی، برنامه‌نویسی بازی‌ها و پایگاه داده</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11092" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربر این‌دیزاین - Adobe InDesign
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ethics Section - New Addition for Professional Ethics Videos -->
-    <section id="ethics" class="py-8 px-4">
-        <div class="container mx-auto">
-            <div class="ethics-section">
-                <h2>
-                    <i class="fas fa-handshake ml-3 text-5xl" style="color: var(--accent-green);"></i>
-                    فیلم‌های آموزشی اخلاق حرفه‌ای
-                </h2>
-                <p class="text-lg mb-8 text-center">منابع آموزشی برای تقویت اخلاق حرفه‌ای در حوزه فناوری و آموزش</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="https://www.aparat.com/v/abc123" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        اخلاق حرفه‌ای در برنامه‌نویسی (قسمت ۱)
-                    </a>
-                    <a href="https://www.aparat.com/v/def456" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        اصول اخلاقی در تولید محتوا (قسمت ۲)
-                    </a>
-                    <a href="https://www.aparat.com/v/ghi789" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        مسئولیت‌های اخلاقی طراحان وب
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=jkl012" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fab fa-youtube ml-2"></i>
-                        اخلاق در هوش مصنوعی (انگلیسی با زیرنویس)
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reports Section (Moved to end) -->
-    <section id="reports" class="py-4 px-4" style="background-color: var(--secondary-gray);">
-        <div class="container mx-auto">
-            <h2>
-                <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
-                گزارش عملکرد سالانه شهرستان زرین‌دشت
-            </h2>
-            
-            <div class="grid lg:grid-cols-2 gap-4">
-                <!-- Report 1: 1402-1403 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۲-۱۴۰۳</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت شامل آمار دانش‌آموزان، نتایج آموزشی، پروژه‌های انجام شده و دستاوردهای سال تحصیلی ۱۴۰۲-۱۴۰۳.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Report 2: 1403-1404 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۳-۱۴۰۴</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت برای سال جاری شامل پیشرفت‌های جدید، پروژه‌های نوآورانه و برنامه‌های آتی.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/18rcNuo-kM4wrmtljy-uDN-DMWzr28U-C/view" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section (Moved to end) -->
-    <section id="team" class="py-8 px-4">
-        <div class="container mx-auto">
-            <div class="team-section">
-                <h2>اعضای گروه فن‌آموز زرین</h2>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- کارشناسان -->
-                    <div class="glass-card p-8">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" 
-                                 style="background-color: var(--primary-blue);">
-                                <i class="fas fa-user-tie text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold" style="color: var(--primary-blue);">کارشناسان</h3>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="bg-white bg-opacity-50 p-3 rounded-lg border-r-4" 
-                                 style="border-color: var(--accent-green);">
-                                <p class="font-semibold">محمدامین ابراهیمی</p>
-                                <p class="text-sm opacity-70">کارشناس فنی حرفه‌ای و کاردانش</p>
-                            </div>
-                            <div class="bg-white bg-opacity-50 p-3 rounded-lg border-r-4" 
-                                 style="border-color: var(--accent-green);">
-                                <p class="font-semibold">حمید رضایی</p>
-                                <p class="text-sm opacity-70">کارشناس آموزش</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- سرگروه -->
-                    <div class="glass-card p-8">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" 
-                                 style="background-color: var(--accent-green);">
-                                <i class="fas fa-user-shield text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold" style="color: var(--primary-blue);">سرگروه</h3>
-                        </div>
-                        <div class="bg-white bg-opacity-50 p-4 rounded-lg text-center border-r-4" 
-                             style="border-color: var(--primary-blue);">
-                            <p class="font-semibold">فاطمه معتمد</p>
-                            <p class="text-sm opacity-70">سرگروه فن‌آموز زرین</p>
-                        </div>
-                    </div>
-
-                    <!-- هنرآموزان -->
-                    <div class="glass-card p-8">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" 
-                                 style="background-color: var(--accent-green);">
-                                <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold" style="color: var(--primary-blue);">هنرآموزان</h3>
-                        </div>
-                        <div class="space-y-2 max-h-64 overflow-y-auto">
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">شهره پورغلام</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">عبدالمحسن راستی</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">فاطمه معتمد</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">اسما گل نژاد</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">فاطمه رحمانی</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">زینت راستگو</div>
-                            <div class="bg-white bg-opacity-50 p-2 rounded-lg text-sm border-r-4" 
-                                 style="border-color: var(--accent-green);">فرج نظری</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Button Section -->
-    <section id="ai-button-section" class="py-8 px-4">
-        <div class="container mx-auto">
-            <div class="ai-button-section">
-                <h2>
-                    <i class="fas fa-robot ml-3 text-5xl" style="color: var(--accent-green);"></i>
-                    هوش مصنوعی‌های مفید
-                </h2>
                 <a href="ai.html" class="ai-button">
-                    <i class="fas fa-magic"></i>
-                   آشنایی با هوش مصنوعی‌های مفید
+                    <i class="fas fa-robot"></i>
+                    هوش مصنوعی
                 </a>
             </div>
         </div>
     </section>
-
+    <!-- Schools and Team Section - Combined with Bank of Questions -->
+    <section id="schools" class="py-4 px-4" style="background-color: #C0C0C0;">
+        <div class="container mx-auto">
+            <h2></h2> <!-- عنوان جدید -->
+           
+            <!-- Squares Grid - Now 5 items, removed deleted sections -->
+            <div class="squares-grid mb-8">
+                <!-- Schools Square -->
+                <div class="glass-card p-6 text-center cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-800 transition square-btn" onclick="window.location.href='schools.html'">
+                    <img src="schools-icon.png" alt="آیکون هنرستان‌ها" class="w-32 h-32 mb-2" /> <!-- آیکون بزرگ‌تر، جایگذاری آپلود کاربر -->
+                    <h3 class="font-bold mb-1">هنرستان‌های شهرستان</h3>
+                </div>
+                <!-- Ethics Square -->
+                <div class="glass-card p-6 text-center cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-800 transition square-btn" onclick="window.location.href='ethics.html'">
+                    <img src="ethics-icon.png" alt="آیکون فیلم‌های اخلاق حرفه‌ای" class="w-32 h-32 mb-2" /> <!-- آیکون بزرگ‌تر، جایگذاری آپلود کاربر -->
+                    <h3 class="font-bold mb-1">فیلم‌های آموزش اخلاق حرفه‌ای</h3>
+                </div>
+                <!-- Annual Report Square - Replaced reports -->
+                <div class="glass-card p-6 text-center cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-800 transition square-btn" onclick="window.location.href='annual-report.html'">
+                    <img src="report-icon.png" alt="آیکون گزارش عملکرد سالانه" class="w-32 h-32 mb-2" /> <!-- آیکون بزرگ‌تر، جایگذاری آپلود کاربر -->
+                    <h3 class="font-bold mb-1">گزارش عملکرد سالانه شهرستان</h3>
+                </div>
+                <!-- Useful Links Square -->
+                <div class="glass-card p-6 text-center cursor-pointer hover:bg-blue-50 dark:hover:bg-gray-800 transition square-btn" onclick="window.location.href='useful.html'">
+                    <img src="tools-icon.png" alt="آیکون لینک ابزارهای مفید و بانک سوالات" class="w-32 h-32 mb-2" /> <!-- آیکون بزرگ‌تر، جایگذاری آپلود کاربر -->
+                    <h3 class="font-bold mb-1">لینک سایت های مفید </h3>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center items-center gap-4 mb-6">
                 <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
-                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain logo-3d" /> <!-- سفید شده -->
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold">فن‌آموز زرین</h3>
@@ -2689,22 +2308,21 @@
                 توسعه دهنده: فاطمه معتمد - رعنا پرموزه
             </p>
             <p class="text-sm opacity-80">
-                تمامی حقوق محفوظ است © 
+                تمامی حقوق محفوظ است ©
             </p>
         </div>
     </footer>
-
     <!-- Chatbot -->
     <div class="chatbot-container">
         <!-- Notification Bubble -->
         <div class="chatbot-notification" id="chatbot-notification" onclick="openChatbotWithNotification()">
             سلام وقت بخیر! به وب‌سایت فن‌آموز زرین خوش آمدید. لطفاً اگر سوالی دارید روی من کلیک کنید.
         </div>
-        
+       
         <button class="chatbot-toggle" onclick="toggleChatbot()">
             <i class="fas fa-robot"></i>
         </button>
-        
+       
         <div class="chatbot-window" id="chatbot-window">
             <div class="chatbot-header">
                 <div class="flex items-center justify-between">
@@ -2717,29 +2335,29 @@
                     </button>
                 </div>
             </div>
-            
+           
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="chatbot-message bot">
                     سلام! به وبسایت فن‌آموز زرین خوش آمدید! 🌟<br><br>من دستیار هوشمند شما هستم و می‌تونم راجع به:<br>• رشته‌های کامپیوتر و کاردانش<br>• هنرستان‌ها و ثبت نام<br>• ابزارهای هوش مصنوعی<br>• فرصت‌های شغلی<br>• منابع آموزشی<br><br>کمکتون کنم! درباره چه موضوعی دوست دارید صحبت کنیم؟ 💬
                 </div>
             </div>
-            
+           
             <div class="chatbot-input-container">
                 <input type="text" class="chatbot-input" id="chatbot-input" placeholder="پیام خود را بنویسید..." onkeypress="handleChatKeyPress(event)">
                 <button class="chatbot-send" onclick="sendMessage()">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
-            
+           
             <!-- Registration Form -->
             <div class="chatbot-registration-form" id="registration-form" style="padding: 15px 20px; border-top: 1px solid rgba(255,255,255,0.1); display: none;">
                 <h4 style="margin: 0 0 15px 0; color: var(--primary-blue); font-size: 14px; font-weight: 600;">فرم ثبت نام سریع</h4>
                 <form onsubmit="submitRegistration(event)" style="display: flex; flex-direction: column; gap: 10px;">
-                    <input type="text" id="reg-name" placeholder="نام و نام خانوادگی" required 
+                    <input type="text" id="reg-name" placeholder="نام و نام خانوادگی" required
                            style="padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: var(--secondary-gray); color: var(--text-dark); font-family: 'Vazirmatn', sans-serif; font-size: 12px;">
-                    <input type="email" id="reg-email" placeholder="ایمیل" required 
+                    <input type="email" id="reg-email" placeholder="ایمیل" required
                            style="padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: var(--secondary-gray); color: var(--text-dark); font-family: 'Vazirmatn', sans-serif; font-size: 12px;">
-                    <textarea id="reg-message" placeholder="پیام (اختیاری)" rows="2" 
+                    <textarea id="reg-message" placeholder="پیام (اختیاری)" rows="2"
                               style="padding: 10px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: var(--secondary-gray); color: var(--text-dark); font-family: 'Vazirmatn', sans-serif; font-size: 12px; resize: none;"></textarea>
                     <button type="submit" style="background: var(--accent-green); color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.3s ease;">
                         <i class="fas fa-paper-plane" style="margin-left: 5px;"></i>
@@ -2747,7 +2365,6 @@
                     </button>
                 </form>
             </div>
-
             <div class="chatbot-contact-buttons" style="padding: 15px 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
                 <button onclick="toggleRegistrationForm()" class="contact-btn" style="background: var(--accent-green); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 11px; display: flex; align-items: center; gap: 5px; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(46, 125, 50, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(46, 125, 50, 0.3)'">
                     <i class="fas fa-user-plus"></i>
@@ -2768,13 +2385,12 @@
             </div>
         </div>
     </div>
-
     <script>
         // Theme Toggle
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
-            
+           
             if (body.classList.contains('light-mode')) {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
@@ -2785,13 +2401,11 @@
                 themeIcon.className = 'fas fa-moon text-xl';
             }
         }
-
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('active');
         }
-
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2805,17 +2419,15 @@
                 }
             });
         });
-
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const mobileMenu = document.getElementById('mobile-menu');
             const menuButton = event.target.closest('button');
-            
+           
             if (!mobileMenu.contains(event.target) && !menuButton) {
                 mobileMenu.classList.remove('active');
             }
         });
-
         // View counter functionality
         function updateViewCount(articleId) {
             const viewElement = document.getElementById(articleId + '-views');
@@ -2825,14 +2437,12 @@
                 viewElement.textContent = currentViews.toLocaleString('fa-IR');
             }
         }
-
         // Simulate view updates every 30 seconds
         setInterval(() => {
             const articles = ['article1', 'article2', 'article3'];
             const randomArticle = articles[Math.floor(Math.random() * articles.length)];
             updateViewCount(randomArticle);
         }, 30000);
-
         // Update views when articles section comes into view
         const articlesSection = document.getElementById('articles');
         if (articlesSection) {
@@ -2853,22 +2463,18 @@
                     }
                 });
             }, { threshold: 0.5 });
-            
+           
             observer.observe(articlesSection);
         }
-
         // ChatGPT Integration with OpenAI API
         const OPENAI_API_KEY = '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';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-
         // Serper.dev Search Integration
         const SERPER_API_KEY = '265ed0e5e94b5302932d5d565657e49a85f9cffe';
         const SERPER_API_URL = 'https://google.serper.dev/search';
-
         // Website context for AI
         const WEBSITE_CONTEXT = `
         شما دستیار هوشمند سایت فن‌آموز زرین هستید. اطلاعات کامل سایت:
-
         🏫 هنرستان‌ها (4 هنرستان):
         1. زینب کبری - مدیر: فاطمه بروانیا - تلفن: 07153724895
            رشته‌ها: وب، محتوای الکترونیکی، خیاطی
@@ -2878,7 +2484,6 @@
            رشته‌ها: محتوای الکترونیکی
         4. شهید باهنر - مدیر: عباس امیری - تلفن: 07153723007
            رشته‌ها: وب
-
         📚 رشته‌ها (2 رشته کاردانش):
         1. تولید کننده و توسعه دهنده پایگاه‌های اینترنتی
            - دروس: HTML5, CSS3, JavaScript, PHP, MySQL, WordPress
@@ -2886,39 +2491,40 @@
         2. تولید محتوای آموزشی الکترونیکی
            - دروس: Adobe Suite, Captivate, طراحی آموزشی
            - حقوق: 6-15 میلیون تومان
-
         🤖 ابزارهای AI (50+ ابزار):
         - عکس‌سازی: Midjourney, DALL-E, Stable Diffusion, Ideogram
         - کدسازی: GitHub Copilot, Cursor, Claude Code, Bolt
         - تولید محتوا: Jasper, Copy.ai, Canva Magic, Synthesia
         - یادگیری زبان: Duolingo, Langua, Elsa Speak
-
         👥 تیم:
         - سرگروه: فاطمه معتمد
         - کارشناسان: محمدامین ابراهیمی، حمید رضایی
         - نویسنده سایت: رعنا پرموزه
         - هنرآموزان: شهره پورغلام، عبدالمحسن راستی و دیگران
-
         📞 تماس:
         - خانم فاطمه معتمد: 09372565994
         - تلگرام: @cszarindasht
         - ایتا: @fatemeh_motamed
-
         شما باید:
-        - پاسخ‌های دقیق و مرتبط بدهید
-        - زبان دوستانه و حرفه‌ای استفاده کنید
+        - پاسخ‌های دقیق، مرحله‌به‌مرحله، با مثال و توضیح تکمیلی بدهید.
+        - در صورت نیاز از جدول، فرمول، نمودار استفاده کنید (از markdown استفاده کن).
+        - پاسخ‌ها ساختارمند, زیبا با بولت, تیتر, جداکننده باشند.
+        - context-aware: بر اساس مکالمه قبلی تطبیق دهید.
+        - اگر پاسخ مستقیم نیست, پیشنهاد مرتبط بدهید.
+        - ارتباط صمیمی, طبیعی, محترمانه.
+        - زبان کاربر را تشخیص دهید و به همان پاسخ دهید (اگر انگلیسی, انگلیسی پاسخ دهید).
+        - برای محاسبات عددی گام‌به‌گام توضیح دهید.
+        - برای ایده‌های نو, خلاق باشید.
         - اطلاعات کامل و کاربردی ارائه دهید
         - در صورت نیاز به تماس هدایت کنید
         `;
-
         let chatbotOpen = false; // Start closed by default
         let conversationHistory = [];
         let questionCount = 0;
-
         function toggleChatbot() {
             const chatbotWindow = document.getElementById('chatbot-window');
             chatbotOpen = !chatbotOpen;
-            
+           
             if (chatbotOpen) {
                 chatbotWindow.style.display = 'flex';
                 chatbotWindow.classList.remove('hidden');
@@ -2927,7 +2533,7 @@
                     chatbotWindow.style.transform = 'scale(1) translateY(0)';
                     chatbotWindow.style.opacity = '1';
                 }, 10);
-                
+               
                 // Send welcome message if first time opening
                 if (conversationHistory.length === 0) {
                     setTimeout(() => {
@@ -2943,36 +2549,25 @@
                 }, 400);
             }
         }
-
         // Function to open chatbot via notification
         function openChatbotWithNotification() {
             hideNotification();
             toggleChatbot();
         }
-
         // Notification Logic
         function showNotification() {
             const notification = document.getElementById('chatbot-notification');
-            const lastShown = localStorage.getItem('chatbotNotificationShown');
-            const now = new Date().getTime();
-            const twelveHours = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
-
-            if (!lastShown || (now - parseInt(lastShown)) > twelveHours) {
-                setTimeout(() => {
-                    notification.classList.add('show');
-                    localStorage.setItem('chatbotNotificationShown', now.toString());
-                }, 5000); // 5 seconds after page load
-            }
+            notification.classList.add('show');
+            setTimeout(() => {
+                hideNotification();
+            }, 5000); // ناپدید پس از ۵ ثانیه
         }
-
         function hideNotification() {
             const notification = document.getElementById('chatbot-notification');
             notification.classList.remove('show');
         }
-
         // Call showNotification on page load
         document.addEventListener('DOMContentLoaded', showNotification);
-
         function addMessage(message, isUser = false) {
             const messagesContainer = document.getElementById('chatbot-messages');
             const messageDiv = document.createElement('div');
@@ -2981,7 +2576,6 @@
             messagesContainer.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-
         function showTypingIndicator() {
             const messagesContainer = document.getElementById('chatbot-messages');
             const typingDiv = document.createElement('div');
@@ -2991,17 +2585,26 @@
             messagesContainer.appendChild(typingDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
-
         function hideTypingIndicator() {
             const typingIndicator = document.getElementById('typing-indicator');
             if (typingIndicator) {
                 typingIndicator.remove();
             }
         }
-
+        // Detect language simple way
+        function detectLanguage(message) {
+            // Simple check: if contains English letters, assume English
+            if (/[a-zA-Z]/.test(message)) {
+                return 'en';
+            }
+            return 'fa';
+        }
         // ChatGPT API Call
-        async function callOpenAIAPI(message) {
+        async function callOpenAIAPI(message, language) {
             try {
+                const systemPrompt = language === 'en' ?
+                    'You are an intelligent assistant. Respond in English. Use step-by-step, tables, formulas if needed. Structured with bullets, titles.'
+                    : WEBSITE_CONTEXT;
                 const response = await fetch(OPENAI_API_URL, {
                     method: 'POST',
                     headers: {
@@ -3011,18 +2614,17 @@
                     body: JSON.stringify({
                         model: 'gpt-3.5-turbo',
                         messages: [
-                            { role: 'system', content: WEBSITE_CONTEXT },
+                            { role: 'system', content: systemPrompt },
+                            ...conversationHistory,
                             { role: 'user', content: message }
                         ],
                         max_tokens: 500,
                         temperature: 0.7,
                     })
                 });
-
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
                 const data = await response.json();
                 return data.choices[0].message.content;
             } catch (error) {
@@ -3030,7 +2632,6 @@
                 throw error;
             }
         }
-
         // Serper Search API Call
         async function callSerperSearch(query) {
             try {
@@ -3042,11 +2643,9 @@
                     },
                     body: JSON.stringify({ q: query })
                 });
-
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
                 const data = await response.json();
                 return data.organic ? data.organic.map(result => result.snippet).join('\n') : '';
             } catch (error) {
@@ -3054,37 +2653,37 @@
                 return '';
             }
         }
-
         async function sendMessage() {
             const input = document.getElementById('chatbot-input');
             const message = input.value.trim();
-            
+           
             if (!message) return;
-            
+           
             addMessage(message, true);
             input.value = '';
             questionCount++;
-            
+           
             // Add to conversation history
             conversationHistory.push({ role: 'user', message: message });
-            
+           
             showTypingIndicator();
-            
+           
             try {
+                const language = detectLanguage(message);
+               
                 // Check if search is needed (e.g., if message is about external info)
                 let searchResults = '';
                 if (message.includes('اخلاق حرفه‌ای') || message.includes('فیلم آموزشی')) {
                     searchResults = await callSerperSearch('فیلم‌های آموزشی اخلاق حرفه‌ای در فناوری');
                 }
-
                 // Use ChatGPT
-                const prompt = `${WEBSITE_CONTEXT}\n\nسوال کاربر: ${message}\n\nنتایج جستجو (اگر مرتبط): ${searchResults}\n\nلطفاً پاسخ کاملی به فارسی بدهید که شامل اطلاعات دقیق از محتوای سایت باشد.`;
-                const response = await callOpenAIAPI(prompt);
-                
+                const prompt = language === 'fa' ? `${WEBSITE_CONTEXT}\n\nسوال کاربر: ${message}\n\nنتایج جستجو (اگر مرتبط): ${searchResults}\n\nلطفاً پاسخ کاملی به فارسی بدهید که شامل اطلاعات دقیق از محتوای سایت باشد.` : message;
+                const response = await callOpenAIAPI(prompt, language);
+               
                 hideTypingIndicator();
                 addMessage(response);
                 conversationHistory.push({ role: 'assistant', message: response });
-                
+               
                 // If user asks too many questions, suggest contact
                 if (questionCount >= 5) {
                     setTimeout(() => {
@@ -3092,7 +2691,7 @@
                     }, 2000);
                     questionCount = 0; // Reset counter
                 }
-                
+               
             } catch (error) {
                 hideTypingIndicator();
                 // Fallback to local responses
@@ -3101,147 +2700,39 @@
                 conversationHistory.push({ role: 'assistant', message: fallbackResponse });
             }
         }
-
         function getFallbackResponse(userMessage) {
             const message = userMessage.toLowerCase();
-            
+           
             // Greeting responses - کوتاه و مستقیم
             if (message.includes('سلام') || message.includes('درود') || message.includes('صبح بخیر') || message.includes('عصر بخیر') || message.includes('شب بخیر') || message.includes('hi') || message.includes('hello') || message.includes('hey')) {
                 const greetings = [
                     'سلام! 🌟 خوش آمدید به فن‌آموز زرین. چه سوالی داری؟',
                     'درود! 💎 آماده کمکم. بگو چی می‌خوای بدونی.',
-                    'سلام و احوال! 🚀 درباره رشته‌ها، شغل یا AI بپرس.'
+                    'سلام و احوال! 🚀 درباره چه موضوعی صحبت کنیم.'
                 ];
                 return greetings[Math.floor(Math.random() * greetings.length)];
             }
-            
-            // About website/developer - کوتاه
-            if (message.includes('نویسنده') || message.includes('سازنده') || message.includes('طراح') || message.includes('رعنا') || message.includes('پرموزه')) {
-                return '👩‍💻 سایت توسط <strong>رعنا پرموزه</strong> طراحی شده. سرگروه: <strong>فاطمه معتمد</strong>.';
-            }
-            
-            // About Fatemeh Motamed - کوتاه
-            if (message.includes('فاطمه') || message.includes('معتمد') || message.includes('سرگروه')) {
-                return '<strong>فاطمه معتمد</strong>: سرگروه. تماس: ۰۹۳۷۲۵۶۵۹۹۴ | تلگرام: @cszarindasht | ایتا: @fatemeh_motamed';
-            }
-            
-            // Comprehensive AI questions - کوتاه و مفید
-            if (message.includes('هوش مصنوعی') || message.includes('ai') || message.includes('ابزار')) {
-                const aiResponses = [
-                    '🤖 ابزارهای AI: Midjourney (عکس)، Copilot (کد)، Jasper (محتوا). بخش AI سایت رو ببین.',
-                    '🚀 دسته‌ها: عکس‌سازی (DALL-E)، کد (Cursor)، محتوا (Canva)، زبان (Duolingo). چالش هفتگی داری!',
-                    '💎 AI در رشته‌ها: Copilot برای وب، Synthesia برای محتوا. تماس برای جزئیات.'
-                ];
-                return aiResponses[Math.floor(Math.random() * aiResponses.length)];
-            }
-            
-            // Course/Field questions - تمرکز روی موفقیت و درآمد
-            if (message.includes('رشته') || message.includes('دوره') || message.includes('کلاس')) {
-                return '🎓 رشته‌ها: وب (HTML/CSS/JS/PHP - درآمد ۸-۲۰م) | محتوا (Photoshop/Premiere - ۶-۱۵م).<br>برای موفقیت: پروژه عملی بساز، AI استفاده کن، پورتفولیو بساز. کدوم رشته؟';
-            }
-            
-            // Specific tool questions - کوتاه
-            if (message.includes('wordpress') || message.includes('وردپرس')) {
-                return 'WordPress: نصب + قالب + افزونه. درآمد فریلنس: ۵-۲۰م. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
-            }
-            
-            if (message.includes('php') || message.includes('mysql')) {
-                return 'PHP/MySQL: پایگاه داده + امنیت. برای موفقیت: پروژه واقعی بساز. درآمد: ۱۰-۲۵م.';
-            }
-            
-            if (message.includes('html') || message.includes('css') || message.includes('javascript')) {
-                return 'HTML/CSS/JS: پایه وب. موفقیت: responsive طراحی کن + JS تعاملی. شغل: طراح وب (۸-۱۸م).';
-            }
-            
-            if (message.includes('adobe') || message.includes('photoshop') || message.includes('illustrator')) {
-                return 'Photoshop/Illustrator: ویرایش + وکتور. موفقیت: پروژه گرافیکی بساز. درآمد: ۷-۱۵م (طراح محتوا).';
-            }
-            
-            // School questions - کوتاه
-            if (message.includes('هنرستان') || message.includes('مدرسه')) {
-                return '🏫 ۴ هنرستان: زینب کبری (وب+محتوا)، والفجر (محتوا). تماس مدیر: ۰۷۱۵۳۷۲۴۸۹۵. برای ثبت نام: ۰۹۳۷۲۵۶۵۹۹۴';
-            }
-            
-            // Future and technology questions - تمرکز موفقیت
-            if (message.includes('آینده') || message.includes('فناوری') || message.includes('2025')) {
-                return '🚀 ۲۰۲۵: AI + وب موبایل. موفقیت: مهارت JS + AI یاد بگیر. درآمد: ۱۰-۳۰م. رشته وب ما ایده‌آله.';
-            }
-            
-            // Learning and education questions - کارهای لازم
-            if (message.includes('یادگیری') || message.includes('آموزش')) {
-                return '📚 موفقیت: روزانه ۲س تمرین، پروژه بساز، GitHub بگذار. منابع: ویدیوهای آپارات + کتاب سایت.';
-            }
-            
-            // Contact questions - کوتاه
-            if (message.includes('تماس') || message.includes('شماره')) {
-                return '📞 فاطمه معتمد: ۰۹۳۷۲۵۶۵۹۹۴ | @cszarindasht | @fatemeh_motamed';
-            }
-            
-            // Programming questions - درآمد و موفقیت
-            if (message.includes('برنامه نویسی') || message.includes('کد') || message.includes('وب')) {
-                return '💻 وب: HTML/JS/PHP. موفقیت: اپ ساده بساز. درآمد: ۸-۲۰م. شروع: منابع پایه ۱۰.';
-            }
-            
-            // Content creation questions
-            if (message.includes('محتوا') || message.includes('گرافیک')) {
-                return '🎨 محتوا: Photoshop + Premiere. موفقیت: ویدیو آموزشی بساز. درآمد: ۶-۱۵م.';
-            }
-            
-            // Thanks responses - کوتاه
-            if (message.includes('ممنون') || message.includes('مرسی')) {
-                return 'خواهش! 😊 سوال دیگه؟';
-            }
-            
-            // Job/Career questions - درآمد
-            if (message.includes('شغل') || message.includes('درآمد')) {
-                return '💰 وب: ۸-۲۰م | محتوا: ۶-۱۵م. موفقیت: پورتفولیو + فریلنس (پونیشا).';
-            }
-            
-            // Registration questions
-            if (message.includes('ثبت نام')) {
-                return '📝 ثبت نام: مدارک + مصاحبه. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
-            }
-
-            // Ethics videos fallback
-            if (message.includes('اخلاق') || message.includes('فیلم')) {
-                return '📹 فیلم‌های اخلاق حرفه‌ای در بخش اخلاق سایت موجود است. برای مثال: <a href="#ethics">اینجا کلیک کنید</a>';
-            }
-            
-            // Default responses - کوتاه و دقیق
-            const defaultResponses = [
-                '🌟 بپرس درباره رشته/شغل/AI. آماده‌ام!',
-                '💡 موفقیت: تمرین روزانه + پروژه. جزئیات؟',
-                '🚀 فن‌آموز زرین: وب/محتوا. کدوم علاقه؟'
-            ];
-            
-            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+           
+            // Default fallback
+            return 'متاسفم، نمی‌توانم پاسخ دهم. لطفا جزئیات بیشتری بدهید یا با پشتیبانی تماس بگیرید.';
         }
-
         function handleChatKeyPress(event) {
             if (event.key === 'Enter') {
                 sendMessage();
             }
         }
-
         // Registration form functions
         function toggleRegistrationForm() {
             const form = document.getElementById('registration-form');
-            const isVisible = form.style.display !== 'none';
-            
-            if (isVisible) {
-                form.style.display = 'none';
-            } else {
-                form.style.display = 'block';
-            }
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
         }
-
         function submitRegistration(event) {
             event.preventDefault();
-            
+           
             const name = document.getElementById('reg-name').value;
             const email = document.getElementById('reg-email').value;
             const message = document.getElementById('reg-message').value;
-            
+           
             // Create WhatsApp message
             const whatsappMessage = encodeURIComponent(
                 `🎓 درخواست ثبت نام - فن‌آموز زرین\n\n` +
@@ -3250,36 +2741,33 @@
                 `💬 پیام: ${message || 'ندارد'}\n\n` +
                 `لطفاً راهنماییم کنید.`
             );
-            
+           
             // Send to WhatsApp
             window.open(`https://wa.me/989372565994?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
-            
+           
             // Show success message
             addMessage('✅ درخواست ثبت نام شما ارسال شد! <strong>خانم فاطمه معتمد</strong> به زودی با شما تماس خواهند گرفت.<br><br>📱 تلفن: ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br>📱 ایتا: @fatemeh_motamed');
-            
+           
             // Clear form
             document.getElementById('reg-name').value = '';
             document.getElementById('reg-email').value = '';
             document.getElementById('reg-message').value = '';
-            
+           
             // Hide form
             toggleRegistrationForm();
         }
-
         // Contact functions
         function sendToWhatsApp() {
             const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنماییم کنید.');
             window.open(`https://wa.me/989372565994?text=${message}`, '_blank', 'noopener,noreferrer');
         }
-
         function sendToTelegram() {
             const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنماییم کنید.');
             window.open(`https://t.me/cszarindasht`, '_blank', 'noopener,noreferrer');
         }
-
         function sendToEita() {
             window.open('https://eitaa.com/fatemeh_motamed', '_blank', 'noopener,noreferrer');
         }
-    </script>
-</body>      
+   </script>
+</body>
 </html>
